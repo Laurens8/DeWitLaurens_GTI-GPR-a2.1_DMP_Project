@@ -1,0 +1,14 @@
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\bin\Debug\TennisVlaanderen_DAL.dll.config
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\bin\Debug\TennisVlaanderen_DAL.dll
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\bin\Debug\TennisVlaanderen_DAL.pdb
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\bin\Debug\Dapper.dll
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\bin\Debug\EntityFramework.dll
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\bin\Debug\Dapper.xml
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\bin\Debug\EntityFramework.xml
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\obj\Debug\TennisVlaanderen_DAL.csproj.AssemblyReference.cache
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\obj\Debug\TennisVlaanderen_DAL.csproj.CoreCompileInputs.cache
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\obj\Debug\TennisVlaanderen_DAL.csproj.CopyComplete
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\obj\Debug\TennisVlaanderen_DAL.dll
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\obj\Debug\TennisVlaanderen_DAL.pdb
