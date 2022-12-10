@@ -44,9 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abonnement.cs" />
     <Compile Include="Basisklasse.cs" />
+    <Compile Include="Club.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Speler.cs" />
+    <Compile Include="SpelerClubTornooi.cs" />
+    <Compile Include="Tarieven.cs" />
+    <Compile Include="TerreinReservatie.cs" />
+    <Compile Include="Tornooi.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

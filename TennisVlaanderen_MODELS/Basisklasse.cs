@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TennisVlaanderen_MODELS
+namespace TennisVlaanderen_Models
 {
     public abstract class Basisklasse : IDataErrorInfo
     {
