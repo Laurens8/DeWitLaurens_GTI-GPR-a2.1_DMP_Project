@@ -103,9 +103,9 @@
       <Project>{00297f20-2058-4854-a702-1527eff62a34}</Project>
       <Name>TennisVlaanderen_DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TennisVlaanderen_MODELS\TennisVlaanderen_MODELS.csproj">
+    <ProjectReference Include="..\TennisVlaanderen_MODELS\TennisVlaanderen_Models.csproj">
       <Project>{c0d49ef1-6dd0-4615-ad07-31fc8829d4fa}</Project>
-      <Name>TennisVlaanderen_MODELS</Name>
+      <Name>TennisVlaanderen_Models</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
