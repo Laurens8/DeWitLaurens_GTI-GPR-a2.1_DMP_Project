@@ -10,6 +10,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisVlaanderen_WPF", "Ten
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisVlaanderen_DAL", "TennisVlaanderen_DAL\TennisVlaanderen_DAL.csproj", "{00297F20-2058-4854-A702-1527EFF62A34}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C0D49EF1-6DD0-4615-AD07-31FC8829D4FA} = {C0D49EF1-6DD0-4615-AD07-31FC8829D4FA}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TennisVlaanderen_Models", "TennisVlaanderen_MODELS\TennisVlaanderen_Models.csproj", "{C0D49EF1-6DD0-4615-AD07-31FC8829D4FA}"
 EndProject

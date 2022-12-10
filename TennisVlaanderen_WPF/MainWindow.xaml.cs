@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TennisVlaanderen_DAL;
-//using TennisVlaanderen_MODELS;
+using TennisVlaanderen_Models;
 
 namespace TennisVlaanderen_WPF
 {
@@ -29,7 +29,7 @@ namespace TennisVlaanderen_WPF
 
         private void btntest_Click(object sender, RoutedEventArgs e)
         {
-            lbtest.ItemsSource = DatabaseOperations.OphalenSpelers(1);
+            lbtest.ItemsSource = DatabaseOperations.OphalenSpelers("");
         }
     }
 }

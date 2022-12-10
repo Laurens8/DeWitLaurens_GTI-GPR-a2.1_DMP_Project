@@ -128,5 +128,11 @@
       <LastGenOutput>TennisVlaanderenModel.cs</LastGenOutput>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TennisVlaanderen_MODELS\TennisVlaanderen_Models.csproj">
+      <Project>{c0d49ef1-6dd0-4615-ad07-31fc8829d4fa}</Project>
+      <Name>TennisVlaanderen_Models</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

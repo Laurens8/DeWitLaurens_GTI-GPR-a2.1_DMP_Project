@@ -1,9 +1,11 @@
 ﻿using Dapper;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations.Model;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TennisVlaanderen_Models;
 
 namespace TennisVlaanderen_DAL
 {
@@ -15,14 +17,14 @@ namespace TennisVlaanderen_DAL
         {
             _db = new DatabaseConnectie();
             _db.Open();
-        }      
+        }            
 
-        public static List<Speler> OphalenSpelers(int spelerID)
+        public static List<TennisVlaanderen_Models.Speler> OphalenSpelers(string naam)
         {
             Start();
 
-            var result = _db.Connectie.Query<Speler>("SELECT naam FROM TennisVlaanderen.Speler;", param: new { id = spelerID }).ToList();
-
+            var result = _db.Connectie.Query<TennisVlaanderen_Models.Speler>("SELECT naam FROM TennisVlaanderen.Speler;", param: new { naam = naam }).ToList();  
+            
             _db.Close();
 
             return result;
