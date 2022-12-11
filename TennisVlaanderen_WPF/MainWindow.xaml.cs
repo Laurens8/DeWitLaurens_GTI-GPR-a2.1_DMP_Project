@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using TennisVlaanderen_DAL;
+using TennisVlaanderen_DAL.interfaces;
+using TennisVlaanderen_DAL.repositories;
 using TennisVlaanderen_Models;
 
 namespace TennisVlaanderen_WPF
@@ -27,9 +29,11 @@ namespace TennisVlaanderen_WPF
             InitializeComponent();
         }       
 
+        private ISpelerRepository SpelerRepository = new SpelerRepository();
+
         private void btntest_Click(object sender, RoutedEventArgs e)
-        {
-            lbtest.ItemsSource = DatabaseOperations.OphalenSpelers("");
+        {    
+            lbtest.ItemsSource = SpelerRepository.OphalenSpeler();
         }
     }
 }

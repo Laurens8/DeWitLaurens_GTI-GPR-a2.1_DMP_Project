@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace TennisVlaanderen_Models
 {
-    public abstract class Speler : Basisklasse
-    {
+    public class Speler : Basisklasse
+    {       
         public int id { get; set; }
         public string naam { get; set; }
         public string voornaam { get; set; }
@@ -20,6 +20,11 @@ namespace TennisVlaanderen_Models
         public string telefoon { get; set; }
         public string email { get; set; }
         public string rijksNummer { get; set; }
+       
+        public Speler()
+        {
+
+        }
 
         public Speler(int id, string naam, string voornaam, string klassement, string geslacht, DateTime geboorteDatum, string nationaliteit, string adres, string land, string telefoon, string email, string rijksNummer)
         {
@@ -39,7 +44,7 @@ namespace TennisVlaanderen_Models
 
         public override string ToString()
         {
-            return naam + " - " + voornaam + " - " + klassement + " - " + geslacht + " - " + geboorteDatum + " - " + nationaliteit + " - " + adres + " - " + land + " - " + telefoon + " - " + email + " - " + rijksNummer;
+            return naam;
         }
 
         public override int GetHashCode()
@@ -112,4 +117,4 @@ namespace TennisVlaanderen_Models
             }
         }
     }
-}
+    }

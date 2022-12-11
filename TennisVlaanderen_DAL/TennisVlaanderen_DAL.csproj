@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -56,17 +57,20 @@
     <Compile Include="Abonnement.cs">
       <DependentUpon>TennisVlaanderenModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="BaseRepository.cs" />
     <Compile Include="Club.cs">
       <DependentUpon>TennisVlaanderenModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DatabaseConnectie.cs" />
     <Compile Include="DatabaseOperations.cs" />
-    <Compile Include="IDatabaseConnectie.cs" />
+    <Compile Include="interfaces\ISpelerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="repositories\SpelerRepository.cs" />
     <Compile Include="Speler.cs">
       <DependentUpon>TennisVlaanderenModel.tt</DependentUpon>
     </Compile>
