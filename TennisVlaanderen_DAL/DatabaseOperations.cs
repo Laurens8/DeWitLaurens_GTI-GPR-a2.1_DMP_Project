@@ -23,7 +23,7 @@ namespace TennisVlaanderen_DAL
         {
             Start();
 
-            var result = _db.Connectie.Query<TennisVlaanderen_Models.Speler>("SELECT naam FROM TennisVlaanderen.Speler;", param: new { naam = naam }).ToList();  
+            var result = _db.Connectie.Query<TennisVlaanderen_Models.Speler>("SELECT * FROM TennisVlaanderen.Speler;", param: new { naam = naam }).ToList();  
             
             _db.Close();
 
