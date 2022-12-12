@@ -8,7 +8,13 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <StackPanel>
-            <ListBox x:Name="lbtest"></ListBox>
+            <ComboBox x:Name="lbtest"></ComboBox>
+            <ComboBox x:Name="lbltest2"></ComboBox>
+            <ComboBox x:Name="lbltest3"></ComboBox>
+            <ComboBox x:Name="lbltest4"></ComboBox>
+            <ComboBox x:Name="lbltest5"></ComboBox>
+            <ComboBox x:Name="lbltest6"></ComboBox>
+            <ComboBox x:Name="lbltest7"></ComboBox>
             <Button x:Name="btntest" Click="btntest_Click" Width="100" Height="20" Content="test"></Button>
         </StackPanel>
     </Grid>

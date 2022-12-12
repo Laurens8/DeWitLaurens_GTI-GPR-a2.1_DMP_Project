@@ -44,7 +44,7 @@ namespace TennisVlaanderen_Models
 
         public override string ToString()
         {
-            return naam;
+            return naam + " " + voornaam + " " + klassement + " " + geboorteDatum.ToShortDateString();
         }
 
         public override int GetHashCode()

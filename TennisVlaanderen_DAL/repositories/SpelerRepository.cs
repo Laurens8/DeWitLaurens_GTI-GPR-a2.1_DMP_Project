@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TennisVlaanderen_DAL.interfaces;
+using TennisVlaanderen_Models;
 
 namespace TennisVlaanderen_DAL.repositories
 {
@@ -15,11 +16,11 @@ namespace TennisVlaanderen_DAL.repositories
     {      
         public IEnumerable<TennisVlaanderen_Models.Speler> OphalenSpeler()
         {
-            string sql = "SELECT naam FROM TennisVlaanderen.Speler";
+            string sql = "SELECT * FROM TennisVlaanderen.Speler";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
                 return db.Query<TennisVlaanderen_Models.Speler>(sql);
             }
-        }      
+        }                 
     }
 }

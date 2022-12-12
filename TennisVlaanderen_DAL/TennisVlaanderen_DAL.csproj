@@ -62,15 +62,26 @@
       <DependentUpon>TennisVlaanderenModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DatabaseConnectie.cs" />
-    <Compile Include="DatabaseOperations.cs" />
+    <Compile Include="interfaces\IAbonnementRepository.cs" />
+    <Compile Include="interfaces\IClubRepository.cs" />
+    <Compile Include="interfaces\ISpelerClubTornooiRepository.cs" />
     <Compile Include="interfaces\ISpelerRepository.cs" />
+    <Compile Include="interfaces\ITarievenRepository.cs" />
+    <Compile Include="interfaces\ITerreinReservatieRepository.cs" />
+    <Compile Include="interfaces\ITornooiRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
+    <Compile Include="repositories\AbonnementRepository.cs" />
+    <Compile Include="repositories\ClubRepository.cs" />
+    <Compile Include="repositories\SpelerClubTornooiRepository.cs" />
     <Compile Include="repositories\SpelerRepository.cs" />
+    <Compile Include="repositories\TarievenRepository.cs" />
+    <Compile Include="repositories\TerreinReservatieRepository.cs" />
+    <Compile Include="repositories\TornooiRepository.cs" />
     <Compile Include="Speler.cs">
       <DependentUpon>TennisVlaanderenModel.tt</DependentUpon>
     </Compile>

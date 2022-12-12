@@ -16,7 +16,7 @@ namespace TennisVlaanderen_Models
 
         public override string ToString()
         {
-            return base.ToString();
+            return lessen + " " + stages;
         }
     }
 }

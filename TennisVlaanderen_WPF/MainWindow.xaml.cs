@@ -30,10 +30,22 @@ namespace TennisVlaanderen_WPF
         }       
 
         private ISpelerRepository SpelerRepository = new SpelerRepository();
+        private IClubRepository ClubRepository = new ClubRepository();
+        private IAbonnementRepository AbonnementRepository = new AbonnementRepository();
+        private ITornooiRepository tornooiRepository = new TornooiRepository();
+        private ISpelerClubTornooiRepository SpelerClubTornooiRepository = new SpelerClubTornooiRepository();
+        private ITarievenRepository tarievenRepository = new TarievenRepository();
+        private ITerreinReservatieRepository terreinReservatieRepository = new TerreinReservatieRepository();
 
         private void btntest_Click(object sender, RoutedEventArgs e)
-        {    
-            lbtest.ItemsSource = SpelerRepository.OphalenSpeler();
+        {
+            lbtest.ItemsSource = ClubRepository.OphalenClub();
+            lbltest2.ItemsSource = SpelerRepository.OphalenSpeler();
+            lbltest3.ItemsSource = AbonnementRepository.OphalenAbonnement();
+            lbltest4.ItemsSource = tornooiRepository.OphalenTornooi();
+            lbltest5.ItemsSource = SpelerClubTornooiRepository.OphalenSpelerClubTornooi();
+            lbltest6.ItemsSource = tarievenRepository.OphalenTarieven();
+            lbltest7.ItemsSource = terreinReservatieRepository.OphalenTerreinReservatie();
         }
     }
 }

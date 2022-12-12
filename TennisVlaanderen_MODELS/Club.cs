@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TennisVlaanderen_Models
 {
-    public class Club
+    public class Club : Speler
     {
         public int id { get; set; }
         public string naam { get; set; }
@@ -17,9 +17,23 @@ namespace TennisVlaanderen_Models
         public string kwaliteitLabel { get; set; }
         public string clubaanbod { get; set; }
 
+        public Club() { }
+
+        public Club(int id, string naam, string adres, string telefoon, string email, string website, string kwaliteitLabel, string clubaanbod) 
+        {
+            this.id = id;
+            this.naam = naam;
+            this.adres = adres;
+            this.telefoon = telefoon;
+            this.email = email;
+            this.website = website;
+            this.kwaliteitLabel = kwaliteitLabel;
+            this.clubaanbod = clubaanbod;
+        }      
+
         public override string ToString()
         {
-            return base.ToString();
+            return naam;
         }
     }
 }

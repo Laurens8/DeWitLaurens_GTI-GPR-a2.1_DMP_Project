@@ -15,7 +15,7 @@ namespace TennisVlaanderen_Models
         public string typeTennis { get; set; }
         public override string ToString()
         {
-            return base.ToString();
+            return terreinNummer + " " + typeOndergrond + " " + typeTennis;
         }
     }
 }
