@@ -9,6 +9,6 @@ namespace TennisVlaanderen_DAL.interfaces
 {
     public interface ISpelerRepository
     {
-        IEnumerable<TennisVlaanderen_Models.Speler> OphalenSpeler();
+        List<TennisVlaanderen_Models.Speler> OphalenSpeler();
     }
 }

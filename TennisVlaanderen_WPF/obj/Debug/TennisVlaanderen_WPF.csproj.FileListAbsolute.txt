@@ -24,3 +24,7 @@ C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaander
 C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_WPF\obj\Debug\TennisVlaanderen_WPF.csproj.CopyComplete
 C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_WPF\obj\Debug\TennisVlaanderen_WPF.exe
 C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_WPF\obj\Debug\TennisVlaanderen_WPF.pdb
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_WPF\obj\Debug\WindowSpelerAanmaken.g.cs
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_WPF\obj\Debug\WindowSpelerAanmaken.baml
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_WPF\obj\Debug\WindowHomePagina.g.cs
+C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_WPF\obj\Debug\WindowHomePagina.baml

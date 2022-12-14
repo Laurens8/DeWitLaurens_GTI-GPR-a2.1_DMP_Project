@@ -20,11 +20,8 @@ namespace TennisVlaanderen_Models
         public string telefoon { get; set; }
         public string email { get; set; }
         public string rijksNummer { get; set; }
-       
-        public Speler()
-        {
 
-        }
+        public Speler() { }     
 
         public Speler(int id, string naam, string voornaam, string klassement, string geslacht, DateTime geboorteDatum, string nationaliteit, string adres, string land, string telefoon, string email, string rijksNummer)
         {

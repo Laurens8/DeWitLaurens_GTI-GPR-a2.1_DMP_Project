@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TennisVlaanderen_Models
 {
-    public class Club : Speler
+    public class Club
     {
         public int id { get; set; }
         public string naam { get; set; }

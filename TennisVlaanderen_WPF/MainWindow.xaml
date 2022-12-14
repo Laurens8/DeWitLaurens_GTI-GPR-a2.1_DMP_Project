@@ -5,17 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TennisVlaanderen_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="black" Opacity="70">
     <Grid>
-        <StackPanel>
-            <ComboBox x:Name="lbtest"></ComboBox>
-            <ComboBox x:Name="lbltest2"></ComboBox>
-            <ComboBox x:Name="lbltest3"></ComboBox>
-            <ComboBox x:Name="lbltest4"></ComboBox>
-            <ComboBox x:Name="lbltest5"></ComboBox>
-            <ComboBox x:Name="lbltest6"></ComboBox>
-            <ComboBox x:Name="lbltest7"></ComboBox>
-            <Button x:Name="btntest" Click="btntest_Click" Width="100" Height="20" Content="test"></Button>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Label Content="Tennis Vlaanderen" FontSize="20" Background="yellow" FontStyle="Normal" Grid.Column="0" Grid.ColumnSpan="3" FontWeight="Bold" FontFamily="Arial Black"></Label>
+        <Label Content="Inloggen" Grid.Row="1" Grid.Column="1" Foreground="Yellow" FontSize="20" HorizontalAlignment="Center"></Label>
+        <Label Content="email address" Foreground="yellow" Grid.Column="1" Grid.Row="1" FontFamily="Arial Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,54,0,0" FontSize="15"></Label>
+        <TextBox x:Name="txtEmail" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="26"/>
+        <Label Content="Wachtwoord" Foreground="yellow" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="15" FontFamily="Arial Black" Margin="0,140,0,60" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtWachtwoord" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" Margin="0,175,0,0" Height="26" Grid.RowSpan="2"></TextBox>
+        <Button x:Name="btnDoorgaan" Content="Doorgaan" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Margin="0,24,0,135" Width="156" FontFamily="Arial Black" Click="BtnDoorgaan_Click"></Button>
+        <Label Content="Nog geen account? Druk Hier" Foreground="yellow" Grid.Column="2" Grid.Row="2" FontFamily="Arial Black" Margin="10,110,-10,53"></Label>
+        <Button x:Name="btnAccountMaken" Content="Maak een account!" Grid.Column="1" Grid.ColumnSpan="2" Margin="290,147,10,20" Grid.Row="2" Click="BtnAccountMaken_Click"></Button>
     </Grid>
 </Window>
