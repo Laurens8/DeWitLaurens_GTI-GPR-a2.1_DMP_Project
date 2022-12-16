@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_WPF\App.xaml
-3467951535
+7-626632733
 
-8-1065120455
+121944410965
 16522667698
-MainWindow.xaml;WindowHomePagina.xaml;WindowSpelerAanmaken.xaml;
+MainWindow.xaml;WindowClub.xaml;WindowHomePagina.xaml;WindowLessen.xaml;WindowSpelerAanmaken.xaml;WindowTerreinReserveren.xaml;WindowTornooi.xaml;
 
 True
 

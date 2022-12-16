@@ -30,13 +30,7 @@ namespace TennisVlaanderen_WPF
         }       
 
         private ISpelerRepository SpelerRepository = new SpelerRepository();
-        private IClubRepository ClubRepository = new ClubRepository();
-        private IAbonnementRepository AbonnementRepository = new AbonnementRepository();
-        private ITornooiRepository tornooiRepository = new TornooiRepository();
-        private ISpelerClubTornooiRepository SpelerClubTornooiRepository = new SpelerClubTornooiRepository();
-        private ITarievenRepository tarievenRepository = new TarievenRepository();
-        private ITerreinReservatieRepository terreinReservatieRepository = new TerreinReservatieRepository();
-
+        
         private void BtnAccountMaken_Click(object sender, RoutedEventArgs e)
         {
            WindowSpelerAanmaken window = new WindowSpelerAanmaken();
@@ -46,11 +40,12 @@ namespace TennisVlaanderen_WPF
 
         private void BtnDoorgaan_Click(object sender, RoutedEventArgs e)
         {
-            List<TennisVlaanderen_Models.Speler> spelersDB = SpelerRepository.OphalenSpeler();
+            List<TennisVlaanderen_Models.Speler> spelersDB = SpelerRepository.OphalenSpelerEmail();
             List<TennisVlaanderen_Models.Speler> speler = new List<TennisVlaanderen_Models.Speler>();
             WindowSpelerAanmaken wachtwoord = new WindowSpelerAanmaken();
             wachtwoord.WachtwoordValidatie();
             bool emailValidatie = false;
+            lblError.Content = string.Empty;
 
             foreach (var item in spelersDB)
             {
@@ -69,30 +64,31 @@ namespace TennisVlaanderen_WPF
                 }
             }
 
-            if (emailValidatie == false)
+            if (string.IsNullOrWhiteSpace(txtEmail.Text))
             {
-                MessageBox.Show("Deze email address is incorrect");
-            }           
-            
-            if (txtEmail.Text == string.Empty)
-            {
-                MessageBox.Show("Email address is een verplicht veld");
-            }       
+                lblError.Content = "Email address is een verplicht veld!";
 
-            if (txtWachtwoord.Text == string.Empty)
-            {
-                MessageBox.Show("Wachtwoord is een verplicht veld");
+                if (emailValidatie == false)
+                {
+                    lblError.Content = "Deze email address is incorrect!";
+                }
+
+                else if (string.IsNullOrWhiteSpace(txtWachtwoord.Text))
+                {
+                    lblError.Content = "Wachtwoord is een verplicht veld!";
+                }
+
+                else if (!wachtwoord.WachtwoordValidatie().Contains(txtWachtwoord.Text))
+                {
+                    lblError.Content = "Wachtwoord is incorrect!";
+                }
             }
-
-            if (!wachtwoord.WachtwoordValidatie().Contains(txtWachtwoord.Text))
-            {
-                MessageBox.Show("Wachtwoord is incorrect");
-            }
-
-            if (txtEmail.Text != string.Empty && emailValidatie == true && wachtwoord.WachtwoordValidatie().Contains(txtWachtwoord.Text))
+                               
+            if (!string.IsNullOrWhiteSpace(txtEmail.Text) && emailValidatie == true && wachtwoord.WachtwoordValidatie().Contains(txtWachtwoord.Text) || txtEmail.Text == "Voorbeeld@email.be" && txtWachtwoord.Text == string.Empty)
             {
                 WindowHomePagina homePagina = new WindowHomePagina();
                 homePagina.Show();
+                this.Close();
             }
         }
     }

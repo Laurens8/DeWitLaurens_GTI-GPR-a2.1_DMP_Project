@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TennisVlaanderen_DAL.interfaces;
+using TennisVlaanderen_DAL.repositories;
 
 namespace TennisVlaanderen_WPF
 {
@@ -22,6 +24,43 @@ namespace TennisVlaanderen_WPF
         public WindowHomePagina()
         {
             InitializeComponent();
+            DataSpeler();
+        }
+
+        private ISpelerRepository spelers = new SpelerRepository();
+
+        private void DataSpeler()
+        {
+            List<TennisVlaanderen_Models.Speler> spelersDB = spelers.OphalenSpeler();
+
+            foreach (var item in spelersDB)
+            {
+                lblDashbord.Content = item.ToString();          
+            }
+        }
+
+        private void BtnTornooi_Click(object sender, RoutedEventArgs e)
+        {
+            WindowTornooi tornooi= new WindowTornooi();
+            tornooi.Show();
+        }
+
+        private void BtnClub_Click(object sender, RoutedEventArgs e)
+        {
+            WindowClub club = new WindowClub();
+            club.Show();
+        }
+
+        private void BtnLessen_Click(object sender, RoutedEventArgs e)
+        {
+            WindowLessen lessen = new WindowLessen();
+            lessen.Show();
+        }
+
+        private void BtnTerrein_Click(object sender, RoutedEventArgs e)
+        {
+            WindowTerreinReserveren terrein = new WindowTerreinReserveren();
+            terrein.Show();
         }
     }
 }

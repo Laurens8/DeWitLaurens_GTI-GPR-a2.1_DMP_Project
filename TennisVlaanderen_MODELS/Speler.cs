@@ -41,7 +41,7 @@ namespace TennisVlaanderen_Models
 
         public override string ToString()
         {
-            return naam + " " + voornaam + " " + klassement + " " + geboorteDatum.ToShortDateString();
+            return naam + " " + voornaam + Environment.NewLine + geslacht + Environment.NewLine + geboorteDatum.ToShortDateString() + Environment.NewLine + land + Environment.NewLine + klassement;
         }
 
         public override int GetHashCode()
@@ -51,9 +51,7 @@ namespace TennisVlaanderen_Models
 
         public override bool Equals(object obj)
         {
-            return obj is Speler speler &&
-                rijksNummer == speler.rijksNummer &&
-                id == speler.id;                 
+            return obj is Speler speler && id == speler.id;                 
         }
 
         public override string this[string columnName]
@@ -67,47 +65,47 @@ namespace TennisVlaanderen_Models
 
                 else if (columnName == "voornaam" && string.IsNullOrWhiteSpace(voornaam))
                 {
-                    return "voornaam is een verplicht in te vullen veld!";
+                    return "Voornaam is een verplicht in te vullen veld!";
                 }
 
                 else if (columnName == "geslacht" && string.IsNullOrWhiteSpace(geslacht))
                 {
-                    return "geslacht is een verplicht in te vullen veld!";
+                    return "Geslacht is een verplicht in te vullen veld!";
                 }
 
                 else if (columnName == "nationaliteit" && string.IsNullOrWhiteSpace(nationaliteit))
                 {
-                    return "nationaliteit is een verplicht in te vullen veld!";
+                    return "Nationaliteit is een verplicht in te vullen veld!";
                 }
 
                 else if (columnName == "adres" && string.IsNullOrWhiteSpace(adres))
                 {
-                    return "adres is een verplicht in te vullen veld!";
+                    return "Adres is een verplicht in te vullen veld!";
                 }
 
                 else if (columnName == "land" && string.IsNullOrWhiteSpace(land))
                 {
-                    return "land is een verplicht in te vullen veld!";
+                    return "Land is een verplicht in te vullen veld!";
                 }
 
                 else if (columnName == "telefoon" && string.IsNullOrWhiteSpace(telefoon))
                 {
-                    return "telefoon is een verplicht in te vullen veld!";
+                    return "Telefoon is een verplicht in te vullen veld!";
                 }
 
                 else if (columnName == "email" && string.IsNullOrWhiteSpace(email))
                 {
-                    return "email is een verplicht in te vullen veld!";
+                    return "Email is een verplicht in te vullen veld!";
                 }
 
                 else if (columnName == "rijksNummer" && string.IsNullOrWhiteSpace(rijksNummer))
                 {
-                    return "rijksNummer is een verplicht in te vullen veld!";
+                    return "RijksNummer is een verplicht in te vullen veld!";
                 }
 
                 else if (columnName == "geboorteDatum" && geboorteDatum > DateTime.Now)
                 {
-                    return "Vul een geldig geboortedatum in";
+                    return "Vul een geldig geboortedatum in!";
                 }
 
                 return "";

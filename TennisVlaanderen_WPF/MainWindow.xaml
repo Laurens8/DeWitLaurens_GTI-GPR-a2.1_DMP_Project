@@ -22,10 +22,11 @@
         <Label Content="Inloggen" Grid.Row="1" Grid.Column="1" Foreground="Yellow" FontSize="20" HorizontalAlignment="Center"></Label>
         <Label Content="email address" Foreground="yellow" Grid.Column="1" Grid.Row="1" FontFamily="Arial Black" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,54,0,0" FontSize="15"></Label>
         <TextBox x:Name="txtEmail" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="300" Height="26"/>
-        <Label Content="Wachtwoord" Foreground="yellow" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="15" FontFamily="Arial Black" Margin="0,140,0,60" Grid.RowSpan="2"/>
+        <Label Content="Wachtwoord" Foreground="yellow" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" FontSize="15" FontFamily="Arial Black" Margin="0,140,0,26"/>
         <TextBox x:Name="txtWachtwoord" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" Margin="0,175,0,0" Height="26" Grid.RowSpan="2"></TextBox>
         <Button x:Name="btnDoorgaan" Content="Doorgaan" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Margin="0,24,0,135" Width="156" FontFamily="Arial Black" Click="BtnDoorgaan_Click"></Button>
         <Label Content="Nog geen account? Druk Hier" Foreground="yellow" Grid.Column="2" Grid.Row="2" FontFamily="Arial Black" Margin="10,110,-10,53"></Label>
         <Button x:Name="btnAccountMaken" Content="Maak een account!" Grid.Column="1" Grid.ColumnSpan="2" Margin="290,147,10,20" Grid.Row="2" Click="BtnAccountMaken_Click"></Button>
+        <Label x:Name="lblError" Grid.Column="2" Grid.Row="1" Margin="10" Foreground="Yellow"></Label>
     </Grid>
 </Window>

@@ -22,43 +22,45 @@
 
         <Label Content="Tennis Vlaanderen" FontSize="20" Background="yellow" FontStyle="Normal" Grid.Column="0" Grid.ColumnSpan="4" FontWeight="Bold" FontFamily="Arial Black"></Label>
 
-        <Label Content="Naam" Foreground="Yellow" Grid.Column="0" Grid.Row="1" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="10,33,190,100" Grid.RowSpan="2"></Label>
-        <TextBox x:Name="txtNaam" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="190"></TextBox>
+        <Label Content="Naam" Foreground="Yellow" Grid.Column="0" Grid.Row="1" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="5,5,195,128" Grid.RowSpan="2"></Label>
+        <TextBox x:Name="txtNaam" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="190" Margin="0,33,0,0"/>
 
-        <Label Content="Voornaam" Foreground="Yellow" Grid.Column="1" Grid.Row="1" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="10,34,190,100" Grid.RowSpan="2"></Label>
-        <TextBox x:Name="txtVoornaam" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="190"></TextBox>
+        <Label Content="Voornaam" Foreground="Yellow" Grid.Row="1" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="5,60,195,74" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtVoornaam" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="190" Margin="0,91,0,0"/>
 
-        <Label Content="Geboortedatum" Foreground="Yellow" Grid.Column="2" Grid.Row="1" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="10,33,190,100" Grid.RowSpan="2"></Label>
-        <TextBox x:Name="txtGeboortedatum" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="190"></TextBox>
+        <Label Content="Geboortedatum" Foreground="Yellow" Grid.Column="1" Grid.Row="1" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="5,61,195,72" Grid.RowSpan="2"></Label>
+        <TextBox x:Name="txtGeboortedatum" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="10,91,0,0"></TextBox>
 
-        <Label Content="email address" Foreground="Yellow" Grid.Column="3" Grid.Row="1" FontFamily="Arial Black" Margin="10,33,-10,100" Grid.RowSpan="2"></Label>
-        <TextBox x:Name="txtEmail" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="190"></TextBox>
+        <Label Content="email address" Foreground="Yellow" Grid.Column="2" Grid.Row="1" FontFamily="Arial Black" Margin="10,10,78,92"/>
+        <TextBox x:Name="txtEmail" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="10,33,0,0"/>
 
-        <Label Content="Nationaliteit" Foreground="Yellow" Grid.Column="2" Grid.Row="2" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="10,34,190,99" Grid.RowSpan="2"></Label>
-        <TextBox x:Name="txtNationaliteit" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="190"></TextBox>
+        <Label Content="Nationaliteit" Foreground="Yellow" Grid.Column="1" Grid.Row="2" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="5,58,195,74" Grid.RowSpan="2"></Label>
+        <TextBox x:Name="txtNationaliteit" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="10,92,0,0" RenderTransformOrigin="0.495,0.562"/>
 
-        <Label Content="Adres" Foreground="Yellow" Grid.Column="0" Grid.Row="2" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="10,33,190,101" Grid.RowSpan="2"></Label>
-        <TextBox x:Name="txtAdres" Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="190"></TextBox>
+        <Label Content="Adres" Foreground="Yellow" Grid.Column="0" Grid.Row="2" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="10,5,190,128" Grid.RowSpan="2"></Label>
+        <TextBox x:Name="txtAdres" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="190" Margin="0,32,0,0"/>
 
-        <Label Content="Land" Foreground="Yellow" Grid.Column="1" Grid.Row="2" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="10,34,190,99" Grid.RowSpan="2"></Label>
-        <TextBox x:Name="txtLand" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="190"></TextBox>
+        <Label Content="Land" Foreground="Yellow" Grid.Column="1" Grid.Row="2" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="5,5,195,77"/>
+        <TextBox x:Name="txtLand" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="10,32,0,0"></TextBox>
 
-        <Label Content="Telefoon" Foreground="Yellow" Grid.Column="3" Grid.Row="2" FontFamily="Arial Black" Margin="10,34,-10,99" Grid.RowSpan="2"></Label>
-        <TextBox x:Name="txtTelefoon" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Width="190"></TextBox>
+        <Label Content="Telefoon" Foreground="Yellow" Grid.Column="1" Grid.Row="1" FontFamily="Arial Black" Margin="5,10,195,78" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtTelefoon" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="10,33,0,0"></TextBox>
 
-        <Label Content="Rijksregisternummer" Foreground="Yellow" Grid.Column="0" Grid.Row="3" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="10,33,190,-33"/>
-        <TextBox x:Name="txtRijksNummer" Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="190"></TextBox>
+        <Label Content="Rijksregisternummer" Foreground="Yellow" Grid.Column="0" Grid.Row="2" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="10,61,190,72" Grid.RowSpan="2"/>
+        <TextBox x:Name="txtRijksNummer" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="190" Margin="0,92,0,0"/>
 
-        <Label Content="Wachtwoord" Foreground="Yellow" Grid.Column="1" Grid.Row="3" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="10,33,190,-33"/>
-        <TextBox x:Name="txtWachtwoord" Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center" VerticalAlignment="Center" Width="190"></TextBox>
+        <Label Content="Wachtwoord" Foreground="Yellow" Grid.Column="2" Grid.Row="1" FontFamily="Arial Black" Margin="10,52,190,48" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtWachtwoord" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="10,91,0,0"></TextBox>
 
-        <Label Content="Geslacht" Foreground="Yellow" Grid.Column="2" Grid.Row="3" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="61,20,139,-20"/>
-        <RadioButton x:Name="rbVrouw" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Margin="133,78,67,-78" Checked="RbVrouw_Checked"></RadioButton>
-        <RadioButton x:Name="rbMan" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Margin="48,78,152,-78" Checked="rbMan_Checked"></RadioButton>
-        <Label Content="Man" Foreground="Yellow" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Margin="33,49,167,-49" FontFamily="Arial Black"></Label>
-        <Label Content="Vrouw" Foreground="Yellow" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" Margin="118,49,82,-49" FontFamily="Arial Black"></Label>
+        <RadioButton x:Name="rbVrouw" Grid.Column="2" Grid.Row="2" Margin="137,78,41,32" Checked="RbVrouw_Checked"/>
+        <RadioButton x:Name="rbMan" Grid.Column="2" Grid.Row="2" Margin="22,78,147,32" Checked="rbMan_Checked"/>
+        <Label Content="Geslacht" Foreground="Yellow" Grid.Column="2" Grid.Row="2" FontFamily="Arial Black" Margin="10,10,48,91"/>
+        <Label Content="Man" Foreground="Yellow" Grid.Column="2" Grid.Row="2" Margin="12,41,147,55" FontFamily="Arial Black"/>
+        <Label Content="Vrouw" Foreground="Yellow" Grid.Column="2" Grid.Row="2" Margin="122,42,19,55" FontFamily="Arial Black"/>
 
         <Button x:Name="btnToevoegen" Grid.Column="3" Grid.Row="3" Content="Toevoegen" Margin="17,67,17,27" Click="BtnToevoegen_Click"></Button>
         <Button x:Name="btnAnnuleren" Grid.Column="3" Grid.Row="3" Content="Annuleren" Margin="17,13,17,0" Click="BtnAnnuleren_Click" VerticalAlignment="Top" Height="36"/>
+
+        <Label x:Name="lblError" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Margin="10" Foreground="Yellow"></Label>
     </Grid>
 </Window>

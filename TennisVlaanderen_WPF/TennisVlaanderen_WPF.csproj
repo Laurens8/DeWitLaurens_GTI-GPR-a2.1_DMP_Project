@@ -58,11 +58,23 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="WindowClub.xaml.cs">
+      <DependentUpon>WindowClub.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowHomePagina.xaml.cs">
       <DependentUpon>WindowHomePagina.xaml</DependentUpon>
     </Compile>
+    <Compile Include="WindowLessen.xaml.cs">
+      <DependentUpon>WindowLessen.xaml</DependentUpon>
+    </Compile>
     <Compile Include="WindowSpelerAanmaken.xaml.cs">
       <DependentUpon>WindowSpelerAanmaken.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowTerreinReserveren.xaml.cs">
+      <DependentUpon>WindowTerreinReserveren.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WindowTornooi.xaml.cs">
+      <DependentUpon>WindowTornooi.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -76,11 +88,27 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WindowClub.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowHomePagina.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="WindowLessen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="WindowSpelerAanmaken.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowTerreinReserveren.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WindowTornooi.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
