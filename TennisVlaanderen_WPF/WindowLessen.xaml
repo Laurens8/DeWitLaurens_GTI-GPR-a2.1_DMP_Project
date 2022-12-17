@@ -5,8 +5,33 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TennisVlaanderen_WPF"
         mc:Ignorable="d"
-        Title="WindowLessen" Height="450" Width="800">
+        Title="WindowLessen" Height="450" Width="800" Background="Black">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Content="Tennis Vlaanderen" FontSize="20" Background="yellow" FontStyle="Normal" Grid.Column="0" Grid.ColumnSpan="4" FontWeight="Bold" FontFamily="Arial Black"></Label>
+
+        <ComboBox x:Name="cbClub" Grid.Row="2" Grid.Column="0" Margin="10,63,190,163" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2"></ComboBox>
+        <Label Content="Selecteer een club" Foreground="Yellow" Grid.Row="2" FontFamily="Arial Black" Margin="0,17,0,224" HorizontalAlignment="Center" Width="180" VerticalAlignment="Center"/>
+
+        <ComboBox x:Name="cbAanbod" Grid.Row="2" Grid.Column="1" Margin="31,63,169,163" RenderTransformOrigin="0.503,0.514" Grid.ColumnSpan="2"></ComboBox>
+        <Label Content="Selecteer een aanbod" Foreground="Yellow" Grid.Row="2" FontFamily="Arial Black" Margin="31,16,0,224" HorizontalAlignment="Left" Grid.Column="1" Width="173" Grid.ColumnSpan="2" VerticalAlignment="Center"/>
+
+        <RadioButton x:Name="rbTennis" Content="Tennis" Grid.Column="2" Margin="68,53,56,185" Grid.Row="2" Foreground="Yellow" Checked="rbTennis_Checked" Click="rbTennis_Click"/>
+        <RadioButton x:Name="rbPadel" Content="Paddel" Grid.Column="2" Margin="164,53,141,185" Grid.Row="2" Foreground="Yellow" Checked="rbPadel_Checked" Grid.ColumnSpan="2" Click="rbPadel_Click"></RadioButton>
+        <RadioButton x:Name="rbTennisPadel" Content="Tennis + Paddel" Grid.Column="3" Margin="59,53,46,185" Grid.Row="2" Foreground="Yellow" Checked="rbTennisPadel_Checked" Click="rbTennisPadel_Click"/>
+        <Button x:Name="btnToevoegen" Grid.Column="3" Grid.Row="3" Content="Toevoegen" Margin="17,67,17,27"></Button>
+        <Button x:Name="btnAnnuleren" Grid.Column="3" Grid.Row="3" Content="Annuleren" Margin="17,13,17,0" VerticalAlignment="Top" Height="22"/>
     </Grid>
 </Window>

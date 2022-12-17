@@ -16,7 +16,7 @@ namespace TennisVlaanderen_Models
 
         public override string ToString()
         {
-            return leeftijdgraad + " " + typeTennis + " " + ((double?)prijs) + "€";
+            return leeftijdgraad + " " + ((double?)prijs) + "€" + " " + typeTennis;
         }
     }
 }
