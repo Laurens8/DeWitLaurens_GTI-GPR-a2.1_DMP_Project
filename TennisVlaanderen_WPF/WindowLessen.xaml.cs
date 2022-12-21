@@ -34,10 +34,10 @@ namespace TennisVlaanderen_WPF
 
         private void OphalenDataLessen()
         {
-            List<TennisVlaanderen_Models.Tarieven> tarievenDB = (List<TennisVlaanderen_Models.Tarieven>)tarievenRepository.OphalenTarieven();
-            List<TennisVlaanderen_Models.Club> clubDB = (List<TennisVlaanderen_Models.Club>)clubRepository.OphalenClubNaam();
-            List<TennisVlaanderen_Models.Tarieven> tarieven = new List<TennisVlaanderen_Models.Tarieven>();
-            List<TennisVlaanderen_Models.Club> club = new List<TennisVlaanderen_Models.Club>();
+            List<Tarieven> tarievenDB = (List<Tarieven>)tarievenRepository.OphalenTarieven();
+            List<Club> clubDB = (List<Club>)clubRepository.OphalenClubNaam();
+            List<Tarieven> tarieven = new List<Tarieven>();
+            List<Club> club = new List<Club>();
                     
             foreach (var item in clubDB)
             {
@@ -65,8 +65,8 @@ namespace TennisVlaanderen_WPF
 
         private void rbTennis_Click(object sender, RoutedEventArgs e)
         {          
-            List<TennisVlaanderen_Models.Tarieven> tarievenDB = (List<TennisVlaanderen_Models.Tarieven>)tarievenRepository.OphalenTarieven();
-            List<TennisVlaanderen_Models.Tarieven> tarieven = new List<TennisVlaanderen_Models.Tarieven>();           
+            List<Tarieven> tarievenDB = (List<Tarieven>)tarievenRepository.OphalenTarieven();
+            List<Tarieven> tarieven = new List<Tarieven>();           
             if (rbTennis.IsChecked == true)
             {
                 tarievenDB = tarievenRepository.OphalenTypeTennis();
@@ -80,8 +80,8 @@ namespace TennisVlaanderen_WPF
 
         private void rbPadel_Click(object sender, RoutedEventArgs e)
         {
-            List<TennisVlaanderen_Models.Tarieven> tarievenDB = (List<TennisVlaanderen_Models.Tarieven>)tarievenRepository.OphalenTarieven();
-            List<TennisVlaanderen_Models.Tarieven> tarieven = new List<TennisVlaanderen_Models.Tarieven>();
+            List<Tarieven> tarievenDB = (List<Tarieven>)tarievenRepository.OphalenTarieven();
+            List<Tarieven> tarieven = new List<Tarieven>();
             if (rbTennis.IsChecked == true)
             {
                 tarievenDB = tarievenRepository.OphalenTypePadel();
@@ -95,8 +95,8 @@ namespace TennisVlaanderen_WPF
 
         private void rbTennisPadel_Click(object sender, RoutedEventArgs e)
         {
-            List<TennisVlaanderen_Models.Tarieven> tarievenDB = (List<TennisVlaanderen_Models.Tarieven>)tarievenRepository.OphalenTarieven();
-            List<TennisVlaanderen_Models.Tarieven> tarieven = new List<TennisVlaanderen_Models.Tarieven>();
+            List<Tarieven> tarievenDB = (List<Tarieven>)tarievenRepository.OphalenTarieven();
+            List<Tarieven> tarieven = new List<Tarieven>();
             if (rbTennis.IsChecked == true)
             {
                 tarievenDB = tarievenRepository.OphalenTypeTennisPlusPadel();

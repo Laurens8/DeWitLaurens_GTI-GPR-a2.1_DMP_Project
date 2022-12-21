@@ -13,13 +13,13 @@ namespace TennisVlaanderen_DAL.repositories
 {
     public class ClubRepository : BaseRepository, IClubRepository
     {
-        public IEnumerable<TennisVlaanderen_Models.Club> OphalenClubNaam()
+        public IEnumerable<Club> OphalenClubNaam()
         {
-            string sql = @"SELECT C.naam FROM TennisVlaanderen.CLUB AS C";
+            string sql = @"SELECT C.Naam FROM TennisVlaanderen.CLUB AS C";
 
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
-                return db.Query<TennisVlaanderen_Models.Club>(sql);
+                return db.Query<Club>(sql);
             }
         }
     }

@@ -8,6 +8,6 @@ namespace TennisVlaanderen_DAL.interfaces
 {
     public interface ITerreinReservatieRepository
     {
-        IEnumerable<TennisVlaanderen_Models.TerreinReservatie> OphalenTerreinReservatie();
+        IEnumerable<TerreinReservatie> OphalenTerreinReservatie();
     }
 }

@@ -14,11 +14,11 @@ namespace TennisVlaanderen_DAL
     
     public partial class Tarieven
     {
-        public int id { get; set; }
-        public int clubID { get; set; }
-        public string leeftijdgraad { get; set; }
-        public string typeTennis { get; set; }
-        public Nullable<decimal> prijs { get; set; }
+        public int Id { get; set; }
+        public int ClubID { get; set; }
+        public string Leeftijdgraad { get; set; }
+        public string TypeTennis { get; set; }
+        public Nullable<decimal> Prijs { get; set; }
     
         public virtual Club Club { get; set; }
     }

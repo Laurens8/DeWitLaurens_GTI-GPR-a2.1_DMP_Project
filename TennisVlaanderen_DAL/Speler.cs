@@ -22,18 +22,18 @@ namespace TennisVlaanderen_DAL
             this.TerreinReservatie = new HashSet<TerreinReservatie>();
         }
     
-        public int id { get; set; }
-        public string naam { get; set; }
-        public string voornaam { get; set; }
-        public string klassement { get; set; }
-        public string geslacht { get; set; }
-        public System.DateTime geboorteDatum { get; set; }
-        public string nationaliteit { get; set; }
-        public string adres { get; set; }
-        public string land { get; set; }
-        public string telefoon { get; set; }
-        public string email { get; set; }
-        public string rijksNummer { get; set; }
+        public int Id { get; set; }
+        public string Naam { get; set; }
+        public string Voornaam { get; set; }
+        public string Klassement { get; set; }
+        public string Geslacht { get; set; }
+        public System.DateTime GeboorteDatum { get; set; }
+        public string Nationaliteit { get; set; }
+        public string Adres { get; set; }
+        public string Land { get; set; }
+        public string Telefoon { get; set; }
+        public string Email { get; set; }
+        public string RijksNummer { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Abonnement> Abonnement { get; set; }

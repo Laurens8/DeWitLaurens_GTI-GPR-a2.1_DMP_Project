@@ -12,12 +12,12 @@ namespace TennisVlaanderen_DAL.repositories
 {
     public class TerreinReservatieRepository : BaseRepository, ITerreinReservatieRepository
     {
-        public IEnumerable<TennisVlaanderen_Models.TerreinReservatie> OphalenTerreinReservatie()
+        public IEnumerable<TerreinReservatie> OphalenTerreinReservatie()
         {
             string sql = "SELECT * FROM TennisVlaanderen.TerreinReservatie";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
-                return db.Query<TennisVlaanderen_Models.TerreinReservatie>(sql);
+                return db.Query<TerreinReservatie>(sql);
             }
         }
     }

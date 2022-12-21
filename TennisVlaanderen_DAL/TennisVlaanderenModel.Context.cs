@@ -13,10 +13,10 @@ namespace TennisVlaanderen_DAL
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PublishersEntities2 : DbContext
+    public partial class TennisVlaanderenEntities : DbContext
     {
-        public PublishersEntities2()
-            : base("name=PublishersEntities2")
+        public TennisVlaanderenEntities()
+            : base("name=TennisVlaanderenEntities")
         {
         }
     

@@ -13,7 +13,6 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TennisVlaanderen_DAL.interfaces;
 using TennisVlaanderen_DAL.repositories;
-using TennisVlaanderen_Models;
 using TennisVlaanderen_DAL;
 
 namespace TennisVlaanderen_WPF
@@ -28,30 +27,30 @@ namespace TennisVlaanderen_WPF
             InitializeComponent();
         }
 
-        TennisVlaanderen_Models.Speler nieuwSpeler = new TennisVlaanderen_Models.Speler();
+        Speler nieuwSpeler = new Speler();
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {
             lblError.Content = string.Empty;
-            List<TennisVlaanderen_Models.Speler> spelers = new List<TennisVlaanderen_Models.Speler>();         
+            List<Speler> spelers = new List<Speler>();         
                         
                 if (!string.IsNullOrEmpty(txtGeboortedatum.Text))
                 {
-                    nieuwSpeler.geboorteDatum = DateTime.Parse(txtGeboortedatum.Text);
+                    nieuwSpeler.GeboorteDatum = DateTime.Parse(txtGeboortedatum.Text);
                 }
                 else
                 {
                     lblError.Content = "Geboortedatum is een verplicht in te vullen veld";
                 }
 
-                nieuwSpeler.naam = txtNaam.Text;
-                nieuwSpeler.voornaam = txtVoornaam.Text;
-                nieuwSpeler.email = txtEmail.Text;
-                nieuwSpeler.adres = txtAdres.Text;
-                nieuwSpeler.land = txtLand.Text;
-                nieuwSpeler.nationaliteit = txtNationaliteit.Text;
-                nieuwSpeler.telefoon = txtTelefoon.Text;
-                nieuwSpeler.rijksNummer = txtRijksNummer.Text;
+                nieuwSpeler.Naam = txtNaam.Text;
+                nieuwSpeler.Voornaam = txtVoornaam.Text;
+                nieuwSpeler.Email = txtEmail.Text;
+                nieuwSpeler.Adres = txtAdres.Text;
+                nieuwSpeler.Land = txtLand.Text;
+                nieuwSpeler.Nationaliteit = txtNationaliteit.Text;
+                nieuwSpeler.Telefoon = txtTelefoon.Text;
+                nieuwSpeler.RijksNummer = txtRijksNummer.Text;
                 lblError.Content = string.Empty;
                 Toevoegen(true);                                                       
 
@@ -61,11 +60,11 @@ namespace TennisVlaanderen_WPF
 
                 if (rbMan.IsChecked == true)
                 {
-                    nieuwSpeler.geslacht = "Man";
+                    nieuwSpeler.Geslacht = "Man";
                 }
                 else
                 {
-                    nieuwSpeler.geslacht = "Vrouw";
+                    nieuwSpeler.Geslacht = "Vrouw";
                 }
             }
 
@@ -88,25 +87,7 @@ namespace TennisVlaanderen_WPF
             mainWindow.Show();
             this.Close();
         }
-
-        public List<string> WachtwoordValidatie()
-        {
-            FileOperations.WachtwoordOpslaan(txtWachtwoord.Text);
-            List<string> wachtwoordenLijst = FileOperations.WachtwoordLezen();
-
-            if (!string.IsNullOrWhiteSpace(txtWachtwoord.Text))
-            {
-                string wachtwoordtext = txtWachtwoord.Text.ToLower();
-                wachtwoordenLijst.Add(wachtwoordtext);
-            }
-            else
-            {
-                lblError.Content = "Wachtwoord is een verplichte veld!";
-            }
-             
-            return wachtwoordenLijst;
-        }
-
+        
         private void RbVrouw_Checked(object sender, RoutedEventArgs e)
         {
 
@@ -123,27 +104,27 @@ namespace TennisVlaanderen_WPF
 
             if (rbMan.IsChecked == true)
             {
-                nieuwSpeler.geslacht = "Man";
+                nieuwSpeler.Geslacht = "Man";
             }
             else
             {
-                nieuwSpeler.geslacht = "Vrouw";
+                nieuwSpeler.Geslacht = "Vrouw";
             }
 
-            TennisVlaanderen_Models.Speler speler = new TennisVlaanderen_Models.Speler()
+            Speler speler = new Speler()
             {
-                id = 21,
-                naam = txtNaam.Text,
-                voornaam = txtVoornaam.Text,
-                klassement = "3",
-                geslacht = nieuwSpeler.geslacht,
-                geboorteDatum = DateTime.Parse(txtGeboortedatum.Text),
-                nationaliteit = txtNationaliteit.Text,
-                adres = txtAdres.Text,
-                land = txtLand.Text,
-                telefoon = txtTelefoon.Text,
-                email = txtEmail.Text,
-                rijksNummer = txtRijksNummer.Text
+                Id = 21,
+                Naam = txtNaam.Text,
+                Voornaam = txtVoornaam.Text,
+                Klassement = "3",
+                Geslacht = nieuwSpeler.Geslacht,
+                GeboorteDatum = DateTime.Parse(txtGeboortedatum.Text),
+                Nationaliteit = txtNationaliteit.Text,
+                Adres = txtAdres.Text,
+                Land = txtLand.Text,
+                Telefoon = txtTelefoon.Text,
+                Email = txtEmail.Text,
+                RijksNummer = txtRijksNummer.Text
             };
 
             if (isToevoeg)

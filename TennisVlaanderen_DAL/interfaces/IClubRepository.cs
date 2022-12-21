@@ -8,6 +8,6 @@ namespace TennisVlaanderen_DAL.interfaces
 {
     public interface IClubRepository
     {
-        IEnumerable<TennisVlaanderen_Models.Club> OphalenClubNaam();
+        IEnumerable<Club> OphalenClubNaam();
     }
 }

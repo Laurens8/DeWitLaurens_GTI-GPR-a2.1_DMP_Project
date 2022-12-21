@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using TennisVlaanderen_DAL.interfaces;
 using TennisVlaanderen_DAL.repositories;
+using TennisVlaanderen_DAL;
 
 namespace TennisVlaanderen_WPF
 {
@@ -31,7 +32,7 @@ namespace TennisVlaanderen_WPF
 
         private void DataSpeler()
         {
-            List<TennisVlaanderen_Models.Speler> spelersDB = spelers.OphalenSpeler();
+            List<Speler> spelersDB = spelers.OphalenSpeler();
 
             foreach (var item in spelersDB)
             {

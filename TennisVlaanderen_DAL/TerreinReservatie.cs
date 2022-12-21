@@ -14,11 +14,11 @@ namespace TennisVlaanderen_DAL
     
     public partial class TerreinReservatie
     {
-        public int id { get; set; }
-        public int spelerID { get; set; }
-        public string terreinNummer { get; set; }
-        public string typeOndergrond { get; set; }
-        public string typeTennis { get; set; }
+        public int Id { get; set; }
+        public int SpelerID { get; set; }
+        public string TerreinNummer { get; set; }
+        public string TypeOndergrond { get; set; }
+        public string TypeTennis { get; set; }
     
         public virtual Speler Speler { get; set; }
     }

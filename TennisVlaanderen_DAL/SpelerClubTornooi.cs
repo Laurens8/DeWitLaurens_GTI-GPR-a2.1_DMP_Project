@@ -14,10 +14,10 @@ namespace TennisVlaanderen_DAL
     
     public partial class SpelerClubTornooi
     {
-        public int id { get; set; }
-        public int clubID { get; set; }
-        public int spelerID { get; set; }
-        public int tornooiID { get; set; }
+        public int Id { get; set; }
+        public int ClubID { get; set; }
+        public int SpelerID { get; set; }
+        public int TornooiID { get; set; }
     
         public virtual Club Club { get; set; }
         public virtual Speler Speler { get; set; }

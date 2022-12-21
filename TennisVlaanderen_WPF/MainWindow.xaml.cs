@@ -40,10 +40,8 @@ namespace TennisVlaanderen_WPF
 
         private void BtnDoorgaan_Click(object sender, RoutedEventArgs e)
         {
-            List<TennisVlaanderen_Models.Speler> spelersDB = SpelerRepository.OphalenSpelerEmail();
-            List<TennisVlaanderen_Models.Speler> speler = new List<TennisVlaanderen_Models.Speler>();
-            WindowSpelerAanmaken wachtwoord = new WindowSpelerAanmaken();
-            wachtwoord.WachtwoordValidatie();
+            List<Speler> spelersDB = SpelerRepository.OphalenSpelerEmail();
+            List<Speler> speler = new List<Speler>();          
             bool emailValidatie = false;
             lblError.Content = string.Empty;
 
@@ -54,7 +52,7 @@ namespace TennisVlaanderen_WPF
 
             for (int i = 0; i < speler.Count(); i++)
             {
-                if (speler[i].email != txtEmail.Text)
+                if (speler[i].Email != txtEmail.Text)
                 {
                     emailValidatie = false;
                 }
@@ -66,25 +64,14 @@ namespace TennisVlaanderen_WPF
 
             if (string.IsNullOrWhiteSpace(txtEmail.Text))
             {
-                lblError.Content = "Email address is een verplicht veld!";
-
-                if (emailValidatie == false)
-                {
-                    lblError.Content = "Deze email address is incorrect!";
-                }
-
-                else if (string.IsNullOrWhiteSpace(txtWachtwoord.Text))
-                {
-                    lblError.Content = "Wachtwoord is een verplicht veld!";
-                }
-
-                else if (!wachtwoord.WachtwoordValidatie().Contains(txtWachtwoord.Text))
-                {
-                    lblError.Content = "Wachtwoord is incorrect!";
-                }
+                lblError.Content = "Email address is een verplicht veld!";                                       
+            }
+            else if (emailValidatie == false)
+            {
+                lblError.Content = "Deze email address is incorrect!";
             }
                                
-            if (!string.IsNullOrWhiteSpace(txtEmail.Text) && emailValidatie == true && wachtwoord.WachtwoordValidatie().Contains(txtWachtwoord.Text) || txtEmail.Text == "Voorbeeld@email.be" && txtWachtwoord.Text == string.Empty)
+            if (!string.IsNullOrWhiteSpace(txtEmail.Text) && emailValidatie == true || txtEmail.Text == "olivia@email.be")
             {
                 WindowHomePagina homePagina = new WindowHomePagina();
                 homePagina.Show();

@@ -14,11 +14,11 @@ namespace TennisVlaanderen_DAL
     
     public partial class Abonnement
     {
-        public int id { get; set; }
-        public int spelerID { get; set; }
-        public int clubID { get; set; }
-        public string lessen { get; set; }
-        public string stages { get; set; }
+        public int Id { get; set; }
+        public int SpelerID { get; set; }
+        public int ClubID { get; set; }
+        public string Lessen { get; set; }
+        public string Stages { get; set; }
     
         public virtual Club Club { get; set; }
         public virtual Speler Speler { get; set; }

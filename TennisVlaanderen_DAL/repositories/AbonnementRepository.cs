@@ -12,12 +12,12 @@ namespace TennisVlaanderen_DAL.repositories
 {
     public class AbonnementRepository : BaseRepository, IAbonnementRepository
     {
-        public IEnumerable<TennisVlaanderen_Models.Abonnement> OphalenAbonnement()
+        public IEnumerable<Abonnement> OphalenAbonnement()
         {
             string sql = "SELECT * FROM TennisVlaanderen.Abonnement";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
-                return db.Query<TennisVlaanderen_Models.Abonnement>(sql);
+                return db.Query<Abonnement>(sql);
             }
         }
     }

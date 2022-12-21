@@ -4,95 +4,95 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PublishersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="TennisVlaanderenModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Abonnement">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="spelerID" Type="int" Nullable="false" />
-          <Property Name="clubID" Type="int" Nullable="false" />
-          <Property Name="lessen" Type="varchar" MaxLength="100" />
-          <Property Name="stages" Type="varchar" MaxLength="100" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpelerID" Type="int" Nullable="false" />
+          <Property Name="ClubID" Type="int" Nullable="false" />
+          <Property Name="Lessen" Type="varchar" MaxLength="100" />
+          <Property Name="Stages" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="Club">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="naam" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="adres" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="telefoon" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="website" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="kwaliteitLabel" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="clubaanbod" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naam" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adres" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefoon" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Website" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="KwaliteitLabel" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Clubaanbod" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Speler">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="naam" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="voornaam" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="klassement" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="geslacht" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="geboorteDatum" Type="date" Nullable="false" />
-          <Property Name="nationaliteit" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="adres" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="land" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="telefoon" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="email" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="rijksNummer" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Naam" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Voornaam" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Klassement" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Geslacht" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="GeboorteDatum" Type="date" Nullable="false" />
+          <Property Name="Nationaliteit" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Adres" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Land" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefoon" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="RijksNummer" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="SpelerClubTornooi">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="clubID" Type="int" Nullable="false" />
-          <Property Name="spelerID" Type="int" Nullable="false" />
-          <Property Name="tornooiID" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClubID" Type="int" Nullable="false" />
+          <Property Name="SpelerID" Type="int" Nullable="false" />
+          <Property Name="TornooiID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Tarieven">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="clubID" Type="int" Nullable="false" />
-          <Property Name="leeftijdgraad" Type="varchar" MaxLength="100" />
-          <Property Name="typeTennis" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="prijs" Type="money" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClubID" Type="int" Nullable="false" />
+          <Property Name="Leeftijdgraad" Type="varchar" MaxLength="100" />
+          <Property Name="TypeTennis" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Prijs" Type="money" />
         </EntityType>
         <EntityType Name="TerreinReservatie">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="spelerID" Type="int" Nullable="false" />
-          <Property Name="terreinNummer" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="typeOndergrond" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="typeTennis" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpelerID" Type="int" Nullable="false" />
+          <Property Name="TerreinNummer" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TypeOndergrond" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TypeTennis" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <EntityType Name="Tornooi">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="naamTornooi" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="datum" Type="date" Nullable="false" />
-          <Property Name="circuit" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="typeCompetitie" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NaamTornooi" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Datum" Type="date" Nullable="false" />
+          <Property Name="Circuit" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="TypeCompetitie" Type="varchar" MaxLength="100" Nullable="false" />
         </EntityType>
         <Association Name="FK_tennisVlaanderen_Club">
           <End Role="Club" Type="Self.Club" Multiplicity="1" />
           <End Role="Tarieven" Type="Self.Tarieven" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Club">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Tarieven">
-              <PropertyRef Name="clubID" />
+              <PropertyRef Name="ClubID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -101,10 +101,10 @@
           <End Role="Abonnement" Type="Self.Abonnement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Club">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Abonnement">
-              <PropertyRef Name="clubID" />
+              <PropertyRef Name="ClubID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -113,10 +113,10 @@
           <End Role="SpelerClubTornooi" Type="Self.SpelerClubTornooi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Club">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="SpelerClubTornooi">
-              <PropertyRef Name="clubID" />
+              <PropertyRef Name="ClubID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -125,10 +125,10 @@
           <End Role="Abonnement" Type="Self.Abonnement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Speler">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Abonnement">
-              <PropertyRef Name="spelerID" />
+              <PropertyRef Name="SpelerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -137,10 +137,10 @@
           <End Role="SpelerClubTornooi" Type="Self.SpelerClubTornooi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Speler">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="SpelerClubTornooi">
-              <PropertyRef Name="spelerID" />
+              <PropertyRef Name="SpelerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -149,10 +149,10 @@
           <End Role="TerreinReservatie" Type="Self.TerreinReservatie" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Speler">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TerreinReservatie">
-              <PropertyRef Name="spelerID" />
+              <PropertyRef Name="SpelerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -161,14 +161,14 @@
           <End Role="SpelerClubTornooi" Type="Self.SpelerClubTornooi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tornooi">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="SpelerClubTornooi">
-              <PropertyRef Name="tornooiID" />
+              <PropertyRef Name="TornooiID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PublishersModelStoreContainer">
+        <EntityContainer Name="TennisVlaanderenModelStoreContainer">
           <EntitySet Name="Abonnement" EntityType="Self.Abonnement" Schema="tennisVlaanderen" store:Type="Tables" />
           <EntitySet Name="Club" EntityType="Self.Club" Schema="tennisVlaanderen" store:Type="Tables" />
           <EntitySet Name="Speler" EntityType="Self.Speler" Schema="tennisVlaanderen" store:Type="Tables" />
@@ -209,98 +209,98 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PublishersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="TennisVlaanderenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Abonnement">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="spelerID" Type="Int32" Nullable="false" />
-          <Property Name="clubID" Type="Int32" Nullable="false" />
-          <Property Name="lessen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="stages" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpelerID" Type="Int32" Nullable="false" />
+          <Property Name="ClubID" Type="Int32" Nullable="false" />
+          <Property Name="Lessen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Stages" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Club" Relationship="Self.FK_tennisVlaanderen_Club_Abonnement" FromRole="Abonnement" ToRole="Club" />
           <NavigationProperty Name="Speler" Relationship="Self.FK_tennisVlaanderen_Speler" FromRole="Abonnement" ToRole="Speler" />
         </EntityType>
         <EntityType Name="Club">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="naam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="telefoon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="website" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="kwaliteitLabel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="clubaanbod" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefoon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="KwaliteitLabel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Clubaanbod" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Abonnement" Relationship="Self.FK_tennisVlaanderen_Club_Abonnement" FromRole="Club" ToRole="Abonnement" />
           <NavigationProperty Name="Tarieven" Relationship="Self.FK_tennisVlaanderen_Club" FromRole="Club" ToRole="Tarieven" />
           <NavigationProperty Name="SpelerClubTornooi" Relationship="Self.FK_tennisVlaanderen_Club_SpelerClubTornooi" FromRole="Club" ToRole="SpelerClubTornooi" />
         </EntityType>
         <EntityType Name="Speler">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="naam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="voornaam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="klassement" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="geslacht" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="geboorteDatum" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="nationaliteit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="land" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="telefoon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="rijksNummer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Naam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Voornaam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Klassement" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Geslacht" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GeboorteDatum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Nationaliteit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Land" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefoon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RijksNummer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Abonnement" Relationship="Self.FK_tennisVlaanderen_Speler" FromRole="Speler" ToRole="Abonnement" />
           <NavigationProperty Name="SpelerClubTornooi" Relationship="Self.FK_tennisVlaanderen_Speler_SpelerClubTornooi" FromRole="Speler" ToRole="SpelerClubTornooi" />
           <NavigationProperty Name="TerreinReservatie" Relationship="Self.FK_tennisVlaanderen_Speler_TerreinReservatie" FromRole="Speler" ToRole="TerreinReservatie" />
         </EntityType>
         <EntityType Name="SpelerClubTornooi">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="clubID" Type="Int32" Nullable="false" />
-          <Property Name="spelerID" Type="Int32" Nullable="false" />
-          <Property Name="tornooiID" Type="Int32" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClubID" Type="Int32" Nullable="false" />
+          <Property Name="SpelerID" Type="Int32" Nullable="false" />
+          <Property Name="TornooiID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Club" Relationship="Self.FK_tennisVlaanderen_Club_SpelerClubTornooi" FromRole="SpelerClubTornooi" ToRole="Club" />
           <NavigationProperty Name="Speler" Relationship="Self.FK_tennisVlaanderen_Speler_SpelerClubTornooi" FromRole="SpelerClubTornooi" ToRole="Speler" />
           <NavigationProperty Name="Tornooi" Relationship="Self.FK_tennisVlaanderen_Tornooi" FromRole="SpelerClubTornooi" ToRole="Tornooi" />
         </EntityType>
         <EntityType Name="Tarieven">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="clubID" Type="Int32" Nullable="false" />
-          <Property Name="leeftijdgraad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="typeTennis" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="prijs" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClubID" Type="Int32" Nullable="false" />
+          <Property Name="Leeftijdgraad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TypeTennis" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prijs" Type="Decimal" Precision="19" Scale="4" />
           <NavigationProperty Name="Club" Relationship="Self.FK_tennisVlaanderen_Club" FromRole="Tarieven" ToRole="Club" />
         </EntityType>
         <EntityType Name="TerreinReservatie">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="spelerID" Type="Int32" Nullable="false" />
-          <Property Name="terreinNummer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="typeOndergrond" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="typeTennis" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpelerID" Type="Int32" Nullable="false" />
+          <Property Name="TerreinNummer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TypeOndergrond" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TypeTennis" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Speler" Relationship="Self.FK_tennisVlaanderen_Speler_TerreinReservatie" FromRole="TerreinReservatie" ToRole="Speler" />
         </EntityType>
         <EntityType Name="Tornooi">
           <Key>
-            <PropertyRef Name="id" />
+            <PropertyRef Name="Id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="naamTornooi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="datum" Type="DateTime" Nullable="false" Precision="0" />
-          <Property Name="circuit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="typeCompetitie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NaamTornooi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Datum" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Circuit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TypeCompetitie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="SpelerClubTornooi" Relationship="Self.FK_tennisVlaanderen_Tornooi" FromRole="Tornooi" ToRole="SpelerClubTornooi" />
         </EntityType>
         <Association Name="FK_tennisVlaanderen_Club_Abonnement">
@@ -308,10 +308,10 @@
           <End Role="Abonnement" Type="Self.Abonnement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Club">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Abonnement">
-              <PropertyRef Name="clubID" />
+              <PropertyRef Name="ClubID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -320,10 +320,10 @@
           <End Role="Abonnement" Type="Self.Abonnement" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Speler">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Abonnement">
-              <PropertyRef Name="spelerID" />
+              <PropertyRef Name="SpelerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -332,10 +332,10 @@
           <End Role="Tarieven" Type="Self.Tarieven" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Club">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Tarieven">
-              <PropertyRef Name="clubID" />
+              <PropertyRef Name="ClubID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -344,10 +344,10 @@
           <End Role="SpelerClubTornooi" Type="Self.SpelerClubTornooi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Club">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="SpelerClubTornooi">
-              <PropertyRef Name="clubID" />
+              <PropertyRef Name="ClubID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -356,10 +356,10 @@
           <End Role="SpelerClubTornooi" Type="Self.SpelerClubTornooi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Speler">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="SpelerClubTornooi">
-              <PropertyRef Name="spelerID" />
+              <PropertyRef Name="SpelerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -368,10 +368,10 @@
           <End Role="TerreinReservatie" Type="Self.TerreinReservatie" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Speler">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="TerreinReservatie">
-              <PropertyRef Name="spelerID" />
+              <PropertyRef Name="SpelerID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -380,14 +380,14 @@
           <End Role="SpelerClubTornooi" Type="Self.SpelerClubTornooi" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Tornooi">
-              <PropertyRef Name="id" />
+              <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="SpelerClubTornooi">
-              <PropertyRef Name="tornooiID" />
+              <PropertyRef Name="TornooiID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PublishersEntities2" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="TennisVlaanderenEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Abonnement" EntityType="Self.Abonnement" />
           <EntitySet Name="Club" EntityType="Self.Club" />
           <EntitySet Name="Speler" EntityType="Self.Speler" />
@@ -429,90 +429,90 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PublishersModelStoreContainer" CdmEntityContainer="PublishersEntities2">
+        <EntityContainerMapping StorageEntityContainer="TennisVlaanderenModelStoreContainer" CdmEntityContainer="TennisVlaanderenEntities">
           <EntitySetMapping Name="Abonnement">
-            <EntityTypeMapping TypeName="PublishersModel.Abonnement">
+            <EntityTypeMapping TypeName="TennisVlaanderenModel.Abonnement">
               <MappingFragment StoreEntitySet="Abonnement">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="spelerID" ColumnName="spelerID" />
-                <ScalarProperty Name="clubID" ColumnName="clubID" />
-                <ScalarProperty Name="lessen" ColumnName="lessen" />
-                <ScalarProperty Name="stages" ColumnName="stages" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SpelerID" ColumnName="SpelerID" />
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+                <ScalarProperty Name="Lessen" ColumnName="Lessen" />
+                <ScalarProperty Name="Stages" ColumnName="Stages" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Club">
-            <EntityTypeMapping TypeName="PublishersModel.Club">
+            <EntityTypeMapping TypeName="TennisVlaanderenModel.Club">
               <MappingFragment StoreEntitySet="Club">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="naam" ColumnName="naam" />
-                <ScalarProperty Name="adres" ColumnName="adres" />
-                <ScalarProperty Name="telefoon" ColumnName="telefoon" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="website" ColumnName="website" />
-                <ScalarProperty Name="kwaliteitLabel" ColumnName="kwaliteitLabel" />
-                <ScalarProperty Name="clubaanbod" ColumnName="clubaanbod" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Telefoon" ColumnName="Telefoon" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Website" ColumnName="Website" />
+                <ScalarProperty Name="KwaliteitLabel" ColumnName="KwaliteitLabel" />
+                <ScalarProperty Name="Clubaanbod" ColumnName="Clubaanbod" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Speler">
-            <EntityTypeMapping TypeName="PublishersModel.Speler">
+            <EntityTypeMapping TypeName="TennisVlaanderenModel.Speler">
               <MappingFragment StoreEntitySet="Speler">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="naam" ColumnName="naam" />
-                <ScalarProperty Name="voornaam" ColumnName="voornaam" />
-                <ScalarProperty Name="klassement" ColumnName="klassement" />
-                <ScalarProperty Name="geslacht" ColumnName="geslacht" />
-                <ScalarProperty Name="geboorteDatum" ColumnName="geboorteDatum" />
-                <ScalarProperty Name="nationaliteit" ColumnName="nationaliteit" />
-                <ScalarProperty Name="adres" ColumnName="adres" />
-                <ScalarProperty Name="land" ColumnName="land" />
-                <ScalarProperty Name="telefoon" ColumnName="telefoon" />
-                <ScalarProperty Name="email" ColumnName="email" />
-                <ScalarProperty Name="rijksNummer" ColumnName="rijksNummer" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+                <ScalarProperty Name="Klassement" ColumnName="Klassement" />
+                <ScalarProperty Name="Geslacht" ColumnName="Geslacht" />
+                <ScalarProperty Name="GeboorteDatum" ColumnName="GeboorteDatum" />
+                <ScalarProperty Name="Nationaliteit" ColumnName="Nationaliteit" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Land" ColumnName="Land" />
+                <ScalarProperty Name="Telefoon" ColumnName="Telefoon" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="RijksNummer" ColumnName="RijksNummer" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SpelerClubTornooi">
-            <EntityTypeMapping TypeName="PublishersModel.SpelerClubTornooi">
+            <EntityTypeMapping TypeName="TennisVlaanderenModel.SpelerClubTornooi">
               <MappingFragment StoreEntitySet="SpelerClubTornooi">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="clubID" ColumnName="clubID" />
-                <ScalarProperty Name="spelerID" ColumnName="spelerID" />
-                <ScalarProperty Name="tornooiID" ColumnName="tornooiID" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+                <ScalarProperty Name="SpelerID" ColumnName="SpelerID" />
+                <ScalarProperty Name="TornooiID" ColumnName="TornooiID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tarieven">
-            <EntityTypeMapping TypeName="PublishersModel.Tarieven">
+            <EntityTypeMapping TypeName="TennisVlaanderenModel.Tarieven">
               <MappingFragment StoreEntitySet="Tarieven">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="clubID" ColumnName="clubID" />
-                <ScalarProperty Name="leeftijdgraad" ColumnName="leeftijdgraad" />
-                <ScalarProperty Name="typeTennis" ColumnName="typeTennis" />
-                <ScalarProperty Name="prijs" ColumnName="prijs" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+                <ScalarProperty Name="Leeftijdgraad" ColumnName="Leeftijdgraad" />
+                <ScalarProperty Name="TypeTennis" ColumnName="TypeTennis" />
+                <ScalarProperty Name="Prijs" ColumnName="Prijs" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="TerreinReservatie">
-            <EntityTypeMapping TypeName="PublishersModel.TerreinReservatie">
+            <EntityTypeMapping TypeName="TennisVlaanderenModel.TerreinReservatie">
               <MappingFragment StoreEntitySet="TerreinReservatie">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="spelerID" ColumnName="spelerID" />
-                <ScalarProperty Name="terreinNummer" ColumnName="terreinNummer" />
-                <ScalarProperty Name="typeOndergrond" ColumnName="typeOndergrond" />
-                <ScalarProperty Name="typeTennis" ColumnName="typeTennis" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="SpelerID" ColumnName="SpelerID" />
+                <ScalarProperty Name="TerreinNummer" ColumnName="TerreinNummer" />
+                <ScalarProperty Name="TypeOndergrond" ColumnName="TypeOndergrond" />
+                <ScalarProperty Name="TypeTennis" ColumnName="TypeTennis" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Tornooi">
-            <EntityTypeMapping TypeName="PublishersModel.Tornooi">
+            <EntityTypeMapping TypeName="TennisVlaanderenModel.Tornooi">
               <MappingFragment StoreEntitySet="Tornooi">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="naamTornooi" ColumnName="naamTornooi" />
-                <ScalarProperty Name="datum" ColumnName="datum" />
-                <ScalarProperty Name="circuit" ColumnName="circuit" />
-                <ScalarProperty Name="typeCompetitie" ColumnName="typeCompetitie" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="NaamTornooi" ColumnName="NaamTornooi" />
+                <ScalarProperty Name="Datum" ColumnName="Datum" />
+                <ScalarProperty Name="Circuit" ColumnName="Circuit" />
+                <ScalarProperty Name="TypeCompetitie" ColumnName="TypeCompetitie" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

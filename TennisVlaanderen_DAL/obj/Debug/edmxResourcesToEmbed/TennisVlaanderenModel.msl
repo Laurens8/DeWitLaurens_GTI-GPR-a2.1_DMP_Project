@@ -1,89 +1,89 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="PublishersModelStoreContainer" CdmEntityContainer="PublishersEntities2">
+  <EntityContainerMapping StorageEntityContainer="TennisVlaanderenModelStoreContainer" CdmEntityContainer="TennisVlaanderenEntities">
     <EntitySetMapping Name="Abonnement">
-      <EntityTypeMapping TypeName="PublishersModel.Abonnement">
+      <EntityTypeMapping TypeName="TennisVlaanderenModel.Abonnement">
         <MappingFragment StoreEntitySet="Abonnement">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="spelerID" ColumnName="spelerID" />
-          <ScalarProperty Name="clubID" ColumnName="clubID" />
-          <ScalarProperty Name="lessen" ColumnName="lessen" />
-          <ScalarProperty Name="stages" ColumnName="stages" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SpelerID" ColumnName="SpelerID" />
+          <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+          <ScalarProperty Name="Lessen" ColumnName="Lessen" />
+          <ScalarProperty Name="Stages" ColumnName="Stages" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Club">
-      <EntityTypeMapping TypeName="PublishersModel.Club">
+      <EntityTypeMapping TypeName="TennisVlaanderenModel.Club">
         <MappingFragment StoreEntitySet="Club">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="naam" ColumnName="naam" />
-          <ScalarProperty Name="adres" ColumnName="adres" />
-          <ScalarProperty Name="telefoon" ColumnName="telefoon" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="website" ColumnName="website" />
-          <ScalarProperty Name="kwaliteitLabel" ColumnName="kwaliteitLabel" />
-          <ScalarProperty Name="clubaanbod" ColumnName="clubaanbod" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naam" ColumnName="Naam" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Telefoon" ColumnName="Telefoon" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Website" ColumnName="Website" />
+          <ScalarProperty Name="KwaliteitLabel" ColumnName="KwaliteitLabel" />
+          <ScalarProperty Name="Clubaanbod" ColumnName="Clubaanbod" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Speler">
-      <EntityTypeMapping TypeName="PublishersModel.Speler">
+      <EntityTypeMapping TypeName="TennisVlaanderenModel.Speler">
         <MappingFragment StoreEntitySet="Speler">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="naam" ColumnName="naam" />
-          <ScalarProperty Name="voornaam" ColumnName="voornaam" />
-          <ScalarProperty Name="klassement" ColumnName="klassement" />
-          <ScalarProperty Name="geslacht" ColumnName="geslacht" />
-          <ScalarProperty Name="geboorteDatum" ColumnName="geboorteDatum" />
-          <ScalarProperty Name="nationaliteit" ColumnName="nationaliteit" />
-          <ScalarProperty Name="adres" ColumnName="adres" />
-          <ScalarProperty Name="land" ColumnName="land" />
-          <ScalarProperty Name="telefoon" ColumnName="telefoon" />
-          <ScalarProperty Name="email" ColumnName="email" />
-          <ScalarProperty Name="rijksNummer" ColumnName="rijksNummer" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Naam" ColumnName="Naam" />
+          <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
+          <ScalarProperty Name="Klassement" ColumnName="Klassement" />
+          <ScalarProperty Name="Geslacht" ColumnName="Geslacht" />
+          <ScalarProperty Name="GeboorteDatum" ColumnName="GeboorteDatum" />
+          <ScalarProperty Name="Nationaliteit" ColumnName="Nationaliteit" />
+          <ScalarProperty Name="Adres" ColumnName="Adres" />
+          <ScalarProperty Name="Land" ColumnName="Land" />
+          <ScalarProperty Name="Telefoon" ColumnName="Telefoon" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="RijksNummer" ColumnName="RijksNummer" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="SpelerClubTornooi">
-      <EntityTypeMapping TypeName="PublishersModel.SpelerClubTornooi">
+      <EntityTypeMapping TypeName="TennisVlaanderenModel.SpelerClubTornooi">
         <MappingFragment StoreEntitySet="SpelerClubTornooi">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="clubID" ColumnName="clubID" />
-          <ScalarProperty Name="spelerID" ColumnName="spelerID" />
-          <ScalarProperty Name="tornooiID" ColumnName="tornooiID" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+          <ScalarProperty Name="SpelerID" ColumnName="SpelerID" />
+          <ScalarProperty Name="TornooiID" ColumnName="TornooiID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Tarieven">
-      <EntityTypeMapping TypeName="PublishersModel.Tarieven">
+      <EntityTypeMapping TypeName="TennisVlaanderenModel.Tarieven">
         <MappingFragment StoreEntitySet="Tarieven">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="clubID" ColumnName="clubID" />
-          <ScalarProperty Name="leeftijdgraad" ColumnName="leeftijdgraad" />
-          <ScalarProperty Name="typeTennis" ColumnName="typeTennis" />
-          <ScalarProperty Name="prijs" ColumnName="prijs" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="ClubID" ColumnName="ClubID" />
+          <ScalarProperty Name="Leeftijdgraad" ColumnName="Leeftijdgraad" />
+          <ScalarProperty Name="TypeTennis" ColumnName="TypeTennis" />
+          <ScalarProperty Name="Prijs" ColumnName="Prijs" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="TerreinReservatie">
-      <EntityTypeMapping TypeName="PublishersModel.TerreinReservatie">
+      <EntityTypeMapping TypeName="TennisVlaanderenModel.TerreinReservatie">
         <MappingFragment StoreEntitySet="TerreinReservatie">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="spelerID" ColumnName="spelerID" />
-          <ScalarProperty Name="terreinNummer" ColumnName="terreinNummer" />
-          <ScalarProperty Name="typeOndergrond" ColumnName="typeOndergrond" />
-          <ScalarProperty Name="typeTennis" ColumnName="typeTennis" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="SpelerID" ColumnName="SpelerID" />
+          <ScalarProperty Name="TerreinNummer" ColumnName="TerreinNummer" />
+          <ScalarProperty Name="TypeOndergrond" ColumnName="TypeOndergrond" />
+          <ScalarProperty Name="TypeTennis" ColumnName="TypeTennis" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Tornooi">
-      <EntityTypeMapping TypeName="PublishersModel.Tornooi">
+      <EntityTypeMapping TypeName="TennisVlaanderenModel.Tornooi">
         <MappingFragment StoreEntitySet="Tornooi">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="naamTornooi" ColumnName="naamTornooi" />
-          <ScalarProperty Name="datum" ColumnName="datum" />
-          <ScalarProperty Name="circuit" ColumnName="circuit" />
-          <ScalarProperty Name="typeCompetitie" ColumnName="typeCompetitie" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="NaamTornooi" ColumnName="NaamTornooi" />
+          <ScalarProperty Name="Datum" ColumnName="Datum" />
+          <ScalarProperty Name="Circuit" ColumnName="Circuit" />
+          <ScalarProperty Name="TypeCompetitie" ColumnName="TypeCompetitie" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

@@ -9,12 +9,12 @@ namespace TennisVlaanderen_DAL.interfaces
 {
     public interface ISpelerRepository
     {
-        List<TennisVlaanderen_Models.Speler> OphalenSpelerEmail();
+        List<Speler> OphalenSpelerEmail();
 
-        List<TennisVlaanderen_Models.Speler> OphalenSpeler();
+        List<Speler> OphalenSpeler();
 
-        bool SpelerToevoegen(TennisVlaanderen_Models.Speler speler);
-        bool SpelerUpdate(TennisVlaanderen_Models.Speler speler);
+        bool SpelerToevoegen(Speler speler);
+        bool SpelerUpdate(Speler speler);
         bool SpelerDelete(string spelerID);
     }
 }

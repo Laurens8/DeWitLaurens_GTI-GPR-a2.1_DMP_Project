@@ -8,6 +8,6 @@ namespace TennisVlaanderen_DAL.interfaces
 {
     public interface ISpelerClubTornooiRepository
     {
-        IEnumerable<TennisVlaanderen_Models.SpelerClubTornooi> OphalenSpelerClubTornooi();
+        IEnumerable<SpelerClubTornooi> OphalenSpelerClubTornooi();
     }
 }

@@ -20,11 +20,11 @@ namespace TennisVlaanderen_DAL
             this.SpelerClubTornooi = new HashSet<SpelerClubTornooi>();
         }
     
-        public int id { get; set; }
-        public string naamTornooi { get; set; }
-        public System.DateTime datum { get; set; }
-        public string circuit { get; set; }
-        public string typeCompetitie { get; set; }
+        public int Id { get; set; }
+        public string NaamTornooi { get; set; }
+        public System.DateTime Datum { get; set; }
+        public string Circuit { get; set; }
+        public string TypeCompetitie { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SpelerClubTornooi> SpelerClubTornooi { get; set; }

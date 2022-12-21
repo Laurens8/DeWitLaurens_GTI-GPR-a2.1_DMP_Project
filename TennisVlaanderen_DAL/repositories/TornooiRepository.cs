@@ -12,12 +12,12 @@ namespace TennisVlaanderen_DAL.repositories
 {
     public class TornooiRepository : BaseRepository, ITornooiRepository
     {
-        public IEnumerable<TennisVlaanderen_Models.Tornooi> OphalenTornooi()
+        public IEnumerable<Tornooi> OphalenTornooi()
         {
             string sql = "SELECT * FROM TennisVlaanderen.Tornooi";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
-                return db.Query<TennisVlaanderen_Models.Tornooi>(sql);
+                return db.Query<Tornooi>(sql);
             }
         }
     }

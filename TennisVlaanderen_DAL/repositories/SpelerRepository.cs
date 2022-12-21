@@ -16,30 +16,30 @@ namespace TennisVlaanderen_DAL.repositories
 {
     public class SpelerRepository : BaseRepository, ISpelerRepository
     {        
-        public List<TennisVlaanderen_Models.Speler> OphalenSpelerEmail()
+        public List<Speler> OphalenSpelerEmail()
         {            
-            string sql = "SELECT email FROM TennisVlaanderen.Speler";
+            string sql = "SELECT Email FROM TennisVlaanderen.Speler";
 
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
-                return db.Query<TennisVlaanderen_Models.Speler>(sql).ToList();
+                return db.Query<Speler>(sql).ToList();
             }
         }
 
-        public List<TennisVlaanderen_Models.Speler> OphalenSpeler()
+        public List<Speler> OphalenSpeler()
         {
             string sql = "SELECT * FROM TennisVlaanderen.Speler";
 
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
-                return db.Query<TennisVlaanderen_Models.Speler>(sql).ToList();
+                return db.Query<Speler>(sql).ToList();
             }
         }
 
         public bool SpelerDelete(string spelerID)
         {
             string sql = @"DELETE FROM TennisVlaanderen.Speler
-                           WHERE id = @id";
+                           WHERE Id = @Id";
 
             var parameter = new
             {
@@ -58,25 +58,25 @@ namespace TennisVlaanderen_DAL.repositories
             return false;
         }
 
-        public bool SpelerToevoegen(TennisVlaanderen_Models.Speler speler)
+        public bool SpelerToevoegen(Speler speler)
         {
-            string sql = @"INSERT INTO TennisVlaanderen.Speler (id, naam, voornaam, klassement, geslacht, geboorteDatum, nationaliteit, adres, land, telefoon, email, rijksNummer)
-                          VALUES (@id, @naam, @voornaam, @klassement, @geslacht, @geboorteDatum, @nationaliteit, @adres, @land, @telefoon, @email, @rijksNummer)";
+            string sql = @"INSERT INTO TennisVlaanderen.Speler (Id, Naam, Voornaam, Klassement, Geslacht, GeboorteDatum, Nationaliteit, Adres, Land, Telefoon, Email, RijksNummer)
+                          VALUES (@Id, @Naam, @Voornaam, @Klassement, @Geslacht, @GeboorteDatum, @Nationaliteit, @Adres, @Land, @Telefoon, @Email, @RijksNummer)";
 
             var parameter = new
             {
-                @id = speler.id,
-                @naam = speler.naam,
-                @voornaam = speler.voornaam,
-                @klassement = speler.klassement,
-                @geslacht = speler.geslacht,
-                @geboorteDatum = speler.geboorteDatum,
-                @nationaliteit = speler.nationaliteit,
-                @adres = speler.adres,
-                @land = speler.land,
-                @telefoon = speler.telefoon,
-                @email = speler.email,
-                @rijksNummer = speler.rijksNummer,
+                @Id = speler.Id,
+                @Naam = speler.Naam,
+                @Voornaam = speler.Voornaam,
+                @Klassement = speler.Klassement,
+                @Geslacht = speler.Geslacht,
+                @GeboorteDatum = speler.GeboorteDatum,
+                @Nationaliteit = speler.Nationaliteit,
+                @Adres = speler.Adres,
+                @Land = speler.Land,
+                @Telefoon = speler.Telefoon,
+                @Email = speler.Email,
+                @RijksNummer = speler.RijksNummer,
             };
 
             using (IDbConnection db = new SqlConnection(ConnectionString))
@@ -91,35 +91,35 @@ namespace TennisVlaanderen_DAL.repositories
             return false;
         }
 
-        public bool SpelerUpdate(TennisVlaanderen_Models.Speler speler) 
+        public bool SpelerUpdate(Speler speler) 
         {
-            string sql = @"UPDATE TennisVlaanderen.Speler naam = @naam,
-                        voornaam = @voornaam,
-                        klassement = @klassement,
-                        geslacht =@geslacht,
-                        geboorteDatum = @geboorteDatum, 
-                        nationaliteit = @nationaliteit,
-                        adres = @adres,
-                        land = @land,
-                        telefoon = @telefoon,
-                        email = @email,
-                        rijksNummer = @rijksNummer
-                        WHERE id = @id";
+            string sql = @"UPDATE TennisVlaanderen.Speler Naam = @Naam,
+                        Voornaam = @Voornaam,
+                        Klassement = @Klassement,
+                        Geslacht =@Geslacht,
+                        GeboorteDatum = @GeboorteDatum, 
+                        Nationaliteit = @Nationaliteit,
+                        Adres = @Adres,
+                        Land = @Land,
+                        Telefoon = @Telefoon,
+                        Email = @Email,
+                        RijksNummer = @RijksNummer
+                        WHERE Id = @Id";
 
             var parameter = new
             {
-                @id = speler.id,
-                @naam = speler.naam,
-                @voornaam = speler.voornaam,
-                @klassement = speler.klassement,
-                @geslacht = speler.geslacht,
-                @geboorteDatum = speler.geboorteDatum,
-                @nationaliteit = speler.nationaliteit,
-                @adres = speler.adres,
-                @land = speler.land,
-                @telefoon = speler.telefoon,
-                @email = speler.email,
-                @rijksNummer = speler.rijksNummer,
+                @Id = speler.Id,
+                @Naam = speler.Naam,
+                @Voornaam = speler.Voornaam,
+                @Klassement = speler.Klassement,
+                @Geslacht = speler.Geslacht,
+                @GeboorteDatum = speler.GeboorteDatum,
+                @Nationaliteit = speler.Nationaliteit,
+                @Adres = speler.Adres,
+                @Land = speler.Land,
+                @Telefoon = speler.Telefoon,
+                @Email = speler.Email,
+                @RijksNummer = speler.RijksNummer,
             };
 
             using (IDbConnection db = new SqlConnection(ConnectionString))
