@@ -62,6 +62,7 @@
       <DependentUpon>TennisVlaanderenModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DatabaseConnectie.cs" />
+    <Compile Include="FileOperations.cs" />
     <Compile Include="interfaces\IAbonnementRepository.cs" />
     <Compile Include="interfaces\IClubRepository.cs" />
     <Compile Include="interfaces\ISpelerClubTornooiRepository.cs" />

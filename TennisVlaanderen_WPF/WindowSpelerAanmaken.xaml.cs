@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using TennisVlaanderen_DAL.interfaces;
 using TennisVlaanderen_DAL.repositories;
 using TennisVlaanderen_Models;
+using TennisVlaanderen_DAL;
 
 namespace TennisVlaanderen_WPF
 {
@@ -27,18 +28,13 @@ namespace TennisVlaanderen_WPF
             InitializeComponent();
         }
 
-        Speler nieuwSpeler = new Speler();
+        TennisVlaanderen_Models.Speler nieuwSpeler = new TennisVlaanderen_Models.Speler();
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {
-            
-            List<Speler> spelers = new List<Speler>();         
-
-            if (nieuwSpeler.IsGeldig())
-            {
-                nieuwSpeler.naam = txtNaam.Text;
-                nieuwSpeler.voornaam = txtVoornaam.Text;
-
+            lblError.Content = string.Empty;
+            List<TennisVlaanderen_Models.Speler> spelers = new List<TennisVlaanderen_Models.Speler>();         
+                        
                 if (!string.IsNullOrEmpty(txtGeboortedatum.Text))
                 {
                     nieuwSpeler.geboorteDatum = DateTime.Parse(txtGeboortedatum.Text);
@@ -48,6 +44,8 @@ namespace TennisVlaanderen_WPF
                     lblError.Content = "Geboortedatum is een verplicht in te vullen veld";
                 }
 
+                nieuwSpeler.naam = txtNaam.Text;
+                nieuwSpeler.voornaam = txtVoornaam.Text;
                 nieuwSpeler.email = txtEmail.Text;
                 nieuwSpeler.adres = txtAdres.Text;
                 nieuwSpeler.land = txtLand.Text;
@@ -55,13 +53,8 @@ namespace TennisVlaanderen_WPF
                 nieuwSpeler.telefoon = txtTelefoon.Text;
                 nieuwSpeler.rijksNummer = txtRijksNummer.Text;
                 lblError.Content = string.Empty;
-                Toevoegen(true);
-            }
-            else
-            {
-                lblError.Content = nieuwSpeler.Error;
-            }                    
-                    
+                Toevoegen(true);                                                       
+
             if (rbMan.IsChecked == false && rbVrouw.IsChecked == false)
             {
                 lblError.Content = "Selecteer een geslacht";
@@ -76,7 +69,17 @@ namespace TennisVlaanderen_WPF
                 }
             }
 
-            spelers.Add(nieuwSpeler);
+            if (nieuwSpeler.IsGeldig())
+            {
+                spelers.Add(nieuwSpeler);
+                WindowHomePagina homepage = new WindowHomePagina();
+                homepage.Show();
+                this.Close();
+            }
+            else
+            {
+                lblError.Content = nieuwSpeler.Error;
+            }                   
         }
 
         private void BtnAnnuleren_Click(object sender, RoutedEventArgs e)
@@ -88,7 +91,8 @@ namespace TennisVlaanderen_WPF
 
         public List<string> WachtwoordValidatie()
         {
-            List<string> wachtwoordenLijst = new List<string>();
+            FileOperations.WachtwoordOpslaan(txtWachtwoord.Text);
+            List<string> wachtwoordenLijst = FileOperations.WachtwoordLezen();
 
             if (!string.IsNullOrWhiteSpace(txtWachtwoord.Text))
             {
@@ -126,7 +130,7 @@ namespace TennisVlaanderen_WPF
                 nieuwSpeler.geslacht = "Vrouw";
             }
 
-            Speler speler = new Speler()
+            TennisVlaanderen_Models.Speler speler = new TennisVlaanderen_Models.Speler()
             {
                 id = 21,
                 naam = txtNaam.Text,
