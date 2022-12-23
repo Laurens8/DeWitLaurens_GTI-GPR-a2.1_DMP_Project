@@ -11,7 +11,7 @@ namespace TennisVlaanderen_DAL.interfaces
     {
         List<Speler> OphalenSpelerEmail();
 
-        List<Speler> OphalenSpeler();
+        List<Speler> OphalenSpeler(string email);
 
         bool SpelerToevoegen(Speler speler);
         bool SpelerUpdate(Speler speler);

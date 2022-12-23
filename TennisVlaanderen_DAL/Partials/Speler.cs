@@ -8,7 +8,12 @@ using TennisVlaanderen_Models;
 namespace TennisVlaanderen_DAL
 {
     public partial class Speler : Basisklasse
-    {      
+    {
+        Speler(string email)
+        {
+            this.Email = email;
+        }
+
         public override string ToString()
         {
             return Naam + " " + Voornaam + Environment.NewLine + Geslacht + Environment.NewLine + GeboorteDatum.ToShortDateString() + Environment.NewLine + Land + Environment.NewLine + Klassement;

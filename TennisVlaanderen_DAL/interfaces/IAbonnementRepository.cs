@@ -8,6 +8,6 @@ namespace TennisVlaanderen_DAL.interfaces
 {
     public interface IAbonnementRepository
     {
-        IEnumerable<Abonnement> OphalenAbonnement();
+        IEnumerable<Abonnement> OphalenAbonnement(string clubNaam);
     }
 }

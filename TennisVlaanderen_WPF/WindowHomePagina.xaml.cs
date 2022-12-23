@@ -26,17 +26,17 @@ namespace TennisVlaanderen_WPF
         {
             InitializeComponent();
             DataSpeler();
-        }
+        }       
 
-        private ISpelerRepository spelers = new SpelerRepository();
+        private ISpelerRepository spelerItems = new SpelerRepository();
+        Speler speler = new Speler();
 
         private void DataSpeler()
-        {
-            List<Speler> spelersDB = spelers.OphalenSpeler();
-
+        {                               
+            List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
             foreach (var item in spelersDB)
             {
-                lblDashbord.Content = item.ToString();          
+                lblDashbord.Content = item.ToString();
             }
         }
 

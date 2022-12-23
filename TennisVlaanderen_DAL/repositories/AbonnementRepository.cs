@@ -12,9 +12,12 @@ namespace TennisVlaanderen_DAL.repositories
 {
     public class AbonnementRepository : BaseRepository, IAbonnementRepository
     {
-        public IEnumerable<Abonnement> OphalenAbonnement()
+        public IEnumerable<Abonnement> OphalenAbonnement(string clubNaam)
         {
-            string sql = "SELECT * FROM TennisVlaanderen.Abonnement";
+            string sql = $@"SELECT * 
+                            FROM TennisVlaanderen.Abonnement A
+                            JOIN TennisVlaanderen.Club C ON A.ClubID = C.Id 
+                            WHERE C.Naam LIKE '%{clubNaam}%'";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
                 return db.Query<Abonnement>(sql);

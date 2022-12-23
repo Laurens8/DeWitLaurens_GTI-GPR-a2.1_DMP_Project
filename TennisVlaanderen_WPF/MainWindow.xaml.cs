@@ -24,10 +24,12 @@ namespace TennisVlaanderen_WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static string Email { get; set;}     
+        
         public MainWindow()
-        {
-            InitializeComponent();
-        }       
+        {               
+        InitializeComponent();
+        }      
 
         private ISpelerRepository SpelerRepository = new SpelerRepository();
         
@@ -40,43 +42,34 @@ namespace TennisVlaanderen_WPF
 
         private void BtnDoorgaan_Click(object sender, RoutedEventArgs e)
         {
-            List<Speler> spelersDB = SpelerRepository.OphalenSpelerEmail();
-            List<Speler> speler = new List<Speler>();          
-            bool emailValidatie = false;
+            List<Speler> spelersDB = SpelerRepository.OphalenSpelerEmail();            
             lblError.Content = string.Empty;
-
-            foreach (var item in spelersDB)
-            {
-                speler.Add(item);
-            }
-
-            for (int i = 0; i < speler.Count(); i++)
-            {
-                if (speler[i].Email != txtEmail.Text)
+            bool emailValidatie = false;
+           
+            for (int i = 0; i < spelersDB.Count(); i++)
+            {               
+                if (spelersDB[i].Email != txtEmail.Text)
                 {
                     emailValidatie = false;
+
+                    if (emailValidatie == false)
+                    {
+                        lblError.Content = "Deze email address is incorrect!";
+                    }
                 }
                 else
                 {
                     emailValidatie = true;
-                }
-            }
+                    Email = txtEmail.Text.Substring(0, 4);
 
-            if (string.IsNullOrWhiteSpace(txtEmail.Text))
-            {
-                lblError.Content = "Email address is een verplicht veld!";                                       
-            }
-            else if (emailValidatie == false)
-            {
-                lblError.Content = "Deze email address is incorrect!";
-            }
-                               
-            if (!string.IsNullOrWhiteSpace(txtEmail.Text) && emailValidatie == true || txtEmail.Text == "olivia@email.be")
-            {
-                WindowHomePagina homePagina = new WindowHomePagina();
-                homePagina.Show();
-                this.Close();
-            }
+                    if (!string.IsNullOrWhiteSpace(txtEmail.Text) && emailValidatie == true)
+                    {
+                        WindowHomePagina homePagina = new WindowHomePagina();
+                        homePagina.Show();
+                        this.Close();
+                    }
+                }
+            }                                                                
         }
     }
 }

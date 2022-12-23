@@ -43,16 +43,23 @@ namespace TennisVlaanderen_WPF
                     lblError.Content = "Geboortedatum is een verplicht in te vullen veld";
                 }
 
-                nieuwSpeler.Naam = txtNaam.Text;
-                nieuwSpeler.Voornaam = txtVoornaam.Text;
-                nieuwSpeler.Email = txtEmail.Text;
-                nieuwSpeler.Adres = txtAdres.Text;
-                nieuwSpeler.Land = txtLand.Text;
-                nieuwSpeler.Nationaliteit = txtNationaliteit.Text;
-                nieuwSpeler.Telefoon = txtTelefoon.Text;
-                nieuwSpeler.RijksNummer = txtRijksNummer.Text;
-                lblError.Content = string.Empty;
-                Toevoegen(true);                                                       
+                if (nieuwSpeler.IsGeldig())
+                {
+                    nieuwSpeler.Naam = txtNaam.Text;
+                    nieuwSpeler.Voornaam = txtVoornaam.Text;
+                    nieuwSpeler.Email = txtEmail.Text;
+                    nieuwSpeler.Adres = txtAdres.Text;
+                    nieuwSpeler.Land = txtLand.Text;
+                    nieuwSpeler.Nationaliteit = txtNationaliteit.Text;
+                    nieuwSpeler.Telefoon = txtTelefoon.Text;
+                    nieuwSpeler.RijksNummer = txtRijksNummer.Text;
+                    lblError.Content = string.Empty;
+                    Toevoegen(true);
+                }
+                else
+                {
+                    lblError.Content = nieuwSpeler.Error;
+                }
 
             if (rbMan.IsChecked == false && rbVrouw.IsChecked == false)
             {
@@ -68,17 +75,11 @@ namespace TennisVlaanderen_WPF
                 }
             }
 
-            if (nieuwSpeler.IsGeldig())
-            {
+            
                 spelers.Add(nieuwSpeler);
                 WindowHomePagina homepage = new WindowHomePagina();
                 homepage.Show();
-                this.Close();
-            }
-            else
-            {
-                lblError.Content = nieuwSpeler.Error;
-            }                   
+                this.Close();                                  
         }
 
         private void BtnAnnuleren_Click(object sender, RoutedEventArgs e)

@@ -11,9 +11,9 @@ namespace TennisVlaanderen_DAL.interfaces
         IEnumerable<Tarieven> OphalenTarieven();
         List<Tarieven> OphalenClubNaam();
         List<Tarieven> OphalenLeeftijdGraad();
-        List<Tarieven> OphalenTypeTennis();
-        List<Tarieven> OphalenTypePadel();
-        List<Tarieven> OphalenTypeTennisPlusPadel();
+        List<Tarieven> OphalenTypeTennis(string clubNaam);
+        List<Tarieven> OphalenTypePadel(string clubNaam);
+        List<Tarieven> OphalenTypeTennisPlusPadel(string clubNaam);
         List<Tarieven> OphalenPrijs();     
     }
 }

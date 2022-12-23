@@ -23,8 +23,8 @@ namespace TennisVlaanderen_DAL.repositories
 
         public List<Tarieven> OphalenClubNaam()
         {
-            string sql = @"SELECT naam FROM TennisVlaanderen.Club C
-                          JOIN TennisVlaanderen.Tarieven T ON T.clubID = C.naam";
+            string sql = @"SELECT Naam FROM TennisVlaanderen.Club C
+                          JOIN TennisVlaanderen.Tarieven T ON T.ClubID = C.Naam";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
                 return db.Query<Tarieven>(sql).ToList();
@@ -40,27 +40,36 @@ namespace TennisVlaanderen_DAL.repositories
             }
         }
 
-        public List<Tarieven> OphalenTypeTennis()
+        public List<Tarieven> OphalenTypeTennis(string clubNaam)
         {
-            string sql = "SELECT leeftijdgraad, prijs, typeTennis FROM TennisVlaanderen.Tarieven T WHERE T.typeTennis LIKE '%tennis%'";
+            string sql = $@"SELECT leeftijdgraad, prijs, typeTennis 
+                            FROM TennisVlaanderen.Tarieven T
+                            JOIN TennisVlaanderen.Club C ON T.ClubID = C.Id 
+                            WHERE T.typeTennis LIKE '%tennis' AND C.Naam LIKE '%{clubNaam}%'";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
                 return db.Query<Tarieven>(sql).ToList();
             }
         }
 
-        public List<Tarieven> OphalenTypePadel()
+        public List<Tarieven> OphalenTypePadel(string clubNaam)
         {
-            string sql = "SELECT leeftijdgraad, prijs, typeTennis FROM TennisVlaanderen.Tarieven T WHERE T.typeTennis LIKE '%paddel%'";
+            string sql = $@"SELECT leeftijdgraad, prijs, typeTennis 
+                            FROM TennisVlaanderen.Tarieven T
+                            JOIN TennisVlaanderen.Club C ON T.ClubID = C.Id 
+                            WHERE T.typeTennis LIKE 'paddel%' AND C.Naam LIKE '%{clubNaam}%'";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
                 return db.Query<Tarieven>(sql).ToList();
             }
         }
 
-        public List<Tarieven> OphalenTypeTennisPlusPadel()
+        public List<Tarieven> OphalenTypeTennisPlusPadel(string clubNaam)
         {
-            string sql = "SELECT leeftijdgraad, prijs, typeTennis FROM TennisVlaanderen.Tarieven T WHERE T.typeTennis LIKE '%+%'";
+            string sql = $@"SELECT leeftijdgraad, prijs, typeTennis 
+                            FROM TennisVlaanderen.Tarieven T
+                            JOIN TennisVlaanderen.Club C ON T.ClubID = C.Id 
+                            WHERE T.typeTennis LIKE '%+%' AND C.Naam LIKE '%{clubNaam}%'";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
                 return db.Query<Tarieven>(sql).ToList();

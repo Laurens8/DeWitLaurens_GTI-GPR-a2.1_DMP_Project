@@ -23,20 +23,21 @@ namespace TennisVlaanderen_WPF
     /// </summary>
     public partial class WindowLessen : Window
     {
+        public static string LessenPlusStages { get; set; }
+
         public WindowLessen()
         {
             InitializeComponent();
             OphalenDataLessen();
         }
 
-        private ITarievenRepository tarievenRepository = new TarievenRepository();
+        private IAbonnementRepository AbonnenmentRepository = new AbonnementRepository();
         private IClubRepository clubRepository = new ClubRepository();
 
         private void OphalenDataLessen()
         {
-            List<Tarieven> tarievenDB = (List<Tarieven>)tarievenRepository.OphalenTarieven();
             List<Club> clubDB = (List<Club>)clubRepository.OphalenClubNaam();
-            List<Tarieven> tarieven = new List<Tarieven>();
+            List<Abonnement> abonnement = new List<Abonnement>();
             List<Club> club = new List<Club>();
                     
             foreach (var item in clubDB)
@@ -44,68 +45,37 @@ namespace TennisVlaanderen_WPF
                 club.Add(item);
             }
 
-            cbAanbod.ItemsSource = tarieven;
             cbClub.ItemsSource = club;
         }
 
-        private void rbTennis_Checked(object sender, RoutedEventArgs e)
+        private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void rbPadel_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void rbTennisPadel_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void rbTennis_Click(object sender, RoutedEventArgs e)
-        {          
-            List<Tarieven> tarievenDB = (List<Tarieven>)tarievenRepository.OphalenTarieven();
-            List<Tarieven> tarieven = new List<Tarieven>();           
-            if (rbTennis.IsChecked == true)
+            if (cbClub.SelectedItem != null && cbAanbod.Items != null)
             {
-                tarievenDB = tarievenRepository.OphalenTypeTennis();
-                foreach (var item in tarievenDB)
-                {                  
-                    tarieven.Add(item);
-                }
+                LessenPlusStages = cbAanbod.Text.ToString();
+                WindowHomePagina homePagina = new WindowHomePagina();
+                homePagina.Show();
+                this.Close();
             }
-            cbAanbod.ItemsSource = tarieven;
+            else
+            {
+                MessageBox.Show("Selecteer eerst een club en lessenpakket!");
+            }
         }
 
-        private void rbPadel_Click(object sender, RoutedEventArgs e)
+        private void BtnAnnuleren_Click(object sender, RoutedEventArgs e)
         {
-            List<Tarieven> tarievenDB = (List<Tarieven>)tarievenRepository.OphalenTarieven();
-            List<Tarieven> tarieven = new List<Tarieven>();
-            if (rbTennis.IsChecked == true)
-            {
-                tarievenDB = tarievenRepository.OphalenTypePadel();
-                foreach (var item in tarievenDB)
-                {
-                    tarieven.Add(item);
-                }
-            }
-            cbAanbod.ItemsSource = tarieven;
+            WindowHomePagina homePagina = new WindowHomePagina();
+            homePagina.Show();
+            this.Close();
         }
 
-        private void rbTennisPadel_Click(object sender, RoutedEventArgs e)
-        {
-            List<Tarieven> tarievenDB = (List<Tarieven>)tarievenRepository.OphalenTarieven();
-            List<Tarieven> tarieven = new List<Tarieven>();
-            if (rbTennis.IsChecked == true)
-            {
-                tarievenDB = tarievenRepository.OphalenTypeTennisPlusPadel();
-                foreach (var item in tarievenDB)
-                {
-                    tarieven.Add(item);
-                }
-            }
-            cbAanbod.ItemsSource = tarieven;
+        private void CbClub_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {     
+                string clubNaam = cbClub.SelectedItem.ToString().Substring(3, 4);
+                List<Abonnement> AbonnementDB = (List<Abonnement>)AbonnenmentRepository.OphalenAbonnement(clubNaam);
+                List<Abonnement> abonnement = new List<Abonnement>();
+                cbAanbod.ItemsSource = AbonnementDB;          
         }
     }
 }

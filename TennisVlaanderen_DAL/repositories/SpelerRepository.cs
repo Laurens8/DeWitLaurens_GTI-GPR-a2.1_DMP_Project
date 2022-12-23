@@ -26,9 +26,9 @@ namespace TennisVlaanderen_DAL.repositories
             }
         }
 
-        public List<Speler> OphalenSpeler()
+        public List<Speler> OphalenSpeler(string email)
         {
-            string sql = "SELECT * FROM TennisVlaanderen.Speler";
+            string sql = $"SELECT * FROM TennisVlaanderen.Speler S WHERE S.Email LIKE '%{email}%'";
 
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
@@ -60,12 +60,11 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool SpelerToevoegen(Speler speler)
         {
-            string sql = @"INSERT INTO TennisVlaanderen.Speler (Id, Naam, Voornaam, Klassement, Geslacht, GeboorteDatum, Nationaliteit, Adres, Land, Telefoon, Email, RijksNummer)
-                          VALUES (@Id, @Naam, @Voornaam, @Klassement, @Geslacht, @GeboorteDatum, @Nationaliteit, @Adres, @Land, @Telefoon, @Email, @RijksNummer)";
+            string sql = @"INSERT INTO TennisVlaanderen.Speler (Naam, Voornaam, Klassement, Geslacht, GeboorteDatum, Nationaliteit, Adres, Land, Telefoon, Email, RijksNummer)
+                          VALUES (@Naam, @Voornaam, @Klassement, @Geslacht, @GeboorteDatum, @Nationaliteit, @Adres, @Land, @Telefoon, @Email, @RijksNummer)";
 
             var parameter = new
             {
-                @Id = speler.Id,
                 @Naam = speler.Naam,
                 @Voornaam = speler.Voornaam,
                 @Klassement = speler.Klassement,
