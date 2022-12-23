@@ -74,7 +74,6 @@ namespace TennisVlaanderen_WPF
         {     
                 string clubNaam = cbClub.SelectedItem.ToString().Substring(3, 4);
                 List<Abonnement> AbonnementDB = (List<Abonnement>)AbonnenmentRepository.OphalenAbonnement(clubNaam);
-                List<Abonnement> abonnement = new List<Abonnement>();
                 cbAanbod.ItemsSource = AbonnementDB;          
         }
     }

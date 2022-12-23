@@ -20,5 +20,50 @@ namespace TennisVlaanderen_DAL.repositories
                 return db.Query<Tornooi>(sql);
             }
         }
+
+        public List<Tornooi> OphalenTornooiNaam(string circuitNaam)
+        {
+            string sql = $@"SELECT DISTINCT NaamTornooi 
+                           FROM TennisVlaanderen.Tornooi T
+                           WHERE T.Circuit LIKE '%{circuitNaam}%'";                           
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                return db.Query<Tornooi>(sql).ToList();
+            }
+        }
+
+        public List<Tornooi> OphalenCircuitNaam()
+        {
+            string sql = @"SELECT DISTINCT Circuit 
+                           FROM TennisVlaanderen.Tornooi";
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                return db.Query<Tornooi>(sql).ToList();
+            }
+        }
+
+        public List<Tornooi> OphalenDatum()
+        {
+            string sql = @"SELECT Datum 
+                           FROM TennisVlaanderen.Tornooi";
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                return db.Query<Tornooi>(sql).ToList();
+            }
+        }
+
+        public List<Tornooi> OphalenTypeCompetitie()
+        {
+            string sql = @"SELECT TypeCompetitie 
+                           FROM TennisVlaanderen.Tornooi";
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                return db.Query<Tornooi>(sql).ToList();
+            }
+        }
     }
 }

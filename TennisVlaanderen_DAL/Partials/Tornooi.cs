@@ -8,9 +8,9 @@ namespace TennisVlaanderen_DAL
 {
     public partial class Tornooi
     {
-        public override string ToString()
-        {
-            return NaamTornooi + " " + Circuit + " " + TypeCompetitie;
-        }
+        //public override string ToString()
+        //{
+        //    return Circuit;
+        //}
     }
 }

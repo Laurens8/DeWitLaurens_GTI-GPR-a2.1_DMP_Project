@@ -22,10 +22,10 @@
 
         <Label Content="Tennis Vlaanderen" FontSize="20" Background="yellow" FontStyle="Normal" Grid.Column="0" Grid.ColumnSpan="4" FontWeight="Bold" FontFamily="Arial Black"></Label>
 
-        <ComboBox x:Name="cbClub" Grid.Row="1" Grid.Column="0" Margin="10,95,190,143" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="cbCircuit" Grid.Row="1" Grid.Column="0" Margin="10,95,190,143" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" Grid.ColumnSpan="2" SelectionChanged="CbCircuit_SelectionChanged"/>
         <Label Content="Selecteer een Tornooi" Foreground="Yellow" Grid.Row="1" FontFamily="Arial Black" HorizontalAlignment="Left" Width="180" VerticalAlignment="Top" Height="23" RenderTransformOrigin="0.499,0.529" Margin="82,49,0,0" Grid.Column="1" Grid.ColumnSpan="2"/>
 
-        <ComboBox x:Name="cbAanbod" Grid.Row="1" Grid.Column="1" Margin="72,96,128,143" RenderTransformOrigin="0.503,0.514" Grid.ColumnSpan="2" Grid.RowSpan="2"></ComboBox>
+        <ComboBox x:Name="cbTornooi" Grid.Row="1" Grid.Column="1" Margin="72,96,128,143" RenderTransformOrigin="0.503,0.514" Grid.ColumnSpan="2" Grid.RowSpan="2" SelectionChanged="CbTornooi_SelectionChanged"></ComboBox>
         <Label Content="Selecteer een circuit" Foreground="Yellow" Grid.Row="1" FontFamily="Arial Black" Margin="10,48,0,0" HorizontalAlignment="Left" Width="236" Grid.ColumnSpan="2" VerticalAlignment="Top"/>
 
         <Label Content="Tornooi naam" Foreground="Yellow" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>

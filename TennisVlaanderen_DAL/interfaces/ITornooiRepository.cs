@@ -9,5 +9,10 @@ namespace TennisVlaanderen_DAL.interfaces
     public interface ITornooiRepository
     {
         IEnumerable<Tornooi> OphalenTornooi();
+
+        List<Tornooi> OphalenTornooiNaam(string circuitNaam);
+        List<Tornooi> OphalenCircuitNaam();
+        List<Tornooi> OphalenDatum();
+        List<Tornooi> OphalenTypeCompetitie();
     }
 }
