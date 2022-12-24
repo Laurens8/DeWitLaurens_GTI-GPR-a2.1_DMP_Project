@@ -28,24 +28,16 @@ namespace TennisVlaanderen_WPF
         public WindowLessen()
         {
             InitializeComponent();
-            OphalenDataLessen();
+            OphalenDataClub();
         }
 
         private IAbonnementRepository AbonnenmentRepository = new AbonnementRepository();
         private IClubRepository clubRepository = new ClubRepository();
 
-        private void OphalenDataLessen()
+        private void OphalenDataClub()
         {
             List<Club> clubDB = (List<Club>)clubRepository.OphalenClubNaam();
-            List<Abonnement> abonnement = new List<Abonnement>();
-            List<Club> club = new List<Club>();
-                    
-            foreach (var item in clubDB)
-            {
-                club.Add(item);
-            }
-
-            cbClub.ItemsSource = club;
+            cbClub.ItemsSource = clubDB;
         }
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)

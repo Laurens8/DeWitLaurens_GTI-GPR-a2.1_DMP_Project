@@ -9,5 +9,7 @@ namespace TennisVlaanderen_DAL.interfaces
     public interface ITerreinReservatieRepository
     {
         IEnumerable<TerreinReservatie> OphalenTerreinReservatie();
+        List<TerreinReservatie> OphalenterreinGravel(string TypeOndergrond);
+        List<TerreinReservatie> OphalenterreinGras(string TypeOndergrond);
     }
 }

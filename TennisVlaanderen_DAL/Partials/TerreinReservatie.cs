@@ -10,7 +10,7 @@ namespace TennisVlaanderen_DAL
     {
         public override string ToString()
         {
-            return TerreinNummer + " " + TypeOndergrond + " " + TypeTennis;
+            return TerreinNummer + " " + TypeOndergrond;
         }
     }
 }

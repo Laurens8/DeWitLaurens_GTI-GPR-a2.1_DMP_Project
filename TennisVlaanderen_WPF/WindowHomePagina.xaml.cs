@@ -44,24 +44,28 @@ namespace TennisVlaanderen_WPF
         {
             WindowTornooi tornooi= new WindowTornooi();
             tornooi.Show();
+            this.Close();
         }
 
         private void BtnClub_Click(object sender, RoutedEventArgs e)
         {
             WindowClub club = new WindowClub();
             club.Show();
+            this.Close();
         }
 
         private void BtnLessen_Click(object sender, RoutedEventArgs e)
         {
             WindowLessen lessen = new WindowLessen();
             lessen.Show();
+            this.Close();
         }
 
         private void BtnTerrein_Click(object sender, RoutedEventArgs e)
         {
             WindowTerreinReserveren terrein = new WindowTerreinReserveren();
             terrein.Show();
+            this.Close();
         }
     }
 }

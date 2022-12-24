@@ -71,6 +71,7 @@ namespace TennisVlaanderen_WPF
         {
             if (cbCircuit.SelectedItem != null && cbTornooi.SelectedItem != null)
             {
+                NaamTornooi = cbTornooi.SelectedItem.ToString();
                 WindowHomePagina homePagina = new WindowHomePagina();
                 homePagina.Show();
                 this.Close();

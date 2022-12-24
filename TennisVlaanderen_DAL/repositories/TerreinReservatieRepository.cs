@@ -20,5 +20,23 @@ namespace TennisVlaanderen_DAL.repositories
                 return db.Query<TerreinReservatie>(sql);
             }
         }
+
+        public List<TerreinReservatie> OphalenterreinGras(string TypeOndergrond)
+        {
+            string sql = $"SELECT TerreinNummer, TypeOndergrond FROM TennisVlaanderen.TerreinReservatie T WHERE T.TypeOndergrond LIKE '%{TypeOndergrond}%'";
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                return db.Query<TerreinReservatie>(sql).ToList();
+            }
+        }
+
+        public List<TerreinReservatie> OphalenterreinGravel(string TypeOndergrond)
+        {
+            string sql = $"SELECT TerreinNummer, TypeOndergrond FROM TennisVlaanderen.TerreinReservatie T WHERE T.TypeOndergrond LIKE '%{TypeOndergrond}%'";
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                return db.Query<TerreinReservatie>(sql).ToList();
+            }
+        }
     }
 }
