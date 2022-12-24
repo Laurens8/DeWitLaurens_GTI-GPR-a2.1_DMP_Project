@@ -5,8 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TennisVlaanderen_WPF"
         mc:Ignorable="d"
-        Title="WindowClub" Height="450" Width="800">
+        Title="WindowClub" Height="450" Width="800" Background="Black">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Label Content="Tennis Vlaanderen" FontSize="20" Background="yellow" FontStyle="Normal" Grid.Column="0" Grid.ColumnSpan="4" FontWeight="Bold" FontFamily="Arial Black"></Label>
+
+        <Label Content="Selecteer een club" Foreground="Yellow" Grid.Column="0" Grid.Row="2" Margin="28,30,0,196"/>
+        <ComboBox x:Name="cbClub" Grid.Column="0" Grid.Row="2" Margin="10,96,190,139" Grid.ColumnSpan="2" SelectionChanged="CbClub_SelectionChanged"></ComboBox>
+
+        <Label Content="Selecteer een abonnement" Foreground="Yellow" Grid.Column="1" Grid.Row="2" Margin="30,28,0,201"/>
+        <ComboBox x:Name="cbAanbod" Grid.Column="1" Grid.Row="2" Margin="30,98,170,136" Grid.ColumnSpan="2"></ComboBox>
+
+        <Label Content="test" Grid.Row="2" Grid.Column="2" Margin="63,5,176,230" Foreground="Yellow" Grid.ColumnSpan="2"></Label>
+        <Label Content="test" Grid.Row="2" Grid.Column="3" Margin="10,55,29,185" Foreground="Yellow"></Label>
+        <Label Content="test" Grid.Row="2" Grid.Column="3" Margin="10,2,29,235" Foreground="Yellow"></Label>
+        <Label Content="test" Grid.Row="2" Grid.Column="2" Margin="63,107,183,127" Foreground="Yellow" Grid.ColumnSpan="2"></Label>
+        <Label Content="test" Grid.Row="2" Grid.Column="2" Margin="63,57,176,183" Foreground="Yellow" Grid.ColumnSpan="2"></Label>
+
+        <Button x:Name="btnToevoegen" Grid.Column="3" Grid.Row="3" Content="Toevoegen" Margin="17,67,17,27" Click="BtnToevoegen_Click"></Button>
+        <Button x:Name="btnAnnuleren" Grid.Column="3" Grid.Row="3" Content="Annuleren" Margin="17,13,17,0" VerticalAlignment="Top" Height="22" Click="BtnAnnuleren_Click"/>
     </Grid>
 </Window>

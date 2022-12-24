@@ -25,10 +25,11 @@ namespace TennisVlaanderen_WPF
         private ITerreinReservatieRepository terreinReserverenRepository = new TerreinReservatieRepository();
         private IClubRepository clubRepository = new ClubRepository();
 
+        public string Veld { get; set; }
+
         public WindowTerreinReserveren()
         {
             InitializeComponent();
-            DataVelden();
         }
 
         private void BtnAnnuleren_Click(object sender, RoutedEventArgs e)
@@ -40,6 +41,7 @@ namespace TennisVlaanderen_WPF
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {
+            Veld = cbVeld.Text.ToString();
             WindowHomePagina homePagina = new WindowHomePagina();
             homePagina.Show();
             this.Close();
@@ -47,29 +49,16 @@ namespace TennisVlaanderen_WPF
 
         private void RbGravel_Checked(object sender, RoutedEventArgs e)
         {
-
+            string TypeOndergrond = "Gravel";
+            List<TerreinReservatie> veldenDB = (List<TerreinReservatie>)terreinReserverenRepository.OphalenterreinGravel(TypeOndergrond);
+            cbVeld.ItemsSource = veldenDB;
         }
 
         private void RbGras_Checked(object sender, RoutedEventArgs e)
         {
-
-        }
-
-        private void DataVelden()
-        {
-            if (rbGras.IsChecked == true)
-            {
-                string TypeOndergrond = "Gras";
-                List<TerreinReservatie> veldenDB = (List<TerreinReservatie>)terreinReserverenRepository.OphalenterreinGras(TypeOndergrond);
-                cbVeld.ItemsSource = veldenDB;
-            }
-            if (rbGravel.IsChecked == true)
-            {
-                string TypeOndergrond = "Gravel";
-                List<TerreinReservatie> veldenDB = (List<TerreinReservatie>)terreinReserverenRepository.OphalenterreinGravel(TypeOndergrond);
-                cbVeld.ItemsSource = veldenDB;
-            }
-                    
+            string TypeOndergrond = "Gras";
+            List<TerreinReservatie> veldenDB = (List<TerreinReservatie>)terreinReserverenRepository.OphalenterreinGras(TypeOndergrond);
+            cbVeld.ItemsSource = veldenDB;
         }
     }
 }

@@ -8,8 +8,7 @@ namespace TennisVlaanderen_DAL.interfaces
 {
     public interface ITarievenRepository
     {
-        IEnumerable<Tarieven> OphalenTarieven();
-        List<Tarieven> OphalenClubNaam();
+        IEnumerable<Tarieven> OphalenTarieven(string clubNaam);
         List<Tarieven> OphalenLeeftijdGraad();
         List<Tarieven> OphalenTypeTennis(string clubNaam);
         List<Tarieven> OphalenTypePadel(string clubNaam);

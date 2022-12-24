@@ -12,24 +12,17 @@ namespace TennisVlaanderen_DAL.repositories
 {
     public class TarievenRepository : BaseRepository, ITarievenRepository
     {
-        public IEnumerable<Tarieven> OphalenTarieven()
+        public IEnumerable<Tarieven> OphalenTarieven(string clubNaam)
         {
-            string sql = @"SELECT * FROM TennisVlaanderen.Tarieven";
+            string sql = $@"SELECT leeftijdgraad, prijs, typeTennis 
+                            FROM TennisVlaanderen.Tarieven T
+                            JOIN TennisVlaanderen.Club C ON T.ClubID = C.Id 
+                            WHERE C.Naam LIKE '%{clubNaam}%'";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
                 return db.Query<Tarieven>(sql);
             }
-        }
-
-        public List<Tarieven> OphalenClubNaam()
-        {
-            string sql = @"SELECT Naam FROM TennisVlaanderen.Club C
-                          JOIN TennisVlaanderen.Tarieven T ON T.ClubID = C.Naam";
-            using (IDbConnection db = new SqlConnection(ConnectionString))
-            {
-                return db.Query<Tarieven>(sql).ToList();
-            }
-        }
+        }      
 
         public List<Tarieven> OphalenLeeftijdGraad()
         {
