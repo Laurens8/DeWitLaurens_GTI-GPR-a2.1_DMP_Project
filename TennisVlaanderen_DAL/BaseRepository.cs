@@ -12,7 +12,7 @@ namespace TennisVlaanderen_DAL
 
         public BaseRepository()
         {
-            ConnectionString = DatabaseConnectie.Connectionstring("TennisVlaanderen_DAL.Properties.Settings.PublishersConnectionString");
+            ConnectionString = DatabaseConnectie.Connectionstring("TennisVlaanderenEntities");
         }
     }
 }

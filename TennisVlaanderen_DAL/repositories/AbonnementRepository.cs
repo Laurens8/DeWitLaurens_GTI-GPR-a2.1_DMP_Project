@@ -23,5 +23,17 @@ namespace TennisVlaanderen_DAL.repositories
                 return db.Query<Abonnement>(sql);
             }
         }
+
+        public List<Abonnement> OphalenSpelerabonnement()
+        {
+            string sql = $@"SELECT * 
+                            FROM TennisVlaanderen.Abonnement A
+                            JOIN TennisVlaanderen.Speler S ON A.SpelerId = S.Id ";
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                return db.Query<Abonnement>(sql).ToList();
+            }
+        }
     }
 }

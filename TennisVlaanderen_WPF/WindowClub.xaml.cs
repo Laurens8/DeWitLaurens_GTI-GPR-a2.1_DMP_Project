@@ -29,6 +29,7 @@ namespace TennisVlaanderen_WPF
         }        
 
         public static string Club { get; set; }
+        Club nieuwClub = new Club();
 
         private ITarievenRepository tarievenRepository = new TarievenRepository();
         private IClubRepository clubRepository = new ClubRepository();
@@ -41,10 +42,17 @@ namespace TennisVlaanderen_WPF
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {
-            Club = cbClub.Text.ToString();
-            WindowHomePagina homePagina = new WindowHomePagina();
-            homePagina.Show();
-            this.Close();
+            if (cbClub.SelectedItem != null && cbAanbod.SelectedItem != null)
+            {
+                Club = cbClub.Text.ToString();
+                WindowHomePagina homePagina = new WindowHomePagina();
+                homePagina.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Selecteer eerst een club en abonnement");
+            }            
         }
 
         private void BtnAnnuleren_Click(object sender, RoutedEventArgs e)
@@ -55,10 +63,17 @@ namespace TennisVlaanderen_WPF
         }
 
         private void CbClub_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+        {           
             string clubNaam = cbClub.SelectedItem.ToString().Substring(3, 4);
             List<Tarieven> tarievenDB = (List<Tarieven>)tarievenRepository.OphalenTarieven(clubNaam);
             cbAanbod.ItemsSource = tarievenDB;
+            nieuwClub = (Club)cbClub.SelectedValue;
+            
+            lblNaam.Content = nieuwClub.Naam;
+            lblAdres.Content = nieuwClub.Adres;
+            lblEmail.Content = nieuwClub.Email;
+            lblTelefoon.Content = nieuwClub.Telefoon;
+            lblWebsite.Content = nieuwClub.Website;
         }
     }
 }

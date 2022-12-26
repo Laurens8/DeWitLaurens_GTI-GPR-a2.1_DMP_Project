@@ -14,7 +14,7 @@ namespace TennisVlaanderen_DAL.repositories
     {
         public IEnumerable<SpelerClubTornooi> OphalenSpelerClubTornooi()
         {
-            string sql = @"SELECT * 
+            string sql = @"SELECT *
                            FROM TennisVlaanderen.SpelerClubTornooi SCT
                            JOIN TennisVlaanderen.Club C ON SCT.ClubID = C.Id
                            JOIN TennisVlaanderen.Speler S ON SCT.SpelerID = S.Id

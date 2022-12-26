@@ -25,6 +25,7 @@ namespace TennisVlaanderen_WPF
         public static string NaamTornooi { get; set; }
 
         private ITornooiRepository TornooiRepository = new TornooiRepository();
+        Tornooi tornooi = new Tornooi();
 
         public WindowTornooi()
         {
@@ -35,24 +36,9 @@ namespace TennisVlaanderen_WPF
         private void OphalenData()
         {
             List<Tornooi> tornooiDB = (List<Tornooi>)TornooiRepository.OphalenTornooi();
-            List<Tornooi> circuitDB = (List<Tornooi>)TornooiRepository.OphalenCircuitNaam();
-            List<Tornooi> tornooiLijst = new List<Tornooi>();
-            List<Tornooi> circuitLijst = new List<Tornooi>();
-            Tornooi tornooi = new Tornooi();
-
-            foreach (var item in tornooiDB)
-            {               
-                //tornooi.NaamTornooi = item.NaamTornooi;
-                tornooiLijst.Add(item);
-            }
-            foreach (var item in circuitDB)
-            {                
-                //tornooi.Circuit = item.Circuit;
-                circuitLijst.Add(item);
-            }
-
-            cbTornooi.ItemsSource = tornooiLijst;
-            cbCircuit.ItemsSource = circuitLijst;
+            List<Tornooi> circuitDB = (List<Tornooi>)TornooiRepository.OphalenCircuitNaam();           
+            cbTornooi.ItemsSource = tornooiDB;
+            cbCircuit.ItemsSource = circuitDB;
         }
 
         private void CbCircuit_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -63,8 +49,12 @@ namespace TennisVlaanderen_WPF
         }
 
         private void CbTornooi_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            
+        {           
+                tornooi = (Tornooi)cbTornooi.SelectedItem;
+                lblTornooi.Content = tornooi.NaamTornooi;
+                lblCircuit.Content = tornooi.Circuit;
+                lblDatum.Content = tornooi.Datum;
+                lblTypeCompetitie.Content = tornooi.TypeCompetitie;                      
         }
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)

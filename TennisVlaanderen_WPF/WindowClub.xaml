@@ -28,11 +28,11 @@
         <Label Content="Selecteer een abonnement" Foreground="Yellow" Grid.Column="1" Grid.Row="2" Margin="30,28,0,201"/>
         <ComboBox x:Name="cbAanbod" Grid.Column="1" Grid.Row="2" Margin="30,98,170,136" Grid.ColumnSpan="2"></ComboBox>
 
-        <Label Content="test" Grid.Row="2" Grid.Column="2" Margin="63,5,176,230" Foreground="Yellow" Grid.ColumnSpan="2"></Label>
-        <Label Content="test" Grid.Row="2" Grid.Column="3" Margin="10,55,29,185" Foreground="Yellow"></Label>
-        <Label Content="test" Grid.Row="2" Grid.Column="3" Margin="10,2,29,235" Foreground="Yellow"></Label>
-        <Label Content="test" Grid.Row="2" Grid.Column="2" Margin="63,107,183,127" Foreground="Yellow" Grid.ColumnSpan="2"></Label>
-        <Label Content="test" Grid.Row="2" Grid.Column="2" Margin="63,57,176,183" Foreground="Yellow" Grid.ColumnSpan="2"></Label>
+        <Label x:Name="lblNaam" Content="test" Grid.Row="2" Grid.Column="2" Margin="63,5,0,230" Foreground="Yellow"/>
+        <Label x:Name="lblTelefoon" Content="test" Grid.Row="2" Grid.Column="3" Margin="29,73,10,167" Foreground="Yellow"></Label>
+        <Label x:Name="lblAdres" Content="test" Grid.Row="2" Grid.Column="3" Margin="29,5,10,232" Foreground="Yellow"></Label>
+        <Label x:Name="lblWebsite" Content="test" Grid.Row="2" Grid.Column="2" Margin="63,144,0,90" Foreground="Yellow"/>
+        <Label x:Name="lblEmail" Content="test" Grid.Row="2" Grid.Column="2" Margin="63,68,0,172" Foreground="Yellow"/>
 
         <Button x:Name="btnToevoegen" Grid.Column="3" Grid.Row="3" Content="Toevoegen" Margin="17,67,17,27" Click="BtnToevoegen_Click"></Button>
         <Button x:Name="btnAnnuleren" Grid.Column="3" Grid.Row="3" Content="Annuleren" Margin="17,13,17,0" VerticalAlignment="Top" Height="22" Click="BtnAnnuleren_Click"/>

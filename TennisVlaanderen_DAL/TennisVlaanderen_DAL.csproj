@@ -55,11 +55,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abonnement.cs">
-      <DependentUpon>TennisVlaanderenModel.tt</DependentUpon>
+      <DependentUpon>TennisVlaanderenModels.tt</DependentUpon>
     </Compile>
     <Compile Include="BaseRepository.cs" />
     <Compile Include="Club.cs">
-      <DependentUpon>TennisVlaanderenModel.tt</DependentUpon>
+      <DependentUpon>TennisVlaanderenModels.tt</DependentUpon>
     </Compile>
     <Compile Include="DatabaseConnectie.cs" />
     <Compile Include="FileOperations.cs" />
@@ -91,34 +91,34 @@
     <Compile Include="repositories\TerreinReservatieRepository.cs" />
     <Compile Include="repositories\TornooiRepository.cs" />
     <Compile Include="Speler.cs">
-      <DependentUpon>TennisVlaanderenModel.tt</DependentUpon>
+      <DependentUpon>TennisVlaanderenModels.tt</DependentUpon>
     </Compile>
     <Compile Include="SpelerClubTornooi.cs">
-      <DependentUpon>TennisVlaanderenModel.tt</DependentUpon>
+      <DependentUpon>TennisVlaanderenModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Tarieven.cs">
-      <DependentUpon>TennisVlaanderenModel.tt</DependentUpon>
+      <DependentUpon>TennisVlaanderenModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="TennisVlaanderenModel.Context.cs">
+    <Compile Include="TennisVlaanderenModels.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TennisVlaanderenModel.Context.tt</DependentUpon>
+      <DependentUpon>TennisVlaanderenModels.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="TennisVlaanderenModel.cs">
+    <Compile Include="TennisVlaanderenModels.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TennisVlaanderenModel.tt</DependentUpon>
+      <DependentUpon>TennisVlaanderenModels.tt</DependentUpon>
     </Compile>
-    <Compile Include="TennisVlaanderenModel.Designer.cs">
+    <Compile Include="TennisVlaanderenModels.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>TennisVlaanderenModel.edmx</DependentUpon>
+      <DependentUpon>TennisVlaanderenModels.edmx</DependentUpon>
     </Compile>
     <Compile Include="TerreinReservatie.cs">
-      <DependentUpon>TennisVlaanderenModel.tt</DependentUpon>
+      <DependentUpon>TennisVlaanderenModels.tt</DependentUpon>
     </Compile>
     <Compile Include="Tornooi.cs">
-      <DependentUpon>TennisVlaanderenModel.tt</DependentUpon>
+      <DependentUpon>TennisVlaanderenModels.tt</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -128,12 +128,12 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <EntityDeploy Include="TennisVlaanderenModel.edmx">
+    <EntityDeploy Include="TennisVlaanderenModels.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>TennisVlaanderenModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>TennisVlaanderenModels.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="TennisVlaanderenModel.edmx.diagram">
-      <DependentUpon>TennisVlaanderenModel.edmx</DependentUpon>
+    <None Include="TennisVlaanderenModels.edmx.diagram">
+      <DependentUpon>TennisVlaanderenModels.edmx</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -146,15 +146,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="TennisVlaanderenModel.Context.tt">
+    <Content Include="TennisVlaanderenModels.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TennisVlaanderenModel.edmx</DependentUpon>
-      <LastGenOutput>TennisVlaanderenModel.Context.cs</LastGenOutput>
+      <DependentUpon>TennisVlaanderenModels.edmx</DependentUpon>
+      <LastGenOutput>TennisVlaanderenModels.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="TennisVlaanderenModel.tt">
+    <Content Include="TennisVlaanderenModels.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>TennisVlaanderenModel.edmx</DependentUpon>
-      <LastGenOutput>TennisVlaanderenModel.cs</LastGenOutput>
+      <DependentUpon>TennisVlaanderenModels.edmx</DependentUpon>
+      <LastGenOutput>TennisVlaanderenModels.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

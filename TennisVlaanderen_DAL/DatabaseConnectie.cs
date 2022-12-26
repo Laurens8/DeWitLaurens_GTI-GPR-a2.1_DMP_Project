@@ -15,11 +15,11 @@ namespace TennisVlaanderen_DAL
             {
                 return ConfigurationManager.ConnectionStrings[name].ConnectionString;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                FileOperations.FoutLoggen(ex);
+                throw new Exception(ConfigurationManager.ConnectionStrings["TennisVlaanderenEntities"].ConnectionString);
             }
-            return ConfigurationManager.ConnectionStrings[name].ConnectionString;
+            
         }
     }
 }

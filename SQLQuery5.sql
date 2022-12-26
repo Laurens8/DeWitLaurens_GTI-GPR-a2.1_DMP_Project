@@ -1,13 +1,13 @@
 ﻿SET IDENTITY_INSERT tennisVlaanderen.Speler ON
 INSERT INTO tennisVlaanderen.Speler (Id,ClubId,Naam,Voornaam,klassement,Geslacht,GeboorteDatum,Nationaliteit,Adres,Land,Telefoon,Email,RijksNummer) 
 VALUES (1,'1','de Jong','Olivia','enkel 8 ptn','Vrouw','1972-10-12','Belg','Voorbeeld straat 99 3980 Tessenderlo','België','+3231234567','olivia@email.be','00.01.01-123.45');
-INSERT INTO tennisVlaanderen.Speler (Id,Naam,Voornaam,klassement,Geslacht,GeboorteDatum,Nationaliteit,Adres,Land,Telefoon,Email,RijksNummer) 
+INSERT INTO tennisVlaanderen.Speler (Id,ClubId,Naam,Voornaam,klassement,Geslacht,GeboorteDatum,Nationaliteit,Adres,Land,Telefoon,Email,RijksNummer) 
 VALUES (2,'2','Jansen','Arthur','dubbel 30 ptn','Man','1999-11-14','Belg','Voorbeeld straat 99 2260 Westerlo','België','+3231234567','arthur@email.be','00.01.01-123.45');
-INSERT INTO tennisVlaanderen.Speler (Id,Naam,Voornaam,klassement,Geslacht,GeboorteDatum,Nationaliteit,Adres,Land,Telefoon,Email,RijksNummer) 
+INSERT INTO tennisVlaanderen.Speler (Id,ClubId,Naam,Voornaam,klassement,Geslacht,GeboorteDatum,Nationaliteit,Adres,Land,Telefoon,Email,RijksNummer) 
 VALUES (3,'3','de Vries','Emma','dubbel 25 ptn','Vrouw','2001-01-15','Belg','Voorbeeld straat 99 2260 Westerlo','België','+3231234567','emma@email.be','00.01.01-123.45');
-INSERT INTO tennisVlaanderen.Speler (Id,Naam,Voornaam,klassement,Geslacht,GeboorteDatum,Nationaliteit,Adres,Land,Telefoon,Email,RijksNummer) 
+INSERT INTO tennisVlaanderen.Speler (Id,ClubId,Naam,Voornaam,klassement,Geslacht,GeboorteDatum,Nationaliteit,Adres,Land,Telefoon,Email,RijksNummer) 
 VALUES (4,'4','van den Berg','Noah','enkel 48 ptn','Man','1997-06-14','Belg','Voorbeeld straat 99 2260 Westerlo','België','+3231234567','noah@email.be','00.01.01-123.45');
-INSERT INTO tennisVlaanderen.Speler (Id,Naam,Voornaam,klassement,Geslacht,GeboorteDatum,Nationaliteit,Adres,Land,Telefoon,Email,RijksNummer) 
+INSERT INTO tennisVlaanderen.Speler (Id,ClubId,Naam,Voornaam,klassement,Geslacht,GeboorteDatum,Nationaliteit,Adres,Land,Telefoon,Email,RijksNummer) 
 VALUES (5,'5','van Dijk','Mila','enkel 330 ptn','Vrouw','1986-07-07','Belg','Voorbeeld straat 99 3980 Tessenderlo','België','+3231234567','mila@email.be','00.01.01-123.45');
 SET IDENTITY_INSERT tennisVlaanderen.Speler OFF
 
@@ -78,7 +78,7 @@ VALUES (19,'5','jeugd','tennis','10.00');
 INSERT INTO tennisVlaanderen.Tarieven (Id,ClubID,Leeftijdgraad,TypeTennis,Prijs) 
 VALUES (20,'5','jeugd','paddel','10.00');
 INSERT INTO tennisVlaanderen.Tarieven (Id,ClubID,Leeftijdgraad,TypeTennis,Prijs) 
-VALUES (21,'','jeugd','tennis + paddel','20.00');
+VALUES (21,'5','jeugd','tennis + paddel','20.00');
 SET IDENTITY_INSERT tennisVlaanderen.Tarieven OFF
 
 SET IDENTITY_INSERT tennisVlaanderen.Abonnement ON

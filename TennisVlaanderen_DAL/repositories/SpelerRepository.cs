@@ -28,7 +28,10 @@ namespace TennisVlaanderen_DAL.repositories
 
         public List<Speler> OphalenSpeler(string email)
         {
-            string sql = $"SELECT * FROM TennisVlaanderen.Speler S WHERE S.Email LIKE '%{email}%'";
+            string sql = $@"SELECT S.*, C.Naam 
+                         FROM TennisVlaanderen.Speler S 
+                         JOIN TennisVlaanderen.Club C ON S.ClubId = C.Id                         
+                         WHERE S.Email LIKE '%{email}%'";
 
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
@@ -38,7 +41,8 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool SpelerDelete(string spelerID)
         {
-            string sql = @"DELETE FROM TennisVlaanderen.Speler
+            string sql = @"DECLARE @Id int
+                           DELETE FROM TennisVlaanderen.Speler
                            WHERE Id = @Id";
 
             var parameter = new

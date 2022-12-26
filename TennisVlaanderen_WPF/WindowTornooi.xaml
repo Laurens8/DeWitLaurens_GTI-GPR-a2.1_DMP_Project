@@ -29,13 +29,13 @@
         <Label Content="Selecteer een circuit" Foreground="Yellow" Grid.Row="1" FontFamily="Arial Black" Margin="10,48,0,0" HorizontalAlignment="Left" Width="236" Grid.ColumnSpan="2" VerticalAlignment="Top"/>
 
         <Label Content="Tornooi naam" Foreground="Yellow" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top"></Label>
-        <Label x:Name="lbTornooi" Content="test" Foreground="White" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="0,26,0,0"></Label>
+        <Label x:Name="lblTornooi" Content="" Foreground="White" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="0,13,0,0"></Label>
         <Label Content="Circuit" Foreground="Yellow" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left"></Label>
-        <Label x:Name="lbCircuit" Content="test"  Foreground="White" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="0,96,0,0"></Label>
-        <Label Content="Datum" Foreground="Yellow" Grid.Row="2" Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Left"></Label>
-        <Label x:Name="lbDatum" Content="test"  Foreground="White" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="0,30,0,0"></Label>
-        <Label Content="Type competitie" Foreground="Yellow" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,46"></Label>
-        <Label x:Name="lbTypeCompetitie" Content="test"  Foreground="White" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="0,107,0,0"></Label>
+        <Label x:Name="lblCircuit" Content=""  Foreground="White" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="0,72,0,0"></Label>
+        <Label Content="Datum" Foreground="Yellow" Grid.Row="1" Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,120,0,0" Grid.RowSpan="2"></Label>
+        <Label x:Name="lblDatum" Content=""  Foreground="White" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="0,133,0,0" Grid.RowSpan="2"/>
+        <Label Content="Type competitie" Foreground="Yellow" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,64"></Label>
+        <Label x:Name="lblTypeCompetitie" Content=""  Foreground="White" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="0,66,0,0"></Label>
 
 
         <Button x:Name="btnToevoegen" Grid.Column="3" Grid.Row="3" Content="Toevoegen" Margin="17,67,17,27" Click="BtnToevoegen_Click"></Button>

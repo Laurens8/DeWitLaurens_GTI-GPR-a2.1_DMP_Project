@@ -16,7 +16,7 @@ namespace TennisVlaanderen_DAL
 
         public override string ToString()
         {
-            return Naam + " " + Voornaam + Environment.NewLine + Geslacht + Environment.NewLine + GeboorteDatum.ToShortDateString() + Environment.NewLine + Land + Environment.NewLine + Klassement;
+            return this.Naam + " " + this.Voornaam + Environment.NewLine + Geslacht + Environment.NewLine + GeboorteDatum.ToShortDateString() + Environment.NewLine + Land + Environment.NewLine + Klassement;
         }
 
         public override int GetHashCode()

@@ -4,17 +4,18 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="456332f1ef5e45a3882ff7de463d9a90" Name="Diagram1">
-        <EntityTypeShape EntityType="TennisVlaanderenModel.Abonnement" Width="1.5" PointX="3" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TennisVlaanderenModel.Club" Width="1.5" PointX="0.75" PointY="6.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="TennisVlaanderenModel.Speler" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="TennisVlaanderenModel.SpelerClubTornooi" Width="1.5" PointX="6" PointY="6.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="TennisVlaanderenModel.Tarieven" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="TennisVlaanderenModel.TerreinReservatie" Width="1.5" PointX="3" PointY="16.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="TennisVlaanderenModel.Tornooi" Width="1.5" PointX="3.75" PointY="2.625" IsExpanded="true" />
+      <Diagram DiagramId="336781bfb57c4cf3b57dd9320bcbe525" Name="Diagram1">
+        <EntityTypeShape EntityType="TennisVlaanderenModel.Abonnement" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="TennisVlaanderenModel.Club" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TennisVlaanderenModel.Speler" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TennisVlaanderenModel.SpelerClubTornooi" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="TennisVlaanderenModel.Tarieven" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TennisVlaanderenModel.TerreinReservatie" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TennisVlaanderenModel.Tornooi" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
         <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Club_Abonnement" ManuallyRouted="false" />
         <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Speler" ManuallyRouted="false" />
         <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Club" ManuallyRouted="false" />
+        <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Club_Inscrijven" ManuallyRouted="false" />
         <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Club_SpelerClubTornooi" ManuallyRouted="false" />
         <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Speler_SpelerClubTornooi" ManuallyRouted="false" />
         <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Speler_TerreinReservatie" ManuallyRouted="false" />

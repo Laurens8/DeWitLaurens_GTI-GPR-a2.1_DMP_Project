@@ -22,7 +22,7 @@
 
         <Label Content="Tennis Vlaanderen" FontSize="20" Background="yellow" FontStyle="Normal" Grid.Column="0" Grid.ColumnSpan="4" FontWeight="Bold" FontFamily="Arial Black"></Label>
 
-        <Label Content="Club" Foreground="Yellow" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="38,64,162,143"></Label>
+        <Label x:Name="lblClubNaam" Content="" Foreground="Yellow" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="38,64,162,143"></Label>
 
         <Label Content="Veld selecteren" Foreground="Yellow" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="89,8,111,229" RenderTransformOrigin="0.5,0.5">
             <Label.RenderTransform>

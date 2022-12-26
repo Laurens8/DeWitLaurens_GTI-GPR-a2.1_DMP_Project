@@ -15,7 +15,7 @@ namespace TennisVlaanderen_DAL.repositories
     {
         public IEnumerable<Club> OphalenClubNaam()
         {
-            string sql = @"SELECT C.Naam FROM TennisVlaanderen.CLUB AS C";
+            string sql = @"SELECT * FROM TennisVlaanderen.CLUB";
 
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {

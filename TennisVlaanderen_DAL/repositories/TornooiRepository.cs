@@ -23,7 +23,7 @@ namespace TennisVlaanderen_DAL.repositories
 
         public List<Tornooi> OphalenTornooiNaam(string circuitNaam)
         {
-            string sql = $@"SELECT DISTINCT NaamTornooi 
+            string sql = $@"SELECT DISTINCT * 
                            FROM TennisVlaanderen.Tornooi T
                            WHERE T.Circuit LIKE '%{circuitNaam}%'";                           
 

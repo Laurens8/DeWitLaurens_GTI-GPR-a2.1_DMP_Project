@@ -42,7 +42,7 @@ namespace TennisVlaanderen_WPF
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {
-            if (cbClub.SelectedItem != null && cbAanbod.Items != null)
+            if (cbClub.SelectedItem != null && cbAanbod.SelectedItem != null)
             {
                 LessenPlusStages = cbAanbod.Text.ToString();
                 WindowHomePagina homePagina = new WindowHomePagina();

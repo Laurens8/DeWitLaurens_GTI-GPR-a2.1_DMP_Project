@@ -19,6 +19,7 @@ namespace TennisVlaanderen_DAL
         {
             this.Abonnement = new HashSet<Abonnement>();
             this.Tarieven = new HashSet<Tarieven>();
+            this.Speler = new HashSet<Speler>();
             this.SpelerClubTornooi = new HashSet<SpelerClubTornooi>();
         }
     
@@ -35,6 +36,8 @@ namespace TennisVlaanderen_DAL
         public virtual ICollection<Abonnement> Abonnement { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Tarieven> Tarieven { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Speler> Speler { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SpelerClubTornooi> SpelerClubTornooi { get; set; }
     }

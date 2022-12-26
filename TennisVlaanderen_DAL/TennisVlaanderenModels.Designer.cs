@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\TennisVlaanderenModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\laure\source\repos\DeWitLaurens_GTI GPR a2.1_DMP_Project\TennisVlaanderen_DAL\TennisVlaanderenModels.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

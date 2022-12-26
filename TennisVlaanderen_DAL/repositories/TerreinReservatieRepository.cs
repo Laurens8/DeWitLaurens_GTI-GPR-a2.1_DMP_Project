@@ -38,5 +38,16 @@ namespace TennisVlaanderen_DAL.repositories
                 return db.Query<TerreinReservatie>(sql).ToList();
             }
         }
+
+        public List<TerreinReservatie> OphalenReservatie()
+        {
+            string sql = @"SELECT * 
+                           FROM TennisVlaanderen.TerreinReservatie T
+                           JOIN TennisVlaanderen.Speler S ON T.SpelerId = S.Id";
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                return db.Query<TerreinReservatie>(sql).ToList();
+            }
+        }
     }
 }

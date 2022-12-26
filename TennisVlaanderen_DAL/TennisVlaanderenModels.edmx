@@ -33,6 +33,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ClubID" Type="int" />
           <Property Name="Naam" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Voornaam" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Klassement" Type="varchar" MaxLength="100" Nullable="false" />
@@ -104,6 +105,18 @@
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="Abonnement">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tennisVlaanderen_Club_Inscrijven">
+          <End Role="Club" Type="Self.Club" Multiplicity="0..1" />
+          <End Role="Speler" Type="Self.Speler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Speler">
               <PropertyRef Name="ClubID" />
             </Dependent>
           </ReferentialConstraint>
@@ -184,6 +197,10 @@
             <End Role="Club" EntitySet="Club" />
             <End Role="Abonnement" EntitySet="Abonnement" />
           </AssociationSet>
+          <AssociationSet Name="FK_tennisVlaanderen_Club_Inscrijven" Association="Self.FK_tennisVlaanderen_Club_Inscrijven">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="Speler" EntitySet="Speler" />
+          </AssociationSet>
           <AssociationSet Name="FK_tennisVlaanderen_Club_SpelerClubTornooi" Association="Self.FK_tennisVlaanderen_Club_SpelerClubTornooi">
             <End Role="Club" EntitySet="Club" />
             <End Role="SpelerClubTornooi" EntitySet="SpelerClubTornooi" />
@@ -236,6 +253,7 @@
           <Property Name="Clubaanbod" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Abonnement" Relationship="Self.FK_tennisVlaanderen_Club_Abonnement" FromRole="Club" ToRole="Abonnement" />
           <NavigationProperty Name="Tarieven" Relationship="Self.FK_tennisVlaanderen_Club" FromRole="Club" ToRole="Tarieven" />
+          <NavigationProperty Name="Speler" Relationship="Self.FK_tennisVlaanderen_Club_Inscrijven" FromRole="Club" ToRole="Speler" />
           <NavigationProperty Name="SpelerClubTornooi" Relationship="Self.FK_tennisVlaanderen_Club_SpelerClubTornooi" FromRole="Club" ToRole="SpelerClubTornooi" />
         </EntityType>
         <EntityType Name="Speler">
@@ -243,6 +261,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ClubID" Type="Int32" />
           <Property Name="Naam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Voornaam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Klassement" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
@@ -255,6 +274,7 @@
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="RijksNummer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Abonnement" Relationship="Self.FK_tennisVlaanderen_Speler" FromRole="Speler" ToRole="Abonnement" />
+          <NavigationProperty Name="Club" Relationship="Self.FK_tennisVlaanderen_Club_Inscrijven" FromRole="Speler" ToRole="Club" />
           <NavigationProperty Name="SpelerClubTornooi" Relationship="Self.FK_tennisVlaanderen_Speler_SpelerClubTornooi" FromRole="Speler" ToRole="SpelerClubTornooi" />
           <NavigationProperty Name="TerreinReservatie" Relationship="Self.FK_tennisVlaanderen_Speler_TerreinReservatie" FromRole="Speler" ToRole="TerreinReservatie" />
         </EntityType>
@@ -339,6 +359,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_tennisVlaanderen_Club_Inscrijven">
+          <End Role="Club" Type="Self.Club" Multiplicity="0..1" />
+          <End Role="Speler" Type="Self.Speler" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Club">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Speler">
+              <PropertyRef Name="ClubID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_tennisVlaanderen_Club_SpelerClubTornooi">
           <End Role="Club" Type="Self.Club" Multiplicity="1" />
           <End Role="SpelerClubTornooi" Type="Self.SpelerClubTornooi" Multiplicity="*" />
@@ -407,6 +439,10 @@
             <End Role="Club" EntitySet="Club" />
             <End Role="Tarieven" EntitySet="Tarieven" />
           </AssociationSet>
+          <AssociationSet Name="FK_tennisVlaanderen_Club_Inscrijven" Association="Self.FK_tennisVlaanderen_Club_Inscrijven">
+            <End Role="Club" EntitySet="Club" />
+            <End Role="Speler" EntitySet="Speler" />
+          </AssociationSet>
           <AssociationSet Name="FK_tennisVlaanderen_Club_SpelerClubTornooi" Association="Self.FK_tennisVlaanderen_Club_SpelerClubTornooi">
             <End Role="Club" EntitySet="Club" />
             <End Role="SpelerClubTornooi" EntitySet="SpelerClubTornooi" />
@@ -459,6 +495,7 @@
             <EntityTypeMapping TypeName="TennisVlaanderenModel.Speler">
               <MappingFragment StoreEntitySet="Speler">
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ClubID" ColumnName="ClubID" />
                 <ScalarProperty Name="Naam" ColumnName="Naam" />
                 <ScalarProperty Name="Voornaam" ColumnName="Voornaam" />
                 <ScalarProperty Name="Klassement" ColumnName="Klassement" />

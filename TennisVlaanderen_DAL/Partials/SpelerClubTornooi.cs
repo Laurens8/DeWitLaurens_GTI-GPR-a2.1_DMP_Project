@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace TennisVlaanderen_DAL
 {
-    public partial class SpelerClubTornooi
+    public partial class SpelerClubTornooi : Tornooi
     {
         public override string ToString()
         {
-            return "";
+            return base.NaamTornooi;
         }
     }
 }

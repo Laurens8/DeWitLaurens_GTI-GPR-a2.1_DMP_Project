@@ -10,7 +10,7 @@ namespace TennisVlaanderen_DAL
     {
         public override string ToString()
         {
-            return Naam;
+            return this.Naam;
         }
     }
 }

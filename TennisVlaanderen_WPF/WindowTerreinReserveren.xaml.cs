@@ -25,11 +25,14 @@ namespace TennisVlaanderen_WPF
         private ITerreinReservatieRepository terreinReserverenRepository = new TerreinReservatieRepository();
         private IClubRepository clubRepository = new ClubRepository();
 
-        public string Veld { get; set; }
+        public static string Veld { get; set; }
+
+        string clubNaam = WindowClub.Club;       
 
         public WindowTerreinReserveren()
         {
             InitializeComponent();
+            lblClubNaam.Content = clubNaam;
         }
 
         private void BtnAnnuleren_Click(object sender, RoutedEventArgs e)

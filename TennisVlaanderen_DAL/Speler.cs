@@ -23,6 +23,7 @@ namespace TennisVlaanderen_DAL
         }
     
         public int Id { get; set; }
+        public Nullable<int> ClubID { get; set; }
         public string Naam { get; set; }
         public string Voornaam { get; set; }
         public string Klassement { get; set; }
@@ -37,6 +38,7 @@ namespace TennisVlaanderen_DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Abonnement> Abonnement { get; set; }
+        public virtual Club Club { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SpelerClubTornooi> SpelerClubTornooi { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
