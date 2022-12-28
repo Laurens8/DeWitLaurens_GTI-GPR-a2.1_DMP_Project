@@ -22,10 +22,11 @@ namespace TennisVlaanderen_WPF
     /// </summary>
     public partial class WindowTornooi : Window
     {
-        public static string NaamTornooi { get; set; }
-
         private ITornooiRepository TornooiRepository = new TornooiRepository();
-        Tornooi tornooi = new Tornooi();
+        private ISpelerRepository spelerItems = new SpelerRepository();
+        private ISpelerClubTornooiRepository SCT = new SpelerClubTornooiRepository();
+        Tornooi tornooi = new Tornooi();     
+        Speler speler = new Speler();
 
         public WindowTornooi()
         {
@@ -38,7 +39,7 @@ namespace TennisVlaanderen_WPF
             List<Tornooi> tornooiDB = (List<Tornooi>)TornooiRepository.OphalenTornooi();
             List<Tornooi> circuitDB = (List<Tornooi>)TornooiRepository.OphalenCircuitNaam();           
             cbTornooi.ItemsSource = tornooiDB;
-            cbCircuit.ItemsSource = circuitDB;
+            cbCircuit.ItemsSource = circuitDB;          
         }
 
         private void CbCircuit_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -54,14 +55,26 @@ namespace TennisVlaanderen_WPF
                 lblTornooi.Content = tornooi.NaamTornooi;
                 lblCircuit.Content = tornooi.Circuit;
                 lblDatum.Content = tornooi.Datum;
-                lblTypeCompetitie.Content = tornooi.TypeCompetitie;                      
+                lblTypeCompetitie.Content = tornooi.TypeCompetitie;               
         }
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
-        {
+        {           
             if (cbCircuit.SelectedItem != null && cbTornooi.SelectedItem != null)
-            {
-                NaamTornooi = cbTornooi.SelectedItem.ToString();
+            {               
+                List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+                foreach (var item in spelersDB)
+                {
+                    SpelerClubTornooi spt = new SpelerClubTornooi()
+                    {
+                    ClubID = (int)item.ClubID,
+                    SpelerID = item.Id,
+                    TornooiID = tornooi.Id,                   
+                    };
+
+                    item.SpelerClubTornooi.Add(spt);
+                    SCT.SpelerClubTornooiToevoegen(spt);                   
+                }               
                 WindowHomePagina homePagina = new WindowHomePagina();
                 homePagina.Show();
                 this.Close();

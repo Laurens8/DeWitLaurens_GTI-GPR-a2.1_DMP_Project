@@ -8,6 +8,10 @@ namespace TennisVlaanderen_DAL.interfaces
 {
     public interface ISpelerClubTornooiRepository
     {
-        IEnumerable<SpelerClubTornooi> OphalenSpelerClubTornooi();
+        IEnumerable<SpelerClubTornooi> OphalenSpelerClubTornooi(int id);
+
+        bool SpelerClubTornooiToevoegen(SpelerClubTornooi spelerClubTornooi);
+        bool SpelerClubTornooiUpdate(SpelerClubTornooi spelerClubTornooi);
+        bool SpelerClubTornooiDelete(string spelerClubTornooiID);
     }
 }

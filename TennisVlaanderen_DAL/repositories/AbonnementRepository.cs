@@ -24,16 +24,70 @@ namespace TennisVlaanderen_DAL.repositories
             }
         }
 
-        public List<Abonnement> OphalenSpelerabonnement()
+        public List<Abonnement> OphalenSpelerabonnement(int id)
         {
             string sql = $@"SELECT * 
                             FROM TennisVlaanderen.Abonnement A
-                            JOIN TennisVlaanderen.Speler S ON A.SpelerId = S.Id ";
+                            JOIN TennisVlaanderen.Speler S ON A.SpelerId = S.Id
+                            WHERE S.Id = {id}";
 
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
                 return db.Query<Abonnement>(sql).ToList();
             }
+        }
+
+        public bool AbonnementDelete(string abonnementID)
+        {
+            string sql = @"
+                           DELETE FROM TennisVlaanderen.Abonnement
+                           WHERE Id = @Id";
+
+            var parameter = new
+            {
+                Id = abonnementID
+            };
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, parameter);
+                if (affectedRows >= 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool AbonnementUpdate(Abonnement abonnement)
+        {
+            string sql = @"UPDATE TennisVlaanderen.Abonnement                         
+                        SpelerID = @SpelerID,    
+                        ClubID = @ClubID,
+                        Lessen = @Lessen,
+                        Stages = @Stages
+                        WHERE Id = @Id";
+
+            var parameter = new
+            {
+                @Id = abonnement.Id,               
+                SpelerID = abonnement.SpelerID,
+                @ClubID = abonnement.ClubID,
+                @Lessen = abonnement.Lessen,
+                @Stages = abonnement.Stages,
+            };
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, parameter);
+                if (affectedRows == 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

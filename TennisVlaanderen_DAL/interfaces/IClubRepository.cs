@@ -9,5 +9,8 @@ namespace TennisVlaanderen_DAL.interfaces
     public interface IClubRepository
     {
         IEnumerable<Club> OphalenClubNaam();
+
+        bool ClubUpdate(Club club);
+        bool ClubDelete(string clubID);
     }
 }

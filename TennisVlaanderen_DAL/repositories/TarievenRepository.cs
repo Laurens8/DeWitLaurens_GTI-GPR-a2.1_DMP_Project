@@ -77,5 +77,58 @@ namespace TennisVlaanderen_DAL.repositories
                 return db.Query<Tarieven>(sql).ToList();
             }
         }
+
+        public bool TarievenDelete(string tarievenID)
+        {
+            string sql = @"
+                           DELETE FROM TennisVlaanderen.Tarieven
+                           WHERE Id = @Id";
+
+            var parameter = new
+            {
+                Id = tarievenID
+            };
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, parameter);
+                if (affectedRows >= 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool TarievenUpdate(Tarieven tarieven)
+        {
+            string sql = @"UPDATE TennisVlaanderen.Tarieven 
+                        ClubID = @ClubID,
+                        Leeftijdgraad = @Leeftijdgraad,                        
+                        TypeTennis = @TypeTennis,
+                        Prijs = @Prijs
+                        WHERE Id = @Id";
+
+            var parameter = new
+            {
+                @Id = tarieven.Id,
+                @ClubID = tarieven.ClubID,
+                @Leeftijdgraad = tarieven.Leeftijdgraad,
+                @TypeTennis = tarieven.TypeTennis,
+                @Prijs = @tarieven.Prijs,
+            };
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, parameter);
+                if (affectedRows == 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

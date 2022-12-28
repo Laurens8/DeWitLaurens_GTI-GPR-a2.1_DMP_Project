@@ -38,9 +38,9 @@
         <Button x:Name="btnTerrein" Content="Terrein reserveren" Grid.Row="3" Grid.Column="3" Margin="10" Click="BtnTerrein_Click"></Button>
 
         <Button x:Name="btnUitschrijvenAccount" Content="Account Verwijderen" Grid.Column="2" Grid.Row="1" Margin="10,18,64,128" Click="btnUitschrijvenAccount_Click"/>
-        <Button x:Name="btnUitschrijvenClub" Content="Uitschrijven Club" Grid.Column="2" Grid.Row="1" Margin="10,98,64,48"/>
-        <Button x:Name="btnUitschrijvenLessen" Content="Uitschrijven Lessen" Grid.Column="2" Grid.Row="1" Margin="10,162,64,153" Grid.RowSpan="2"/>
-        <Button x:Name="btnUitschrijvenVeld" Content="Veld reservatie Annuleren" Grid.Column="2" Grid.Row="2" Margin="10,55,64,90"/>
-        <Button x:Name="btnUitschrijvenTornooi" Content="Uitschrijven Tornooi" Grid.Column="2" Grid.Row="2" Margin="10,114,64,32"/>
+        <Button x:Name="btnUitschrijvenClub" Content="Uitschrijven Club" Grid.Column="2" Grid.Row="1" Margin="10,98,64,48" Click="BtnUitschrijvenClub_Click"/>
+        <Button x:Name="btnUitschrijvenLessen" Content="Uitschrijven Lessen" Grid.Column="2" Grid.Row="1" Margin="10,162,64,153" Grid.RowSpan="2" Click="BtnUitschrijvenLessen_Click"/>
+        <Button x:Name="btnUitschrijvenVeld" Content="Veld reservatie Annuleren" Grid.Column="2" Grid.Row="2" Margin="10,55,64,90" Click="BtenUitschrijvenVeld_Click"/>
+        <Button x:Name="btnUitschrijvenTornooi" Content="Uitschrijven Tornooi" Grid.Column="2" Grid.Row="2" Margin="10,114,64,32" Click="BtnUitschrijvenTornooi_Click"/>
     </Grid>
 </Window>

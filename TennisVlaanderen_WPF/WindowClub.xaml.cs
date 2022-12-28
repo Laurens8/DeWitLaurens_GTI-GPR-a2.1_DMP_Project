@@ -28,11 +28,12 @@ namespace TennisVlaanderen_WPF
             OphalenDataClub();
         }        
 
-        public static string Club { get; set; }
         Club nieuwClub = new Club();
+        Speler speler = new Speler();
 
         private ITarievenRepository tarievenRepository = new TarievenRepository();
         private IClubRepository clubRepository = new ClubRepository();
+        private ISpelerRepository spelerItems = new SpelerRepository();
 
         private void OphalenDataClub()
         {
@@ -44,7 +45,9 @@ namespace TennisVlaanderen_WPF
         {
             if (cbClub.SelectedItem != null && cbAanbod.SelectedItem != null)
             {
-                Club = cbClub.Text.ToString();
+                List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+                speler.Club = (Club)cbClub.SelectedItem;
+                spelerItems.SpelerUpdate(speler);
                 WindowHomePagina homePagina = new WindowHomePagina();
                 homePagina.Show();
                 this.Close();

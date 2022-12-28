@@ -28,6 +28,7 @@ namespace TennisVlaanderen_WPF
         }
 
         Speler nieuwSpeler = new Speler();
+        private ISpelerRepository spelerItems = new SpelerRepository();
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {

@@ -13,6 +13,9 @@ namespace TennisVlaanderen_DAL.interfaces
         List<Tarieven> OphalenTypeTennis(string clubNaam);
         List<Tarieven> OphalenTypePadel(string clubNaam);
         List<Tarieven> OphalenTypeTennisPlusPadel(string clubNaam);
-        List<Tarieven> OphalenPrijs();     
+        List<Tarieven> OphalenPrijs();
+
+        bool TarievenUpdate(Tarieven tarieven);
+        bool TarievenDelete(string tarievenID);
     }
 }

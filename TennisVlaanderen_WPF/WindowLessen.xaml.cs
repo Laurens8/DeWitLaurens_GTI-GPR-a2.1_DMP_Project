@@ -23,7 +23,7 @@ namespace TennisVlaanderen_WPF
     /// </summary>
     public partial class WindowLessen : Window
     {
-        public static string LessenPlusStages { get; set; }
+        Speler speler = new Speler();
 
         public WindowLessen()
         {
@@ -33,6 +33,7 @@ namespace TennisVlaanderen_WPF
 
         private IAbonnementRepository AbonnenmentRepository = new AbonnementRepository();
         private IClubRepository clubRepository = new ClubRepository();
+        private ISpelerRepository spelerItems = new SpelerRepository();
 
         private void OphalenDataClub()
         {
@@ -44,7 +45,9 @@ namespace TennisVlaanderen_WPF
         {
             if (cbClub.SelectedItem != null && cbAanbod.SelectedItem != null)
             {
-                LessenPlusStages = cbAanbod.Text.ToString();
+                List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+                speler.Abonnement = (ICollection<Abonnement>)cbAanbod.SelectedItem;
+                spelerItems.SpelerUpdate(speler);
                 WindowHomePagina homePagina = new WindowHomePagina();
                 homePagina.Show();
                 this.Close();

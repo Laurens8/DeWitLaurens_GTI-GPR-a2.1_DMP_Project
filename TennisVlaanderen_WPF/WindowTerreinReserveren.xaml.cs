@@ -24,15 +24,15 @@ namespace TennisVlaanderen_WPF
     {
         private ITerreinReservatieRepository terreinReserverenRepository = new TerreinReservatieRepository();
         private IClubRepository clubRepository = new ClubRepository();
+        private ISpelerRepository spelerItems = new SpelerRepository();
 
-        public static string Veld { get; set; }
 
-        string clubNaam = WindowClub.Club;       
+
+        Speler speler = new Speler();
 
         public WindowTerreinReserveren()
         {
             InitializeComponent();
-            lblClubNaam.Content = clubNaam;
         }
 
         private void BtnAnnuleren_Click(object sender, RoutedEventArgs e)
@@ -44,7 +44,9 @@ namespace TennisVlaanderen_WPF
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {
-            Veld = cbVeld.Text.ToString();
+            List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+            speler.TerreinReservatie = (ICollection<TerreinReservatie>)(TerreinReservatie)cbVeld.SelectedItem;
+            spelerItems.SpelerUpdate(speler);
             WindowHomePagina homePagina = new WindowHomePagina();
             homePagina.Show();
             this.Close();

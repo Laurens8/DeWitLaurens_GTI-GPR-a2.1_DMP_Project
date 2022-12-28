@@ -14,5 +14,8 @@ namespace TennisVlaanderen_DAL.interfaces
         List<Tornooi> OphalenCircuitNaam();
         List<Tornooi> OphalenDatum();
         List<Tornooi> OphalenTypeCompetitie();
+
+        bool TornooiUpdate(Tornooi tornooi);
+        bool TornooiDelete(string tornooiID);
     }
 }

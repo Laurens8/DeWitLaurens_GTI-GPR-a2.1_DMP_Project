@@ -41,13 +41,13 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool SpelerDelete(string spelerID)
         {
-            string sql = @"DECLARE @Id int
+            string sql = @"
                            DELETE FROM TennisVlaanderen.Speler
                            WHERE Id = @Id";
 
             var parameter = new
             {
-                SpelerID = spelerID
+                Id = spelerID
             };
 
             using (IDbConnection db = new SqlConnection(ConnectionString))
@@ -64,11 +64,12 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool SpelerToevoegen(Speler speler)
         {
-            string sql = @"INSERT INTO TennisVlaanderen.Speler (Naam, Voornaam, Klassement, Geslacht, GeboorteDatum, Nationaliteit, Adres, Land, Telefoon, Email, RijksNummer)
+            string sql = @"INSERT INTO TennisVlaanderen.Speler (ClubID, Naam, Voornaam, Klassement, Geslacht, GeboorteDatum, Nationaliteit, Adres, Land, Telefoon, Email, RijksNummer)
                           VALUES (@Naam, @Voornaam, @Klassement, @Geslacht, @GeboorteDatum, @Nationaliteit, @Adres, @Land, @Telefoon, @Email, @RijksNummer)";
 
             var parameter = new
             {
+                @ClubID = speler.ClubID,
                 @Naam = speler.Naam,
                 @Voornaam = speler.Voornaam,
                 @Klassement = speler.Klassement,
@@ -96,10 +97,12 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool SpelerUpdate(Speler speler) 
         {
-            string sql = @"UPDATE TennisVlaanderen.Speler Naam = @Naam,
+            string sql = @"UPDATE TennisVlaanderen.Speler SET
+                        ClubID = @ClubID,
+                        Naam = @Naam,
                         Voornaam = @Voornaam,
                         Klassement = @Klassement,
-                        Geslacht =@Geslacht,
+                        Geslacht = @Geslacht,
                         GeboorteDatum = @GeboorteDatum, 
                         Nationaliteit = @Nationaliteit,
                         Adres = @Adres,
@@ -112,6 +115,7 @@ namespace TennisVlaanderen_DAL.repositories
             var parameter = new
             {
                 @Id = speler.Id,
+                @ClubID = speler.ClubID,
                 @Naam = speler.Naam,
                 @Voornaam = speler.Voornaam,
                 @Klassement = speler.Klassement,

@@ -65,5 +65,58 @@ namespace TennisVlaanderen_DAL.repositories
                 return db.Query<Tornooi>(sql).ToList();
             }
         }
+
+        public bool TornooiDelete(string tornooiID)
+        {
+            string sql = @"
+                           DELETE FROM TennisVlaanderen.Tornooi
+                           WHERE Id = @Id";
+
+            var parameter = new
+            {
+                Id = tornooiID
+            };
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, parameter);
+                if (affectedRows >= 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool TornooiUpdate(Tornooi tornooi)
+        {
+            string sql = @"UPDATE TennisVlaanderen.Tornooi 
+                        NaamTornooi = @NaamTornooi,
+                        Datum = @Datum,
+                        Circuit = @ Circuit,
+                        TypeCompetitie = @TypeCompetitie
+                        WHERE Id = @Id";
+
+            var parameter = new
+            {
+                @Id = tornooi.Id,
+                @NaamTornooi = tornooi.NaamTornooi,
+                @Datum = tornooi.Datum,
+                @Circuit = tornooi.Circuit,
+                @TypeCompetitie = tornooi.TypeCompetitie,               
+            };
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, parameter);
+                if (affectedRows == 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

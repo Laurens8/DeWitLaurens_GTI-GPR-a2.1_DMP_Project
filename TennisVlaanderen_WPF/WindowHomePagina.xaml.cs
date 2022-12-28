@@ -32,22 +32,29 @@ namespace TennisVlaanderen_WPF
         private ISpelerClubTornooiRepository SCT = new SpelerClubTornooiRepository();
         private ITerreinReservatieRepository terreinReserveren = new TerreinReservatieRepository();
         private IAbonnementRepository abonnementRepository = new AbonnementRepository();
+        private IClubRepository clubRepository = new ClubRepository();
         Speler speler = new Speler();
 
         private void DataSpeler()
         {                               
             List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
-            List<SpelerClubTornooi> sptlijst = (List<SpelerClubTornooi>)SCT.OphalenSpelerClubTornooi();
-            List<TerreinReservatie> terreinlijst = (List<TerreinReservatie>)terreinReserveren.OphalenReservatie();
-            List<Abonnement> abonnement= (List<Abonnement>)abonnementRepository.OphalenSpelerabonnement();
+            List<SpelerClubTornooi> sptlijst = new List<SpelerClubTornooi>();
+            List<TerreinReservatie> terreinlijst = (List<TerreinReservatie>)terreinReserveren.OphalenReservatie(speler.Id);
+            List<Abonnement> abonnement = (List<Abonnement>)abonnementRepository.OphalenSpelerabonnement(speler.Id);
+
             foreach (var item in spelersDB)
             {
+                sptlijst = (List<SpelerClubTornooi>)SCT.OphalenSpelerClubTornooi(item.Id);                     
+                terreinlijst = (List<TerreinReservatie>)terreinReserveren.OphalenReservatie(item.Id);
+                abonnement = (List<Abonnement>)abonnementRepository.OphalenSpelerabonnement(item.Id);
+
+                speler = item;
                 lblSpeler.Content = item.ToString();
-                lblClub.Content = item.Naam.ToString();              
+                lblClub.Content = item.Naam.ToString();                       
             }
             foreach (var item in sptlijst)
             {
-                lblTornooi.Content = item;                             
+                lblTornooi.Content = item;
             }
             foreach (var item in terreinlijst)
             {
@@ -89,32 +96,67 @@ namespace TennisVlaanderen_WPF
 
         private void btnUitschrijvenAccount_Click(object sender, RoutedEventArgs e)
         {
-            List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
-            foreach (var item in spelersDB)
+            if (MessageBox.Show("Benje zeker dat je uw account wil verwijderen?", "Message", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                spelerItems.SpelerDelete(Convert.ToString(item.Id));
+                List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+                foreach (var item in spelersDB)
+                {
+                    spelerItems.SpelerDelete(Convert.ToString(speler.Id));
+                }              
             }
+            DataSpeler();
         }
 
-        //private void Save(bool isInsert)
-        //{
-        //    speler.Id = 0;
-        //    speler.Naam= null;
-        //    speler.Voornaam= null;
-        //    speler.Adres= null;
-        //    speler.Email= null;
-        //    speler.Telefoon= null;
-        //    speler.Klassement= null;
-        //    speler.GeboorteDatum = DateTime.Now;
-        //    speler.Nationaliteit= null;
-        //    speler.Geslacht= null;
-        //    speler.Land= null;
-        //    speler.RijksNummer= null;
+        private void BtnUitschrijvenClub_Click(object sender, RoutedEventArgs e)
+        {       
+             if (MessageBox.Show("Ben je zeker dat je u wil uitscrijven mij deze club?", "Message", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+             {
+                List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+                foreach (var item in spelersDB)
+                {
+                    clubRepository.ClubDelete(Convert.ToString(speler.ClubID));
+                }                  
+             }
+            DataSpeler();
+        }
 
-        //    if (true)
-        //    {
+        private void BtnUitschrijvenLessen_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Ben je zeker dat je u will uitschrijven voor de lessen en stages?", "Message", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                List<Abonnement> abonnement = (List<Abonnement>)abonnementRepository.OphalenSpelerabonnement(speler.Id);
+                foreach (var item in abonnement)
+                {
+                    abonnementRepository.AbonnementDelete(Convert.ToString(item.Id));
+                }               
+            }
+            DataSpeler();
+        }
 
-        //    }
-        //}
+        private void BtenUitschrijvenVeld_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Benje zeker dat je uw reservatie wil af zeggen?", "Message", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {
+                List<TerreinReservatie> terreinlijst = (List<TerreinReservatie>)terreinReserveren.OphalenReservatie(speler.Id);
+                foreach (var item in terreinlijst)
+                {
+                    terreinReserveren.TerreinReservatieDelete(Convert.ToString(item.Id));
+                }              
+            }
+            DataSpeler();
+        }
+
+        private void BtnUitschrijvenTornooi_Click(object sender, RoutedEventArgs e)
+        {
+            if (MessageBox.Show("Ben je zeker dat je u wil uitschrijven in de tornooi?", "Message", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+            {                
+                List<SpelerClubTornooi> sptlijst = (List<SpelerClubTornooi>)SCT.OphalenSpelerClubTornooi(speler.Id);
+                foreach (var item in sptlijst)
+                {
+                    SCT.SpelerClubTornooiDelete(Convert.ToString(item.Id));
+                    DataSpeler();
+                }              
+            }           
+        } 
     }
 }

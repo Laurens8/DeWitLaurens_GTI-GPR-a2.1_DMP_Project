@@ -12,5 +12,10 @@ namespace TennisVlaanderen_DAL
         {
             return "Lessen " + Lessen + " " + "Stages " + Stages;
         }
+
+        public override int GetHashCode()
+        {
+            return -434485196 + EqualityComparer<string>.Default.GetHashCode();
+        }
     }
 }

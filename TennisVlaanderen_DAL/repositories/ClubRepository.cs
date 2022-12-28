@@ -22,5 +22,65 @@ namespace TennisVlaanderen_DAL.repositories
                 return db.Query<Club>(sql);
             }
         }
+
+
+        public bool ClubDelete(string clubID)
+        {
+            string sql = @"
+                           DELETE FROM TennisVlaanderen.Club
+                           WHERE Id = @Id";
+
+            var parameter = new
+            {
+                Id = clubID
+            };
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, parameter);
+                if (affectedRows >= 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        public bool ClubUpdate(Club club)
+        {
+            string sql = @"UPDATE TennisVlaanderen.Club                         
+                        Naam = @Naam,    
+                        Adres = @Adres,
+                        Telefoon = @Telefoon,
+                        Email = @Email,
+                        Website = @Website,
+                        KwaliteitLabel = @KwaliteitLabel,
+                        Clubaanbod = @Clubaanbod
+    &                   WHERE Id = @Id";
+
+            var parameter = new
+            {
+                @Id = club.Id,
+                @Naam = club.Naam,
+                @Adres = club.Adres,
+                @Telefoon = club.Telefoon,
+                @Email = club.Email,
+                @Website = club.Website,
+                @KwaliteitLabel = club.KwaliteitLabel,
+                @Clubaanbod = club.Clubaanbod,
+            };
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, parameter);
+                if (affectedRows == 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
     }
 }

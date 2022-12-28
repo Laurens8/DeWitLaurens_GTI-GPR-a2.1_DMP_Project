@@ -10,6 +10,9 @@ namespace TennisVlaanderen_DAL.interfaces
     {
         IEnumerable<Abonnement> OphalenAbonnement(string clubNaam);
 
-        List<Abonnement> OphalenSpelerabonnement();
+        List<Abonnement> OphalenSpelerabonnement(int id);
+
+        bool AbonnementUpdate(Abonnement abonnement);
+        bool AbonnementDelete(string abonnementID);
     }
 }
