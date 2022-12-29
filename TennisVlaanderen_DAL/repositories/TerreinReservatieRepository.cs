@@ -51,6 +51,31 @@ namespace TennisVlaanderen_DAL.repositories
             }
         }
 
+        public bool TerreinReservatieToevoegen(TerreinReservatie terrein)
+        {
+            string sql = @"INSERT INTO TennisVlaanderen.TerreinReservatie (SpelerID, TerreinNummer, TypeOndergrond, TypeTennis)
+                          VALUES (@SpelerID, @TerreinNummer, @TypeOndergrond, @TypeTennis)";
+
+            var parameter = new
+            {
+                @SpelerID = terrein.SpelerID,
+                @TerreinNummer = terrein.TerreinNummer,
+                @TypeOndergrond = terrein.TypeOndergrond,
+                @TypeTennis = terrein.TypeTennis,
+            };
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, parameter);
+                if (affectedRows == 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public bool TerreinReservatieDelete(string terreinReservatieID)
         {
             string sql = @"

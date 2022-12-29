@@ -22,9 +22,9 @@
 
         <Label Content="Tennis Vlaanderen" FontSize="20" Background="yellow" FontStyle="Normal" Grid.Column="0" Grid.ColumnSpan="4" FontWeight="Bold" FontFamily="Arial Black"></Label>
 
-        <Label x:Name="lblClubNaam" Content="" Foreground="Yellow" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="38,64,162,143"></Label>
+        <Label x:Name="lblClubNaam" Content="" Foreground="Yellow" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="38,64,162,143" FontFamily="Arial Black"></Label>
 
-        <Label Content="Veld selecteren" Foreground="Yellow" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="89,8,111,229" RenderTransformOrigin="0.5,0.5">
+        <Label Content="Veld selecteren" Foreground="Yellow" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="89,8,111,229" RenderTransformOrigin="0.5,0.5" FontFamily="Arial Black">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -34,12 +34,12 @@
                 </TransformGroup>
             </Label.RenderTransform>
         </Label>
-        <ComboBox x:Name="cbVeld" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="84,64,116,0" Height="45" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="cbVeld" Grid.Column="1" Grid.Row="2" VerticalAlignment="Top" Margin="84,64,116,0" Height="45" Grid.ColumnSpan="2" FontFamily="Arial Black"/>
 
         <RadioButton x:Name="rbGravel" Grid.Column="3" Grid.Row="2" Margin="86,80,53,164" Checked="RbGravel_Checked"/>
-        <Label Content="Gras Veld" Foreground="Yellow" Grid.Column="2" Grid.Row="2" Margin="100,23,21,212"/>
+        <Label Content="Gras Veld" Foreground="Yellow" Grid.Column="2" Grid.Row="2" Margin="100,23,21,212" FontFamily="Arial Black"/>
         <RadioButton x:Name="rbGras" Grid.Column="2" Grid.Row="2" Margin="131,80,0,143" RenderTransformOrigin="0.492,0.482" Checked="RbGras_Checked" IsChecked="True"/>
-        <Label Content="Gravel veld" Foreground="Yellow" Grid.Column="3" Grid.Row="2" Margin="47,23,53,212" RenderTransformOrigin="0.5,0.5">
+        <Label Content="Gravel veld" Foreground="Yellow" Grid.Column="3" Grid.Row="2" Margin="47,23,53,212" RenderTransformOrigin="0.5,0.5" FontFamily="Arial Black">
             <Label.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -50,7 +50,7 @@
             </Label.RenderTransform>
         </Label>
 
-        <Button x:Name="btnToevoegen" Grid.Column="3" Grid.Row="3" Content="Toevoegen" Margin="17,67,17,27" Click="BtnToevoegen_Click"></Button>
-        <Button x:Name="btnAnnuleren" Grid.Column="3" Grid.Row="3" Content="Annuleren" Margin="17,13,17,0" VerticalAlignment="Top" Height="22" Click="BtnAnnuleren_Click"/>
+        <Button x:Name="btnToevoegen" Grid.Column="3" Grid.Row="3" Content="Toevoegen" Margin="17,67,17,27" Click="BtnToevoegen_Click" FontFamily="Arial Black"></Button>
+        <Button x:Name="btnAnnuleren" Grid.Column="3" Grid.Row="3" Content="Annuleren" Margin="17,13,17,0" VerticalAlignment="Top" Height="22" Click="BtnAnnuleren_Click" FontFamily="Arial Black"/>
     </Grid>
 </Window>

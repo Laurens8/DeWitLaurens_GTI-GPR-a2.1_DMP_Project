@@ -23,18 +23,18 @@
         <Label Content="Tennis Vlaanderen" FontSize="20" Background="yellow" FontStyle="Normal" Grid.Column="0" Grid.ColumnSpan="4" FontWeight="Bold" FontFamily="Arial Black"></Label>
 
         <Label Content="Selecteer een club" Foreground="Yellow" Grid.Column="0" Grid.Row="2" Margin="28,30,0,196"/>
-        <ComboBox x:Name="cbClub" Grid.Column="0" Grid.Row="2" Margin="10,96,190,139" Grid.ColumnSpan="2" SelectionChanged="CbClub_SelectionChanged"></ComboBox>
+        <ComboBox x:Name="cbClub" Grid.Column="0" Grid.Row="2" Margin="10,96,190,139" Grid.ColumnSpan="2" SelectionChanged="CbClub_SelectionChanged" FontFamily="Arial Black"></ComboBox>
 
-        <Label Content="Selecteer een abonnement" Foreground="Yellow" Grid.Column="1" Grid.Row="2" Margin="30,28,0,201"/>
-        <ComboBox x:Name="cbAanbod" Grid.Column="1" Grid.Row="2" Margin="30,98,170,136" Grid.ColumnSpan="2"></ComboBox>
+        <Label Content="Selecteer een abonnement" Foreground="Yellow" Grid.Column="1" Grid.Row="2" Margin="30,28,0,201" FontFamily="Arial Black"/>
+        <ComboBox x:Name="cbAanbod" Grid.Column="1" Grid.Row="2" Margin="30,98,170,136" Grid.ColumnSpan="2" FontFamily="Arial Black"></ComboBox>
 
-        <Label x:Name="lblNaam" Content="test" Grid.Row="2" Grid.Column="2" Margin="63,5,0,230" Foreground="Yellow"/>
-        <Label x:Name="lblTelefoon" Content="test" Grid.Row="2" Grid.Column="3" Margin="29,73,10,167" Foreground="Yellow"></Label>
-        <Label x:Name="lblAdres" Content="test" Grid.Row="2" Grid.Column="3" Margin="29,5,10,232" Foreground="Yellow"></Label>
-        <Label x:Name="lblWebsite" Content="test" Grid.Row="2" Grid.Column="2" Margin="63,144,0,90" Foreground="Yellow"/>
-        <Label x:Name="lblEmail" Content="test" Grid.Row="2" Grid.Column="2" Margin="63,68,0,172" Foreground="Yellow"/>
+        <Label x:Name="lblNaam" Content="" Grid.Row="2" Grid.Column="2" Margin="63,5,0,230" Foreground="Yellow" FontFamily="Arial Black"/>
+        <Label x:Name="lblTelefoon" Content="" Grid.Row="2" Grid.Column="3" Margin="29,73,10,167" Foreground="Yellow" FontFamily="Arial Black"></Label>
+        <Label x:Name="lblAdres" Content="" Grid.Row="2" Grid.Column="3" Margin="29,5,10,232" Foreground="Yellow" FontFamily="Arial Black"></Label>
+        <Label x:Name="lblWebsite" Content="" Grid.Row="2" Grid.Column="2" Margin="63,144,0,90" Foreground="Yellow" FontFamily="Arial Black"/>
+        <Label x:Name="lblEmail" Content="" Grid.Row="2" Grid.Column="2" Margin="63,68,0,172" Foreground="Yellow" FontFamily="Arial Black"/>
 
-        <Button x:Name="btnToevoegen" Grid.Column="3" Grid.Row="3" Content="Toevoegen" Margin="17,67,17,27" Click="BtnToevoegen_Click"></Button>
-        <Button x:Name="btnAnnuleren" Grid.Column="3" Grid.Row="3" Content="Annuleren" Margin="17,13,17,0" VerticalAlignment="Top" Height="22" Click="BtnAnnuleren_Click"/>
+        <Button x:Name="btnToevoegen" Grid.Column="3" Grid.Row="3" Content="Toevoegen" Margin="17,67,17,27" Click="BtnToevoegen_Click" FontFamily="Arial Black"></Button>
+        <Button x:Name="btnAnnuleren" Grid.Column="3" Grid.Row="3" Content="Annuleren" Margin="17,13,17,0" VerticalAlignment="Top" Height="22" Click="BtnAnnuleren_Click" FontFamily="Arial Black"/>
     </Grid>
 </Window>

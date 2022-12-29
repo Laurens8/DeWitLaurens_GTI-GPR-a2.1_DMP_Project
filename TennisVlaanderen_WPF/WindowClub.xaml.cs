@@ -45,9 +45,27 @@ namespace TennisVlaanderen_WPF
         {
             if (cbClub.SelectedItem != null && cbAanbod.SelectedItem != null)
             {
-                List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
-                speler.Club = (Club)cbClub.SelectedItem;
-                spelerItems.SpelerUpdate(speler);
+                try
+                {
+                    List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+                    foreach (var item in spelersDB)
+                    {
+                        Club club = new Club()
+                        {
+                            Naam = cbClub.SelectedItem.ToString(),
+                            Adres = cbClub.SelectedItem.ToString(),
+                            Telefoon = cbClub.SelectedItem.ToString(),
+                            Email = cbClub.SelectedItem.ToString(),
+                            Website = cbClub.SelectedItem.ToString(),
+                            KwaliteitLabel = cbClub.SelectedItem.ToString(),
+                            Clubaanbod = cbClub.SelectedItem.ToString(),
+                        };
+                        item.ClubID = club.Id;
+                        clubRepository.ClubToevoegen(club);
+                    }
+                }
+                catch (Exception ex) { FileOperations.FoutLoggen(ex); }
+
                 WindowHomePagina homePagina = new WindowHomePagina();
                 homePagina.Show();
                 this.Close();

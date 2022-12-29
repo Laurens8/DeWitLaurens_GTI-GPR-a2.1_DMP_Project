@@ -13,6 +13,7 @@ namespace TennisVlaanderen_DAL.interfaces
         List<TerreinReservatie> OphalenterreinGras(string TypeOndergrond);
         List<TerreinReservatie> OphalenReservatie(int id);
 
+        bool TerreinReservatieToevoegen(TerreinReservatie terrein);
         bool TerreinReservatieUpdate(TerreinReservatie terrein);
         bool TerreinReservatieDelete(string terreinReservatieID);
     }

@@ -21,26 +21,26 @@
         </Grid.RowDefinitions>
 
         <Label Content="Tennis Vlaanderen" FontSize="20" Background="yellow" FontStyle="Normal" Grid.Column="0" Grid.ColumnSpan="4" FontWeight="Bold" FontFamily="Arial Black"></Label>
-        <Label Content="Persoonelijke gegevens" Foreground="yellow" Grid.Column="2" Grid.ColumnSpan="2" Margin="169,3,31,177" Grid.RowSpan="2" Grid.Row="1"/>
-        <Label Content="" x:Name="lblSpeler" Grid.Row="1" Grid.Column="2" Margin="169,22,51,72" Foreground="yellow" Grid.ColumnSpan="2"/>
-        <Label Content="Club:" Foreground="yellow"  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="169,91,31,44"/>
-        <Label Content="Nog Niet ingeschreven in een club" x:Name="lblClub" Grid.Row="1" Grid.Column="2" Margin="169,114,0,29" Foreground="yellow" Grid.ColumnSpan="2"/>
-        <Label Content="Ingesereven lessen en stages" Foreground="yellow"  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="169,152,31,145" Grid.RowSpan="2"></Label>
-        <Label Content="Nog Niet ingeschreven voor lessen of stages" x:Name="lblLessen" Grid.Row="1" Grid.Column="2" Margin="169,172,0,138" Foreground="yellow" Grid.RowSpan="2" Grid.ColumnSpan="2"/>
-        <Label Content="Gereserveerde Veld" Foreground="yellow"  Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="169,47,31,90"/>
-        <Label Content="Nog geen veld gereserveerd" x:Name="lblTerrein" Grid.Row="2" Grid.Column="2" Margin="169,68,51,68" Foreground="yellow" Grid.ColumnSpan="2"/>
-        <Label Content="Ingescreven tornooi" Foreground="yellow"  Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="169,105,31,32"/>
-        <Label Content="Nog Niet ingeschreven voor een tornooi" x:Name="lblTornooi" Grid.Row="2" Grid.Column="2" Margin="169,127,0,10" Foreground="yellow" Grid.ColumnSpan="2"/>
+        <Label Content="Persoonelijke gegevens" Foreground="yellow" Grid.Column="2" Grid.ColumnSpan="2" Margin="169,3,31,177" Grid.RowSpan="2" Grid.Row="1" FontFamily="Arial Black"/>
+        <Label Content="" x:Name="lblSpeler" Grid.Row="1" Grid.Column="2" Margin="169,22,51,72" Foreground="yellow" Grid.ColumnSpan="2" FontFamily="Arial Black"/>
+        <Label Content="Club:" Foreground="yellow"  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="169,91,31,44" FontFamily="Arial Black"/>
+        <Label Content="Nog Niet ingeschreven in een club" x:Name="lblClub" Grid.Row="1" Grid.Column="2" Margin="169,114,0,29" Foreground="yellow" Grid.ColumnSpan="2" FontFamily="Arial Black"/>
+        <Label Content="Ingesereven lessen en stages" Foreground="yellow"  Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Margin="169,152,31,145" Grid.RowSpan="2" FontFamily="Arial Black"></Label>
+        <Label Content="Nog Niet ingeschreven voor lessen of stages" x:Name="lblLessen" Grid.Row="1" Grid.Column="2" Margin="169,172,0,138" Foreground="yellow" Grid.RowSpan="2" Grid.ColumnSpan="2" FontFamily="Arial Black"/>
+        <Label Content="Gereserveerde Veld" Foreground="yellow"  Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="169,47,31,90" FontFamily="Arial Black"/>
+        <Label Content="Nog geen veld gereserveerd" x:Name="lblTerrein" Grid.Row="2" Grid.Column="2" Margin="169,68,51,68" Foreground="yellow" Grid.ColumnSpan="2" FontFamily="Arial Black"/>
+        <Label Content="Ingescreven tornooi" Foreground="yellow"  Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="2" Margin="169,105,31,32" FontFamily="Arial Black"/>
+        <Label Content="Nog Niet ingeschreven voor een tornooi" x:Name="lblTornooi" Grid.Row="2" Grid.Column="2" Margin="169,127,0,10" Foreground="yellow" Grid.ColumnSpan="2" FontFamily="Arial Black"/>
 
-        <Button x:Name="btnTornooi" Content="Inschrijven tornooi" Grid.Column="2" Grid.Row="3" Margin="10" Click="BtnTornooi_Click"></Button>
-        <Button x:Name="btnClub" Content="Inschrijven club" Grid.Column="1" Grid.Row="3" Margin="10" Click="BtnClub_Click"></Button>
-        <Button x:Name="btnLessen" Content="Inschrijven lessen" Grid.Row="3" Grid.Column="0" Margin="10" Click="BtnLessen_Click"></Button>
-        <Button x:Name="btnTerrein" Content="Terrein reserveren" Grid.Row="3" Grid.Column="3" Margin="10" Click="BtnTerrein_Click"></Button>
+        <Button x:Name="btnTornooi" Content="Inschrijven tornooi" Grid.Column="2" Grid.Row="3" Margin="10" Click="BtnTornooi_Click" FontFamily="Arial Black"></Button>
+        <Button x:Name="btnClub" Content="Inschrijven club" Grid.Column="1" Grid.Row="3" Margin="10" Click="BtnClub_Click" FontFamily="Arial Black"></Button>
+        <Button x:Name="btnLessen" Content="Inschrijven lessen" Grid.Row="3" Grid.Column="0" Margin="10" Click="BtnLessen_Click" FontFamily="Arial Black"></Button>
+        <Button x:Name="btnTerrein" Content="Terrein reserveren" Grid.Row="3" Grid.Column="3" Margin="10" Click="BtnTerrein_Click" FontFamily="Arial Black"></Button>
 
-        <Button x:Name="btnUitschrijvenAccount" Content="Account Verwijderen" Grid.Column="2" Grid.Row="1" Margin="10,18,64,128" Click="btnUitschrijvenAccount_Click"/>
-        <Button x:Name="btnUitschrijvenClub" Content="Uitschrijven Club" Grid.Column="2" Grid.Row="1" Margin="10,98,64,48" Click="BtnUitschrijvenClub_Click"/>
-        <Button x:Name="btnUitschrijvenLessen" Content="Uitschrijven Lessen" Grid.Column="2" Grid.Row="1" Margin="10,162,64,153" Grid.RowSpan="2" Click="BtnUitschrijvenLessen_Click"/>
-        <Button x:Name="btnUitschrijvenVeld" Content="Veld reservatie Annuleren" Grid.Column="2" Grid.Row="2" Margin="10,55,64,90" Click="BtenUitschrijvenVeld_Click"/>
-        <Button x:Name="btnUitschrijvenTornooi" Content="Uitschrijven Tornooi" Grid.Column="2" Grid.Row="2" Margin="10,114,64,32" Click="BtnUitschrijvenTornooi_Click"/>
+        <Button x:Name="btnUitschrijvenAccount" Content="Account Verwijderen" Grid.Column="2" Grid.Row="1" Margin="10,18,64,128" Click="btnUitschrijvenAccount_Click" FontFamily="Arial Black"/>
+        <Button x:Name="btnUitschrijvenClub" Content="Uitschrijven Club" Grid.Column="2" Grid.Row="1" Margin="10,98,64,48" Click="BtnUitschrijvenClub_Click" FontFamily="Arial Black"/>
+        <Button x:Name="btnUitschrijvenLessen" Content="Uitschrijven Lessen" Grid.Column="2" Grid.Row="1" Margin="10,162,64,153" Grid.RowSpan="2" Click="BtnUitschrijvenLessen_Click" FontFamily="Arial Black"/>
+        <Button x:Name="btnUitschrijvenVeld" Content="Veld reservatie Annuleren" Grid.Column="2" Grid.Row="2" Margin="10,55,64,90" Click="BtenUitschrijvenVeld_Click" FontFamily="Arial Black"/>
+        <Button x:Name="btnUitschrijvenTornooi" Content="Uitschrijven Tornooi" Grid.Column="2" Grid.Row="2" Margin="10,114,64,32" Click="BtnUitschrijvenTornooi_Click" FontFamily="Arial Black"/>
     </Grid>
 </Window>

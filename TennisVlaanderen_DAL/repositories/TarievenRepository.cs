@@ -101,6 +101,31 @@ namespace TennisVlaanderen_DAL.repositories
             return false;
         }
 
+        public bool TarievenToevoegen(Tarieven tarieven)
+        {
+            string sql = @"INSERT INTO TennisVlaanderen.Tarieven (ClubID, Leeftijdgraad, TypeTennis, Prijs)
+                          VALUES (@ClubID, @Leeftijdgraad, @TypeTennis, @Prijs)";
+
+            var parameter = new
+            {
+                @ClubID = tarieven.ClubID,
+                @Leeftijdgraad = tarieven.Leeftijdgraad,
+                @TypeTennis = tarieven.TypeTennis,
+                @Prijs = tarieven.Prijs,
+            };
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, parameter);
+                if (affectedRows == 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public bool TarievenUpdate(Tarieven tarieven)
         {
             string sql = @"UPDATE TennisVlaanderen.Tarieven 

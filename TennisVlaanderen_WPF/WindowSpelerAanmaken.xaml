@@ -49,17 +49,14 @@
         <Label Content="Rijksregisternummer" Foreground="Yellow" Grid.Column="0" Grid.Row="2" FontFamily="Arial Black" Grid.ColumnSpan="2" Margin="10,61,190,72" Grid.RowSpan="2"/>
         <TextBox x:Name="txtRijksNummer" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Top" Width="190" Margin="0,92,0,0"/>
 
-        <Label Content="Wachtwoord" Foreground="Yellow" Grid.Column="2" Grid.Row="1" FontFamily="Arial Black" Margin="10,52,190,48" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="txtWachtwoord" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Margin="10,91,0,0"></TextBox>
+        <RadioButton x:Name="rbVrouw" Grid.Column="2" Grid.Row="2" Margin="160,38,18,70" RenderTransformOrigin="0.471,0.518"/>
+        <RadioButton x:Name="rbMan" Grid.Column="2" Grid.Row="2" Margin="55,37,114,72"/>
+        <Label Content="Geslacht" Foreground="Yellow" Grid.Column="2" Grid.Row="1" FontFamily="Arial Black" Margin="51,91,10,10"/>
+        <Label Content="Man" Foreground="Yellow" Grid.Column="2" Grid.Row="2" Margin="46,0,114,96" FontFamily="Arial Black"/>
+        <Label Content="Vrouw" Foreground="Yellow" Grid.Column="2" Grid.Row="1" Margin="141,133,0,96" FontFamily="Arial Black" Grid.RowSpan="2"/>
 
-        <RadioButton x:Name="rbVrouw" Grid.Column="2" Grid.Row="2" Margin="137,78,41,32" Checked="RbVrouw_Checked"/>
-        <RadioButton x:Name="rbMan" Grid.Column="2" Grid.Row="2" Margin="22,78,147,32" Checked="rbMan_Checked"/>
-        <Label Content="Geslacht" Foreground="Yellow" Grid.Column="2" Grid.Row="2" FontFamily="Arial Black" Margin="10,10,48,91"/>
-        <Label Content="Man" Foreground="Yellow" Grid.Column="2" Grid.Row="2" Margin="12,41,147,55" FontFamily="Arial Black"/>
-        <Label Content="Vrouw" Foreground="Yellow" Grid.Column="2" Grid.Row="2" Margin="122,42,19,55" FontFamily="Arial Black"/>
-
-        <Button x:Name="btnToevoegen" Grid.Column="3" Grid.Row="3" Content="Toevoegen" Margin="17,67,17,27" Click="BtnToevoegen_Click"></Button>
-        <Button x:Name="btnAnnuleren" Grid.Column="3" Grid.Row="3" Content="Annuleren" Margin="17,13,17,0" Click="BtnAnnuleren_Click" VerticalAlignment="Top" Height="36"/>
+        <Button x:Name="btnToevoegen" Grid.Column="3" Grid.Row="3" Content="Toevoegen" Margin="17,67,17,27" Click="BtnToevoegen_Click" FontFamily="Arial Black"></Button>
+        <Button x:Name="btnAnnuleren" Grid.Column="3" Grid.Row="3" Content="Annuleren" Margin="17,13,17,0" Click="BtnAnnuleren_Click" VerticalAlignment="Top" Height="36" FontFamily="Arial Black"/>
 
         <Label x:Name="lblError" Grid.Column="3" Grid.Row="1" Grid.RowSpan="2" Margin="10" Foreground="Yellow"></Label>
     </Grid>

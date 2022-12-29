@@ -46,35 +46,52 @@ namespace TennisVlaanderen_WPF
         {
             string circuitNaam = cbCircuit.SelectedItem.ToString();
             List<Tornooi> circuitDB = (List<Tornooi>)TornooiRepository.OphalenTornooiNaam(circuitNaam);
-            cbTornooi.ItemsSource = circuitDB;
+            cbTornooi.ItemsSource = circuitDB;           
         }
 
         private void CbTornooi_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {           
+        {
+            if (cbTornooi.SelectedItem is Tornooi)
+            {
                 tornooi = (Tornooi)cbTornooi.SelectedItem;
                 lblTornooi.Content = tornooi.NaamTornooi;
                 lblCircuit.Content = tornooi.Circuit;
                 lblDatum.Content = tornooi.Datum;
-                lblTypeCompetitie.Content = tornooi.TypeCompetitie;               
+                lblTypeCompetitie.Content = tornooi.TypeCompetitie;
+            }
+            else
+            {
+                tornooi = null;
+                lblTornooi.Content = "";
+                lblCircuit.Content = "";
+                lblDatum.Content = "";
+                lblTypeCompetitie.Content = "";
+            }
+            
         }
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {           
             if (cbCircuit.SelectedItem != null && cbTornooi.SelectedItem != null)
-            {               
-                List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
-                foreach (var item in spelersDB)
+            {
+                try
                 {
-                    SpelerClubTornooi spt = new SpelerClubTornooi()
+                    List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+                    foreach (var item in spelersDB)
                     {
-                    ClubID = (int)item.ClubID,
-                    SpelerID = item.Id,
-                    TornooiID = tornooi.Id,                   
-                    };
+                        SpelerClubTornooi spt = new SpelerClubTornooi()
+                        {
+                            ClubID = (int)item.ClubID,
+                            SpelerID = item.Id,
+                            TornooiID = tornooi.Id,
+                        };
 
-                    item.SpelerClubTornooi.Add(spt);
-                    SCT.SpelerClubTornooiToevoegen(spt);                   
-                }               
+                        item.SpelerClubTornooi.Add(spt);
+                        SCT.SpelerClubTornooiToevoegen(spt);
+                    }
+                }
+                catch (Exception ex) { FileOperations.FoutLoggen(ex); }
+
                 WindowHomePagina homePagina = new WindowHomePagina();
                 homePagina.Show();
                 this.Close();

@@ -25,7 +25,6 @@ namespace TennisVlaanderen_Models
                     }
                 }
                 return foutmeldingen;
-
             }
         }
 

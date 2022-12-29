@@ -23,6 +23,34 @@ namespace TennisVlaanderen_DAL.repositories
             }
         }
 
+        public bool ClubToevoegen(Club club)
+        {
+            string sql = @"INSERT INTO TennisVlaanderen.Club (Naam, Adres, Telefoon, Email, Website, KwaliteitLabel, Clubaanbod)
+                          VALUES (@Naam, @Adres, @Telefoon, @Email, @Website, @KwaliteitLabel, @Clubaanbod)";
+
+            var parameter = new
+            {
+                @Naam = club.Naam,
+                @Adres = club.Adres,
+                @Telefoon = club.Telefoon,
+                @Email = club.Email,
+                @Website = club.Website,
+                @KwaliteitLabel = club.KwaliteitLabel,
+                @Clubaanbod = club.Clubaanbod,
+            };
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, parameter);
+                if (affectedRows == 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
 
         public bool ClubDelete(string clubID)
         {

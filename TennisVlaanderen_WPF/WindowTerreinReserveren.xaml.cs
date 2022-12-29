@@ -44,12 +44,31 @@ namespace TennisVlaanderen_WPF
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {
-            List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
-            speler.TerreinReservatie = (ICollection<TerreinReservatie>)(TerreinReservatie)cbVeld.SelectedItem;
-            spelerItems.SpelerUpdate(speler);
-            WindowHomePagina homePagina = new WindowHomePagina();
-            homePagina.Show();
-            this.Close();
+            if (cbVeld.SelectedItem != null)
+            {
+                try
+                {
+                    List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+                    foreach (var item in spelersDB)
+                    {
+                        if (rbGras.IsChecked == true)
+                        {
+                            TerreinReservatie terrein = new TerreinReservatie();
+                            terrein = (TerreinReservatie)cbVeld.SelectedItem;
+                            item.TerreinReservatie.Add(terrein);
+                        }
+                    }
+                }
+                catch (Exception ex) { FileOperations.FoutLoggen(ex); }
+
+                WindowHomePagina homePagina = new WindowHomePagina();
+                homePagina.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Selecteer eerst een veld!");
+            }
         }
 
         private void RbGravel_Checked(object sender, RoutedEventArgs e)

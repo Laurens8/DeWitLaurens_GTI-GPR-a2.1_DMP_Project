@@ -28,13 +28,12 @@ namespace TennisVlaanderen_WPF
         }
 
         Speler nieuwSpeler = new Speler();
-        private ISpelerRepository spelerItems = new SpelerRepository();
+        private ISpelerRepository spelerRepository = new SpelerRepository();
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {
-            lblError.Content = string.Empty;
-            List<Speler> spelers = new List<Speler>();         
-                        
+            try
+            {
                 if (!string.IsNullOrEmpty(txtGeboortedatum.Text))
                 {
                     nieuwSpeler.GeboorteDatum = DateTime.Parse(txtGeboortedatum.Text);
@@ -52,7 +51,7 @@ namespace TennisVlaanderen_WPF
                     nieuwSpeler.Adres = txtAdres.Text;
                     nieuwSpeler.Land = txtLand.Text;
                     nieuwSpeler.Nationaliteit = txtNationaliteit.Text;
-                    nieuwSpeler.Telefoon = txtTelefoon.Text;
+                    nieuwSpeler.Telefoon = txtTelefoon.Text;                    
                     nieuwSpeler.RijksNummer = txtRijksNummer.Text;
                     lblError.Content = string.Empty;
                     Toevoegen(true);
@@ -62,9 +61,39 @@ namespace TennisVlaanderen_WPF
                     lblError.Content = nieuwSpeler.Error;
                 }
 
-            if (rbMan.IsChecked == false && rbVrouw.IsChecked == false)
+                if (rbMan.IsChecked == false && rbVrouw.IsChecked == false)
+                {
+                    lblError.Content = "Selecteer een geslacht";
+
+                    if (rbMan.IsChecked == true)
+                    {
+                        nieuwSpeler.Geslacht = "Man";
+                    }
+                    else
+                    {
+                        nieuwSpeler.Geslacht = "Vrouw";
+                    }
+                }               
+                spelerRepository.SpelerToevoegen(nieuwSpeler);
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
+            catch (Exception ex) { FileOperations.FoutLoggen(ex); }           
+        }
+
+        private void BtnAnnuleren_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            mainWindow.Show();
+            this.Close();
+        }
+               
+        private void Toevoegen(bool isToevoeg)
+        {
+            try
             {
-                lblError.Content = "Selecteer een geslacht";
+                ISpelerRepository SpelerRepository = new SpelerRepository();
 
                 if (rbMan.IsChecked == true)
                 {
@@ -74,69 +103,29 @@ namespace TennisVlaanderen_WPF
                 {
                     nieuwSpeler.Geslacht = "Vrouw";
                 }
+
+                Speler speler = new Speler()
+                {
+                    ClubID = 1,
+                    Naam = txtNaam.Text,
+                    Voornaam = txtVoornaam.Text,
+                    Klassement = "3",
+                    Geslacht = nieuwSpeler.Geslacht,
+                    GeboorteDatum = DateTime.Parse(txtGeboortedatum.Text),
+                    Nationaliteit = txtNationaliteit.Text,
+                    Adres = txtAdres.Text,
+                    Land = txtLand.Text,
+                    Telefoon = txtTelefoon.Text,
+                    Email = txtEmail.Text,
+                    RijksNummer = txtRijksNummer.Text
+                };
+
+                if (isToevoeg)
+                {
+                    SpelerRepository.SpelerToevoegen(speler);
+                }
             }
-
-            
-                spelers.Add(nieuwSpeler);
-                WindowHomePagina homepage = new WindowHomePagina();
-                homepage.Show();
-                this.Close();                                  
-        }
-
-        private void BtnAnnuleren_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
-        }
-        
-        private void RbVrouw_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void rbMan_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Toevoegen(bool isToevoeg)
-        {
-            ISpelerRepository SpelerRepository = new SpelerRepository();
-
-            if (rbMan.IsChecked == true)
-            {
-                nieuwSpeler.Geslacht = "Man";
-            }
-            else
-            {
-                nieuwSpeler.Geslacht = "Vrouw";
-            }
-
-            Speler speler = new Speler()
-            {
-                Id = 21,
-                Naam = txtNaam.Text,
-                Voornaam = txtVoornaam.Text,
-                Klassement = "3",
-                Geslacht = nieuwSpeler.Geslacht,
-                GeboorteDatum = DateTime.Parse(txtGeboortedatum.Text),
-                Nationaliteit = txtNationaliteit.Text,
-                Adres = txtAdres.Text,
-                Land = txtLand.Text,
-                Telefoon = txtTelefoon.Text,
-                Email = txtEmail.Text,
-                RijksNummer = txtRijksNummer.Text
-            };
-
-            if (isToevoeg)
-            {
-                SpelerRepository.SpelerToevoegen(speler);
-            }
-            //else kan ik beter een button voorzien bij homepage ???
-            //{
-            //    SpelerRepository.SpelerUpdate(speler);
-            //}
-        }      
+            catch (Exception ex) { FileOperations.FoutLoggen(ex); }
+        }       
     };
 }

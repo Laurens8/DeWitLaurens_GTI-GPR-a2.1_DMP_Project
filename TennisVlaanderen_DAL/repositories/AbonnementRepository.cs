@@ -37,6 +37,32 @@ namespace TennisVlaanderen_DAL.repositories
             }
         }
 
+        public bool AbonnementToevoegen(Abonnement abonnement)
+        {
+            string sql = @"INSERT INTO TennisVlaanderen.Abonnement (SpelerID, ClubID, Lessen, Stages)
+                          VALUES (@SpelerID, @ClubID, @Lessen, @Stages)";
+
+            var parameter = new
+            {
+                @SpelerID = abonnement.SpelerID,
+                ClubID = abonnement.ClubID,
+                Lessen = abonnement.Lessen,
+                Stages = abonnement.Stages,
+            };
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                var affectedRows = db.Execute(sql, parameter);
+                if (affectedRows == 1)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+   
+
         public bool AbonnementDelete(string abonnementID)
         {
             string sql = @"

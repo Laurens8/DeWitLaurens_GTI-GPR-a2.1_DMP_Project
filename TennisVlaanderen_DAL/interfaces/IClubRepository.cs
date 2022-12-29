@@ -10,6 +10,7 @@ namespace TennisVlaanderen_DAL.interfaces
     {
         IEnumerable<Club> OphalenClubNaam();
 
+        bool ClubToevoegen(Club club);
         bool ClubUpdate(Club club);
         bool ClubDelete(string clubID);
     }

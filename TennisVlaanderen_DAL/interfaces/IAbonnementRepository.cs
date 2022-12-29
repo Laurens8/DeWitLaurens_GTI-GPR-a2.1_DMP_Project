@@ -12,6 +12,7 @@ namespace TennisVlaanderen_DAL.interfaces
 
         List<Abonnement> OphalenSpelerabonnement(int id);
 
+        bool AbonnementToevoegen(Abonnement abonnement);
         bool AbonnementUpdate(Abonnement abonnement);
         bool AbonnementDelete(string abonnementID);
     }
