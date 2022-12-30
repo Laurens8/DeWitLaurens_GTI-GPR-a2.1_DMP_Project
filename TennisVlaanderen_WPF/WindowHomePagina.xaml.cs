@@ -41,18 +41,21 @@ namespace TennisVlaanderen_WPF
             {
                 List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
                 List<SpelerClubTornooi> sptlijst = new List<SpelerClubTornooi>();
-                List<TerreinReservatie> terreinlijst = (List<TerreinReservatie>)terreinReserveren.OphalenReservatie(speler.Id);
-                List<Abonnement> abonnement = (List<Abonnement>)abonnementRepository.OphalenSpelerabonnement(speler.Id);
+                List<TerreinReservatie> terreinlijst = new List<TerreinReservatie>();
+                List<Abonnement> abonnement = new List<Abonnement>();
+                List<Club> clublijst = new List<Club>();
 
                 foreach (var item in spelersDB)
                 {
                     sptlijst = (List<SpelerClubTornooi>)SCT.OphalenSpelerClubTornooi(item.Id);
                     terreinlijst = (List<TerreinReservatie>)terreinReserveren.OphalenReservatie(item.Id);
                     abonnement = (List<Abonnement>)abonnementRepository.OphalenSpelerabonnement(item.Id);
-
-                    speler = item;
-                    lblSpeler.Content = item.ToString();
-                    lblClub.Content = item.Naam.ToString();
+                    clublijst = (List<Club>)clubRepository.OphalenClubSpeler((int)item.ClubID);
+                    lblSpeler.Content = item.ToString();                    
+                }
+                foreach (var item in clublijst)
+                {
+                    lblClub.Content = item;
                 }
                 foreach (var item in sptlijst)
                 {
@@ -148,12 +151,12 @@ namespace TennisVlaanderen_WPF
              {
                 try
                 {
+                    lblClub.Content = "Nog Niet ingeschreven in een club";
                     List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
                     foreach (var item in spelersDB)
                     {
                         clubRepository.ClubDelete(Convert.ToString(speler.ClubID));
-                    }
-                    lblClub.Content = "Nog Niet ingeschreven in een club";
+                    }                    
                 }
                 catch (Exception ex) { FileOperations.FoutLoggen(ex); }               
              }
@@ -167,12 +170,8 @@ namespace TennisVlaanderen_WPF
                 {
                     List<Abonnement> abonnement = (List<Abonnement>)abonnementRepository.OphalenSpelerabonnement(speler.Id);
                     foreach (var item in abonnement)
-                    {
-                        abonnement = (List<Abonnement>)abonnementRepository.OphalenSpelerabonnement(item.Id);
-                        foreach (var item2 in abonnement)
-                        {
-                            abonnementRepository.AbonnementDelete(Convert.ToString(item2.Id));
-                        }
+                    {                    
+                         abonnementRepository.AbonnementDelete(Convert.ToString(item.Id));                       
                     }
                     lblLessen.Content = "Nog Niet ingeschreven voor lessen of stages";
                 }
@@ -186,15 +185,11 @@ namespace TennisVlaanderen_WPF
             {
                 try
                 {
-                    List<TerreinReservatie> terreinlijst = (List<TerreinReservatie>)terreinReserveren.OphalenReservatie(speler.Id);
+                    List<TerreinReservatie> terreinlijst = (List<TerreinReservatie>)terreinReserveren.OphalenReservatie(speler.Id);                                         
                     foreach (var item in terreinlijst)
                     {
-                        terreinlijst = (List<TerreinReservatie>)terreinReserveren.OphalenReservatie(item.Id);
-                        foreach (var item2 in terreinlijst)
-                        {
-                            terreinReserveren.TerreinReservatieDelete(Convert.ToString(item2.Id));
-                        }
-                    }
+                          terreinReserveren.TerreinReservatieDelete(Convert.ToString(item.Id));
+                    }                    
                     lblTerrein.Content = "Nog geen veld gereserveerd";
                 }
                 catch (Exception ex) { FileOperations.FoutLoggen(ex); }               

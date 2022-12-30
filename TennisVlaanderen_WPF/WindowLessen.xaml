@@ -21,9 +21,7 @@
         </Grid.RowDefinitions>
 
         <Label Content="Tennis Vlaanderen" FontSize="20" Background="yellow" FontStyle="Normal" Grid.Column="0" Grid.ColumnSpan="4" FontWeight="Bold" FontFamily="Arial Black"></Label>
-
-        <ComboBox x:Name="cbClub" Grid.Row="2" Grid.Column="0" Margin="10,63,190,163" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" SelectionChanged="CbClub_SelectionChanged" FontFamily="Arial Black"></ComboBox>
-        <Label Content="Selecteer een club" Foreground="Yellow" Grid.Row="2" FontFamily="Arial Black" Margin="0,17,0,224" HorizontalAlignment="Center" Width="180" VerticalAlignment="Center"/>
+        <Label x:Name="lblClub" Content="club" Foreground="Yellow" Grid.Row="2" FontFamily="Arial Black" Margin="46,79,0,0" HorizontalAlignment="Left" Width="180" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
 
         <ComboBox x:Name="cbAanbod" Grid.Row="2" Grid.Column="1" Margin="31,63,169,163" RenderTransformOrigin="0.503,0.514" Grid.ColumnSpan="2" FontFamily="Arial Black"></ComboBox>
         <Label Content="Selecteer een lessenpakket" Foreground="Yellow" Grid.Row="2" FontFamily="Arial Black" Margin="31,28,0,0" HorizontalAlignment="Left" Grid.Column="1" Width="236" Grid.ColumnSpan="2" VerticalAlignment="Top"/>

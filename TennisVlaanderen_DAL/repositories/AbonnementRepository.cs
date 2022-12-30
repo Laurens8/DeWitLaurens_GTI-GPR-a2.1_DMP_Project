@@ -17,7 +17,7 @@ namespace TennisVlaanderen_DAL.repositories
             string sql = $@"SELECT * 
                             FROM TennisVlaanderen.Abonnement A
                             JOIN TennisVlaanderen.Club C ON A.ClubID = C.Id 
-                            WHERE C.Naam LIKE '%{clubNaam}%'";
+                            WHERE C.ClubNaam LIKE '%{clubNaam}%'";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
                 return db.Query<Abonnement>(sql);
@@ -28,7 +28,7 @@ namespace TennisVlaanderen_DAL.repositories
         {
             string sql = $@"SELECT * 
                             FROM TennisVlaanderen.Abonnement A
-                            JOIN TennisVlaanderen.Speler S ON A.SpelerId = S.Id
+                            JOIN TennisVlaanderen.Speler S ON A.SpelerID = S.Id
                             WHERE S.Id = {id}";
 
             using (IDbConnection db = new SqlConnection(ConnectionString))
@@ -65,8 +65,7 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool AbonnementDelete(string abonnementID)
         {
-            string sql = @"
-                           DELETE FROM TennisVlaanderen.Abonnement
+            string sql = @"DELETE FROM TennisVlaanderen.Abonnement
                            WHERE Id = @Id";
 
             var parameter = new

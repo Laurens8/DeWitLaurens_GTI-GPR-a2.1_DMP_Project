@@ -16,7 +16,7 @@ GO
 --aanmaken van (Kernentiteit) tabel: Club
 CREATE TABLE tennisVlaanderen.Club (
     Id int IDENTITY(1,1) NOT NULL,
-    Naam varchar(100) NOT NULL,
+    ClubNaam varchar(100) NOT NULL,
     Adres varchar(100) NOT NULL,
     Telefoon varchar(100) NOT NULL,
 	Email varchar(100) NOT NULL,

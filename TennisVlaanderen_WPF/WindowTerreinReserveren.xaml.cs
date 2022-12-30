@@ -29,6 +29,7 @@ namespace TennisVlaanderen_WPF
 
 
         Speler speler = new Speler();
+        TerreinReservatie tr = new TerreinReservatie();
 
         public WindowTerreinReserveren()
         {
@@ -48,15 +49,22 @@ namespace TennisVlaanderen_WPF
             {
                 try
                 {
+                    tr = (TerreinReservatie)cbVeld.SelectedItem;
                     List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
                     foreach (var item in spelersDB)
-                    {
-                        if (rbGras.IsChecked == true)
-                        {
-                            TerreinReservatie terrein = new TerreinReservatie();
-                            terrein = (TerreinReservatie)cbVeld.SelectedItem;
-                            item.TerreinReservatie.Add(terrein);
-                        }
+                    {                       
+                            TerreinReservatie terrein = new TerreinReservatie()
+                            {
+                                Id= tr.Id,
+                                SpelerID = item.Id,
+                                TerreinNummer = tr.TerreinNummer,
+                                TypeOndergrond = tr.TypeOndergrond,
+                                TypeTennis = "",
+                            };
+                        item.TerreinReservatie.Add(terrein);
+                        speler = item;
+                        spelerItems.SpelerUpdate(speler);
+                        terreinReserverenRepository.TerreinReservatieToevoegen(terrein);
                     }
                 }
                 catch (Exception ex) { FileOperations.FoutLoggen(ex); }

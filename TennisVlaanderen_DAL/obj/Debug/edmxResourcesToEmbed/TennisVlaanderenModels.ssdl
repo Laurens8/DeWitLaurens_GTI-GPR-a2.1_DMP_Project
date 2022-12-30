@@ -15,7 +15,7 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Naam" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="ClubNaam" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Adres" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Telefoon" Type="varchar" MaxLength="100" Nullable="false" />
     <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />

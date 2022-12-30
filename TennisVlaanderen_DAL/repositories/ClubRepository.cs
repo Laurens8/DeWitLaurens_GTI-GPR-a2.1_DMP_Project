@@ -23,14 +23,25 @@ namespace TennisVlaanderen_DAL.repositories
             }
         }
 
+        public IEnumerable<Club> OphalenClubSpeler(int id)
+        {
+            string sql = $@"SELECT * FROM TennisVlaanderen.CLUB C
+                            WHERE C.Id = {id}";
+
+            using (IDbConnection db = new SqlConnection(ConnectionString))
+            {
+                return db.Query<Club>(sql);
+            }
+        }
+
         public bool ClubToevoegen(Club club)
         {
-            string sql = @"INSERT INTO TennisVlaanderen.Club (Naam, Adres, Telefoon, Email, Website, KwaliteitLabel, Clubaanbod)
+            string sql = @"INSERT INTO TennisVlaanderen.Club (ClubNaam, Adres, Telefoon, Email, Website, KwaliteitLabel, Clubaanbod)
                           VALUES (@Naam, @Adres, @Telefoon, @Email, @Website, @KwaliteitLabel, @Clubaanbod)";
 
             var parameter = new
             {
-                @Naam = club.Naam,
+                @Naam = club.ClubNaam,
                 @Adres = club.Adres,
                 @Telefoon = club.Telefoon,
                 @Email = club.Email,
@@ -54,8 +65,7 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool ClubDelete(string clubID)
         {
-            string sql = @"
-                           DELETE FROM TennisVlaanderen.Club
+            string sql = @"DELETE FROM TennisVlaanderen.Club
                            WHERE Id = @Id";
 
             var parameter = new
@@ -90,7 +100,7 @@ namespace TennisVlaanderen_DAL.repositories
             var parameter = new
             {
                 @Id = club.Id,
-                @Naam = club.Naam,
+                @Naam = club.ClubNaam,
                 @Adres = club.Adres,
                 @Telefoon = club.Telefoon,
                 @Email = club.Email,

@@ -1,14 +1,14 @@
 ﻿
 SET IDENTITY_INSERT tennisVlaanderen.Club ON
-INSERT INTO tennisVlaanderen.Club (Id, Naam,Adres,Telefoon,Email,Website,KwaliteitLabel,Clubaanbod) 
+INSERT INTO tennisVlaanderen.Club (Id, ClubNaam,Adres,Telefoon,Email,Website,KwaliteitLabel,Clubaanbod) 
 VALUES (1,'GT.Tessenderlo','Voorbeeld straat 99 3980 Tessenderlo','+3231234567','tessenderlo@email.be','www.GT.Tessenderlo.be','Goudlabel - blauwlabel + PTC','Tennis - Paddel');
-INSERT INTO tennisVlaanderen.Club (Id, Naam,Adres,Telefoon,Email,Website,KwaliteitLabel,Clubaanbod) 
+INSERT INTO tennisVlaanderen.Club (Id, ClubNaam,Adres,Telefoon,Email,Website,KwaliteitLabel,Clubaanbod) 
 VALUES (2,'GT.Westerlo','Voorbeeld straat 99 2260 Westerlo','+3231234567','westerlo@email.be','www.GT.Westerlo.be','Goudlabel','Tennis - Paddel');
-INSERT INTO tennisVlaanderen.Club (Id, Naam,Adres,Telefoon,Email,Website,KwaliteitLabel,Clubaanbod) 
+INSERT INTO tennisVlaanderen.Club (Id, ClubNaam,Adres,Telefoon,Email,Website,KwaliteitLabel,Clubaanbod) 
 VALUES (3,'GT.Oevel','Voorbeeld straat 99 2260 Westerlo','+3231234567','oevel@email.be','www.GT.Oevel.be','Goudlabel','Tennis');
-INSERT INTO tennisVlaanderen.Club (Id, Naam,Adres,Telefoon,Email,Website,KwaliteitLabel,Clubaanbod) 
+INSERT INTO tennisVlaanderen.Club (Id, ClubNaam,Adres,Telefoon,Email,Website,KwaliteitLabel,Clubaanbod) 
 VALUES (4,'GT.Tongerlo','Voorbeeld straat 99 2260 Westerlo','+3231234567','tongerlo@email.be','www.GT.Tongerlo.be','Goudlabel - blauwlabel + PTC','Tennis');
-INSERT INTO tennisVlaanderen.Club (Id, Naam,Adres,Telefoon,Email,Website,KwaliteitLabel,Clubaanbod) 
+INSERT INTO tennisVlaanderen.Club (Id, ClubNaam,Adres,Telefoon,Email,Website,KwaliteitLabel,Clubaanbod) 
 VALUES (5,'GT.Voortkapel','Voorbeeld straat 99 2260 Westerlo','+3231234567','voortkapel@email.be','www.GT.Voortkapel.be','Goudlabel - blauwlabel','Tennis - Paddel');
 SET IDENTITY_INSERT tennisVlaanderen.Club OFF
 

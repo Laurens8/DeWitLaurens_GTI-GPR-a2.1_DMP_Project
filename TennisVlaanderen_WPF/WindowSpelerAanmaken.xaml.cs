@@ -26,55 +26,60 @@ namespace TennisVlaanderen_WPF
         {
             InitializeComponent();
         }
-
-        Speler nieuwSpeler = new Speler();
+        
         private ISpelerRepository spelerRepository = new SpelerRepository();
+        Speler Nieuwspeler = new Speler();
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
-                if (!string.IsNullOrEmpty(txtGeboortedatum.Text))
+            {              
+                if (Nieuwspeler.IsGeldig())
                 {
-                    nieuwSpeler.GeboorteDatum = DateTime.Parse(txtGeboortedatum.Text);
-                }
-                else
-                {
-                    lblError.Content = "Geboortedatum is een verplicht in te vullen veld";
-                }
-
-                if (nieuwSpeler.IsGeldig())
-                {
-                    nieuwSpeler.Naam = txtNaam.Text;
-                    nieuwSpeler.Voornaam = txtVoornaam.Text;
-                    nieuwSpeler.Email = txtEmail.Text;
-                    nieuwSpeler.Adres = txtAdres.Text;
-                    nieuwSpeler.Land = txtLand.Text;
-                    nieuwSpeler.Nationaliteit = txtNationaliteit.Text;
-                    nieuwSpeler.Telefoon = txtTelefoon.Text;                    
-                    nieuwSpeler.RijksNummer = txtRijksNummer.Text;
                     lblError.Content = string.Empty;
-                    Toevoegen(true);
-                }
-                else
-                {
-                    lblError.Content = nieuwSpeler.Error;
-                }
 
-                if (rbMan.IsChecked == false && rbVrouw.IsChecked == false)
-                {
-                    lblError.Content = "Selecteer een geslacht";
-
-                    if (rbMan.IsChecked == true)
+                    if (!string.IsNullOrEmpty(txtGeboortedatum.Text))
                     {
-                        nieuwSpeler.Geslacht = "Man";
+                        Nieuwspeler.GeboorteDatum = DateTime.Parse(txtGeboortedatum.Text);
                     }
                     else
                     {
-                        nieuwSpeler.Geslacht = "Vrouw";
+                        lblError.Content = "Geboortedatum is een verplicht in te vullen veld";
                     }
-                }               
-                spelerRepository.SpelerToevoegen(nieuwSpeler);
+
+                    if (rbMan.IsChecked == false && rbVrouw.IsChecked == false)
+                    {
+                        lblError.Content = "Selecteer een geslacht";
+
+                        if (rbMan.IsChecked == true)
+                        {
+                            Nieuwspeler.Geslacht = "Man";
+                        }
+                        else
+                        {
+                            Nieuwspeler.Geslacht = "Vrouw";
+                        }
+                    }
+
+                    Nieuwspeler.ClubID = 0;
+                    Nieuwspeler.Naam = txtNaam.Text;
+                    Nieuwspeler.Voornaam = txtVoornaam.Text;
+                    Nieuwspeler.Klassement = "3";
+                    Nieuwspeler.Geslacht = Nieuwspeler.Geslacht;
+                    Nieuwspeler.GeboorteDatum = DateTime.Parse(txtGeboortedatum.Text);
+                    Nieuwspeler.Nationaliteit = txtNationaliteit.Text;
+                    Nieuwspeler.Adres = txtAdres.Text;
+                    Nieuwspeler.Land = txtLand.Text;
+                    Nieuwspeler.Telefoon = txtTelefoon.Text;
+                    Nieuwspeler.Email = txtEmail.Text;
+                    Nieuwspeler.RijksNummer = txtRijksNummer.Text;                                      
+                }
+                else
+                {
+                    lblError.Content = Nieuwspeler.Error;
+                }
+
+                spelerRepository.SpelerToevoegen(Nieuwspeler);
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
                 this.Close();
@@ -87,45 +92,6 @@ namespace TennisVlaanderen_WPF
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
-        }
-               
-        private void Toevoegen(bool isToevoeg)
-        {
-            try
-            {
-                ISpelerRepository SpelerRepository = new SpelerRepository();
-
-                if (rbMan.IsChecked == true)
-                {
-                    nieuwSpeler.Geslacht = "Man";
-                }
-                else
-                {
-                    nieuwSpeler.Geslacht = "Vrouw";
-                }
-
-                Speler speler = new Speler()
-                {
-                    ClubID = 1,
-                    Naam = txtNaam.Text,
-                    Voornaam = txtVoornaam.Text,
-                    Klassement = "3",
-                    Geslacht = nieuwSpeler.Geslacht,
-                    GeboorteDatum = DateTime.Parse(txtGeboortedatum.Text),
-                    Nationaliteit = txtNationaliteit.Text,
-                    Adres = txtAdres.Text,
-                    Land = txtLand.Text,
-                    Telefoon = txtTelefoon.Text,
-                    Email = txtEmail.Text,
-                    RijksNummer = txtRijksNummer.Text
-                };
-
-                if (isToevoeg)
-                {
-                    SpelerRepository.SpelerToevoegen(speler);
-                }
-            }
-            catch (Exception ex) { FileOperations.FoutLoggen(ex); }
-        }       
+        }      
     };
 }

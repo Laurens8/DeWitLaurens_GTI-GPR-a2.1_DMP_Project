@@ -17,7 +17,7 @@ namespace TennisVlaanderen_DAL.repositories
             string sql = $@"SELECT leeftijdgraad, prijs, typeTennis 
                             FROM TennisVlaanderen.Tarieven T
                             JOIN TennisVlaanderen.Club C ON T.ClubID = C.Id 
-                            WHERE C.Naam LIKE '%{clubNaam}%'";
+                            WHERE C.ClubNaam LIKE '%{clubNaam}%'";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
                 return db.Query<Tarieven>(sql);
@@ -80,8 +80,7 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool TarievenDelete(string tarievenID)
         {
-            string sql = @"
-                           DELETE FROM TennisVlaanderen.Tarieven
+            string sql = @"DELETE FROM TennisVlaanderen.Tarieven
                            WHERE Id = @Id";
 
             var parameter = new

@@ -28,8 +28,7 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool SpelerClubTornooiDelete(string spelerClubTornooiID)
         {
-            string sql = @"
-                           DELETE FROM TennisVlaanderen.SpelerClubTornooi
+            string sql = @"DELETE FROM TennisVlaanderen.SpelerClubTornooi
                            WHERE Id = @Id";
 
             var parameter = new

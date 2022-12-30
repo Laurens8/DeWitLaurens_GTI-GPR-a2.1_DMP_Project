@@ -39,12 +39,12 @@ namespace TennisVlaanderen_DAL.repositories
             }
         }
 
-        public List<TerreinReservatie> OphalenReservatie(int id)
+        public IEnumerable<TerreinReservatie> OphalenReservatie(int id)
         {
             string sql = $@"SELECT * 
                            FROM TennisVlaanderen.TerreinReservatie T
-                           JOIN TennisVlaanderen.Speler S ON T.SpelerId = S.Id
-                            WHERE S.Id = {id}";
+                           JOIN TennisVlaanderen.Speler S ON T.SpelerID = S.Id
+                           WHERE S.Id = {id}";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
                 return db.Query<TerreinReservatie>(sql).ToList();
@@ -78,8 +78,7 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool TerreinReservatieDelete(string terreinReservatieID)
         {
-            string sql = @"
-                           DELETE FROM TennisVlaanderen.TerreinReservatie
+            string sql = @"DELETE FROM TennisVlaanderen.TerreinReservatie
                            WHERE Id = @Id";
 
             var parameter = new

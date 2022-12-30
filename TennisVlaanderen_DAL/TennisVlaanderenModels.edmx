@@ -20,7 +20,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Naam" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ClubNaam" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Adres" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Telefoon" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="Email" Type="varchar" MaxLength="100" Nullable="false" />
@@ -244,7 +244,7 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Naam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClubNaam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Telefoon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
@@ -481,7 +481,7 @@
             <EntityTypeMapping TypeName="TennisVlaanderenModel.Club">
               <MappingFragment StoreEntitySet="Club">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Naam" ColumnName="Naam" />
+                <ScalarProperty Name="ClubNaam" ColumnName="ClubNaam" />
                 <ScalarProperty Name="Adres" ColumnName="Adres" />
                 <ScalarProperty Name="Telefoon" ColumnName="Telefoon" />
                 <ScalarProperty Name="Email" ColumnName="Email" />

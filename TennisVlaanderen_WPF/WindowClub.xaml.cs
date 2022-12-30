@@ -47,21 +47,24 @@ namespace TennisVlaanderen_WPF
             {
                 try
                 {
+                    nieuwClub = (Club)cbClub.SelectedItem;
                     List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
                     foreach (var item in spelersDB)
                     {
                         Club club = new Club()
                         {
-                            Naam = cbClub.SelectedItem.ToString(),
-                            Adres = cbClub.SelectedItem.ToString(),
-                            Telefoon = cbClub.SelectedItem.ToString(),
-                            Email = cbClub.SelectedItem.ToString(),
-                            Website = cbClub.SelectedItem.ToString(),
-                            KwaliteitLabel = cbClub.SelectedItem.ToString(),
-                            Clubaanbod = cbClub.SelectedItem.ToString(),
+                            Id = nieuwClub.Id,
+                            ClubNaam = nieuwClub.ClubNaam,
+                            Adres = nieuwClub.Adres,
+                            Telefoon = nieuwClub.Telefoon,
+                            Email = nieuwClub.Email,
+                            Website = nieuwClub.Website,
+                            KwaliteitLabel = nieuwClub.KwaliteitLabel,
+                            Clubaanbod = nieuwClub.Clubaanbod,
                         };
                         item.ClubID = club.Id;
-                        clubRepository.ClubToevoegen(club);
+                        speler = item;
+                        spelerItems.SpelerUpdate(speler);
                     }
                 }
                 catch (Exception ex) { FileOperations.FoutLoggen(ex); }
@@ -90,7 +93,7 @@ namespace TennisVlaanderen_WPF
             cbAanbod.ItemsSource = tarievenDB;
             nieuwClub = (Club)cbClub.SelectedValue;
             
-            lblNaam.Content = nieuwClub.Naam;
+            lblNaam.Content = nieuwClub.ClubNaam;
             lblAdres.Content = nieuwClub.Adres;
             lblEmail.Content = nieuwClub.Email;
             lblTelefoon.Content = nieuwClub.Telefoon;

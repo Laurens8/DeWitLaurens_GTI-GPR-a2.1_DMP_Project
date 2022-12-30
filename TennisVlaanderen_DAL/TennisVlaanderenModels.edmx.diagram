@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="336781bfb57c4cf3b57dd9320bcbe525" Name="Diagram1">
+      <Diagram DiagramId="324f3beb8e1c47799ee7f33328338de6" Name="Diagram1">
         <EntityTypeShape EntityType="TennisVlaanderenModel.Abonnement" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
         <EntityTypeShape EntityType="TennisVlaanderenModel.Club" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
         <EntityTypeShape EntityType="TennisVlaanderenModel.Speler" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
