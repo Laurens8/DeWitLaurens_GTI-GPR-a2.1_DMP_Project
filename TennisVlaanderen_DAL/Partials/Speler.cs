@@ -29,6 +29,17 @@ namespace TennisVlaanderen_DAL
             return obj is Speler speler && Id == speler.Id;
         }
 
+        public bool EmailValidatie(string email)
+        {
+            if (Email.Contains('@') && Email.Contains('.')) 
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     
         /////////////////////////////////////////////////
         // Dit gedeelte komt uit oefening 4 van canvas //
@@ -39,7 +50,7 @@ namespace TennisVlaanderen_DAL
             return true;
         }
 
-        public static bool IsRijksregisternummerGeldig(string rijksnummer)
+        public static bool RijksregisternummerIsGeldig(string rijksnummer)
         {
             try
             {
@@ -48,9 +59,9 @@ namespace TennisVlaanderen_DAL
 
                 if (rijksnummer.Length == 11)
                 {
-                    int rijksnummerlengthe = int.Parse(rijksnummer.Substring(0, 9));
-                    int rijksnummerlengthe2 = int.Parse(rijksnummer.Substring(9, 2));
-                    if ((97 - (rijksnummerlengthe % 97)) == rijksnummerlengthe2)
+                    int rijksnummers = int.Parse(rijksnummer.Substring(0, 9));
+                    int rijksnummers2 = int.Parse(rijksnummer.Substring(9, 2));
+                    if ((97 - (rijksnummers % 97)) == rijksnummers2)
                     {
                         return true;
                     }
@@ -72,58 +83,93 @@ namespace TennisVlaanderen_DAL
         public override string this[string columnName]
         {
             get
-            {
-                if (columnName == "ClubID" &&  ClubID == null)
-                {
-                    return "";
-                }
-
-                if (columnName == "naam" && string.IsNullOrWhiteSpace(Naam) && IsNummeriek(Naam))
+            {               
+                if (columnName == "Naam" && string.IsNullOrWhiteSpace(Naam) && IsNummeriek(Naam))
                 {
                     return "Naam is een verplicht in te vullen veld!";
                 }
 
-                else if (columnName == "voornaam" && string.IsNullOrWhiteSpace(Voornaam) && IsNummeriek(Voornaam))
+                else if (columnName == "Naam" && IsNummeriek(Naam))
+                {
+                    return "Naam mag niet nummeriek zijn!";
+                }
+
+                else if (columnName == "Voornaam" && string.IsNullOrWhiteSpace(Voornaam) && IsNummeriek(Voornaam))
                 {
                     return "Voornaam is een verplicht in te vullen veld!";
                 }
 
-                else if (columnName == "geslacht" && string.IsNullOrWhiteSpace(Geslacht))
+                else if (columnName == "Voornaam" && IsNummeriek(Voornaam))
+                {
+                    return "Voornaam mag niet nummeriek zijn!";
+                }
+
+                else if (columnName == "Geslacht" && string.IsNullOrWhiteSpace(Geslacht) && IsNummeriek(Geslacht))
                 {
                     return "Geslacht is een verplicht in te vullen veld!";
                 }
 
-                else if (columnName == "nationaliteit" && string.IsNullOrWhiteSpace(Nationaliteit) && IsNummeriek(Nationaliteit))
+                else if (columnName == "Geslacht" && IsNummeriek(Geslacht))
+                {
+                    return "Geslacht mag niet nummeriek zijn!";
+                }
+
+                else if (columnName == "Nationaliteit" && string.IsNullOrWhiteSpace(Nationaliteit) && IsNummeriek(Nationaliteit))
                 {
                     return "Nationaliteit is een verplicht in te vullen veld!";
                 }
 
-                else if (columnName == "adres" && string.IsNullOrWhiteSpace(Adres))
+                else if (columnName == "Nationaliteit" && IsNummeriek(Nationaliteit))
+                {
+                    return "Nationaliteit mag niet nummeriek zijn!";
+                }
+
+                else if (columnName == "Adres" && string.IsNullOrWhiteSpace(Adres))
                 {
                     return "Adres is een verplicht in te vullen veld!";
                 }
 
-                else if (columnName == "land" && string.IsNullOrWhiteSpace(Land) && IsNummeriek(Land))
+                else if (columnName == "Land" && string.IsNullOrWhiteSpace(Land) && IsNummeriek(Land))
                 {
                     return "Land is een verplicht in te vullen veld!";
                 }
 
-                else if (columnName == "telefoon" && string.IsNullOrWhiteSpace(Telefoon) && !IsNummeriek(Telefoon))
+                else if (columnName == "Land" && IsNummeriek(Land))
+                {
+                    return "Land mag niet nummeriek zijn!";
+                }
+
+                else if (columnName == "Telefoon" && string.IsNullOrWhiteSpace(Telefoon) && !IsNummeriek(Telefoon))
                 {
                     return "Telefoon is een verplicht in te vullen veld!";
                 }
 
-                else if (columnName == "email" && string.IsNullOrWhiteSpace(Email))
+                else if (columnName == "Telefoon" && !IsNummeriek(Telefoon))
+                {
+                    return "Telefoon nummer moet nummeriek zijn!";
+                }
+
+                else if (columnName == "Email" && string.IsNullOrWhiteSpace(Email) && EmailValidatie(Email))
                 {
                     return "Email is een verplicht in te vullen veld!";
                 }
 
-                else if (columnName == "rijksNummer" && string.IsNullOrWhiteSpace(RijksNummer) && !IsRijksregisternummerGeldig(RijksNummer))
+                else if (columnName == "Email" && EmailValidatie(Email))
+                {
+                    return "Emailaddres moet een '@' en '.' bevatten";
+                }
+
+                else if (columnName == "RijksNummer" && string.IsNullOrWhiteSpace(RijksNummer) && RijksregisternummerIsGeldig(RijksNummer))
                 {                   
                     return "RijksNummer is een verplicht in te vullen veld!";
                 }
 
-                else if (columnName == "geboorteDatum" && GeboorteDatum > DateTime.Now)
+                else if (columnName == "RijksNummer" &&  RijksregisternummerIsGeldig(RijksNummer))
+                {
+                    return "RijksNummer moet 11 nummers bevatten";
+                }
+
+                else if (columnName == "GeboorteDatum" && GeboorteDatum > DateTime.Now)
                 {
                     return "Vul een geldig geboortedatum in!";
                 }

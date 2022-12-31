@@ -26,18 +26,18 @@ namespace TennisVlaanderen_WPF
         {
             InitializeComponent();
         }
-        
+
         private ISpelerRepository spelerRepository = new SpelerRepository();
         Speler Nieuwspeler = new Speler();
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {
             try
-            {              
+            {
+                lblError.Content = string.Empty;
+
                 if (Nieuwspeler.IsGeldig())
                 {
-                    lblError.Content = string.Empty;
-
                     if (!string.IsNullOrEmpty(txtGeboortedatum.Text))
                     {
                         Nieuwspeler.GeboorteDatum = DateTime.Parse(txtGeboortedatum.Text);
@@ -61,7 +61,6 @@ namespace TennisVlaanderen_WPF
                         }
                     }
 
-                    Nieuwspeler.ClubID = 0;
                     Nieuwspeler.Naam = txtNaam.Text;
                     Nieuwspeler.Voornaam = txtVoornaam.Text;
                     Nieuwspeler.Klassement = "3";
@@ -72,7 +71,7 @@ namespace TennisVlaanderen_WPF
                     Nieuwspeler.Land = txtLand.Text;
                     Nieuwspeler.Telefoon = txtTelefoon.Text;
                     Nieuwspeler.Email = txtEmail.Text;
-                    Nieuwspeler.RijksNummer = txtRijksNummer.Text;                                      
+                    Nieuwspeler.RijksNummer = txtRijksNummer.Text;                                                        
                 }
                 else
                 {
@@ -84,7 +83,7 @@ namespace TennisVlaanderen_WPF
                 mainWindow.Show();
                 this.Close();
             }
-            catch (Exception ex) { FileOperations.FoutLoggen(ex); }           
+            catch (Exception ex) { FileOperations.FoutLoggen(ex); }
         }
 
         private void BtnAnnuleren_Click(object sender, RoutedEventArgs e)
@@ -92,6 +91,6 @@ namespace TennisVlaanderen_WPF
             MainWindow mainWindow = new MainWindow();
             mainWindow.Show();
             this.Close();
-        }      
-    };
-}
+        }     
+    }
+};
