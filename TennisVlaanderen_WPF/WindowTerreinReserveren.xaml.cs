@@ -24,12 +24,10 @@ namespace TennisVlaanderen_WPF
     {
         private ITerreinReservatieRepository terreinReserverenRepository = new TerreinReservatieRepository();
         private IClubRepository clubRepository = new ClubRepository();
-        private ISpelerRepository spelerItems = new SpelerRepository();
-
-
+        private ISpelerRepository spelerRepository = new SpelerRepository();       
 
         Speler speler = new Speler();
-        TerreinReservatie tr = new TerreinReservatie();
+        TerreinReservatie terreinSelected = new TerreinReservatie();
 
         public WindowTerreinReserveren()
         {
@@ -49,22 +47,22 @@ namespace TennisVlaanderen_WPF
             {
                 try
                 {
-                    tr = (TerreinReservatie)cbVeld.SelectedItem;
-                    List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+                    terreinSelected = (TerreinReservatie)cbVeld.SelectedItem;
+                    List<Speler> spelersDB = spelerRepository.OphalenSpeler(speler.Email = MainWindow.Email);
                     foreach (var item in spelersDB)
                     {                       
                             TerreinReservatie terrein = new TerreinReservatie()
                             {
-                                Id= tr.Id,
+                                Id = terreinSelected.Id,
                                 SpelerID = item.Id,
-                                TerreinNummer = tr.TerreinNummer,
-                                TypeOndergrond = tr.TypeOndergrond,
+                                TerreinNummer = terreinSelected.TerreinNummer,
+                                TypeOndergrond = terreinSelected.TypeOndergrond,
                                 TypeTennis = "",
                             };
                         item.TerreinReservatie.Add(terrein);
                         speler = item;
-                        spelerItems.SpelerUpdate(speler);
-                        terreinReserverenRepository.TerreinReservatieToevoegen(terrein);
+                        spelerRepository.SpelerUpdate(speler);
+                        terreinReserverenRepository.TerreinReservatieToevoegen(terrein);                        
                     }
                 }
                 catch (Exception ex) { FileOperations.FoutLoggen(ex); }
@@ -84,6 +82,7 @@ namespace TennisVlaanderen_WPF
             string TypeOndergrond = "Gravel";
             List<TerreinReservatie> veldenDB = (List<TerreinReservatie>)terreinReserverenRepository.OphalenterreinGravel(TypeOndergrond);
             cbVeld.ItemsSource = veldenDB;
+            veldImg.Source = new BitmapImage(new Uri("img/tennis-veld-bovenaanzicht-vectorillustratie-162718725.jpg", UriKind.Relative));
         }
 
         private void RbGras_Checked(object sender, RoutedEventArgs e)
@@ -91,6 +90,7 @@ namespace TennisVlaanderen_WPF
             string TypeOndergrond = "Gras";
             List<TerreinReservatie> veldenDB = (List<TerreinReservatie>)terreinReserverenRepository.OphalenterreinGras(TypeOndergrond);
             cbVeld.ItemsSource = veldenDB;
+            veldImg.Source = new BitmapImage(new Uri("img/2634903-vecteur-court-de-tennis-vue-de-dessus-illustration-vectoriel.jpg", UriKind.Relative));
         }
     }
 }

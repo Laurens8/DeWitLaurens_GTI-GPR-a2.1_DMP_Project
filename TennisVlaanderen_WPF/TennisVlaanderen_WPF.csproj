@@ -150,5 +150,10 @@
       <Name>TennisVlaanderen_Models</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\2634903-vecteur-court-de-tennis-vue-de-dessus-illustration-vectoriel.jpg" />
+    <Resource Include="img\layout_set_logo-1024x490.jpg" />
+    <Resource Include="img\tennis-veld-bovenaanzicht-vectorillustratie-162718725.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

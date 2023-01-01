@@ -27,63 +27,49 @@ namespace TennisVlaanderen_WPF
             InitializeComponent();
         }
 
-        private ISpelerRepository spelerRepository = new SpelerRepository();
-        Speler Nieuwspeler = new Speler();
+        private ISpelerRepository spelerRepository = new SpelerRepository();        
 
         private void BtnToevoegen_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                lblError.Content = string.Empty;
+            //try
+            //{
+                Speler Nieuwspeler = new Speler();
+                             
+                Nieuwspeler.ClubID = 1;
+                Nieuwspeler.Naam = txtNaam.Text;
+                Nieuwspeler.Voornaam = txtVoornaam.Text;
+                Nieuwspeler.Klassement = "3";
+                Nieuwspeler.Geslacht = (rbMan.IsChecked == true) ? Nieuwspeler.Geslacht = "Man" : Nieuwspeler.Geslacht = "Vrouw";
+                Nieuwspeler.GeboorteDatum = DateTime.Parse(txtGeboortedatum.Text).Date;
+                Nieuwspeler.Nationaliteit = txtNationaliteit.Text;
+                Nieuwspeler.Adres = txtAdres.Text;
+                Nieuwspeler.Land = txtLand.Text;
+                Nieuwspeler.Telefoon = txtTelefoon.Text;
+                Nieuwspeler.Email = txtEmail.Text;
+                Nieuwspeler.RijksNummer = txtRijksNummer.Text;
 
                 if (Nieuwspeler.IsGeldig())
                 {
-                    if (!string.IsNullOrEmpty(txtGeboortedatum.Text))
-                    {
-                        Nieuwspeler.GeboorteDatum = DateTime.Parse(txtGeboortedatum.Text);
-                    }
-                    else
-                    {
-                        lblError.Content = "Geboortedatum is een verplicht in te vullen veld";
-                    }
-
                     if (rbMan.IsChecked == false && rbVrouw.IsChecked == false)
                     {
                         lblError.Content = "Selecteer een geslacht";
-
-                        if (rbMan.IsChecked == true)
-                        {
-                            Nieuwspeler.Geslacht = "Man";
-                        }
-                        else
-                        {
-                            Nieuwspeler.Geslacht = "Vrouw";
-                        }
                     }
-
-                    Nieuwspeler.Naam = txtNaam.Text;
-                    Nieuwspeler.Voornaam = txtVoornaam.Text;
-                    Nieuwspeler.Klassement = "3";
-                    Nieuwspeler.Geslacht = Nieuwspeler.Geslacht;
-                    Nieuwspeler.GeboorteDatum = DateTime.Parse(txtGeboortedatum.Text);
-                    Nieuwspeler.Nationaliteit = txtNationaliteit.Text;
-                    Nieuwspeler.Adres = txtAdres.Text;
-                    Nieuwspeler.Land = txtLand.Text;
-                    Nieuwspeler.Telefoon = txtTelefoon.Text;
-                    Nieuwspeler.Email = txtEmail.Text;
-                    Nieuwspeler.RijksNummer = txtRijksNummer.Text;                                                        
+                    else
+                    {
+                        spelerRepository.SpelerToevoegen(Nieuwspeler);
+                        MainWindow mainWindow = new MainWindow();
+                        mainWindow.Show();
+                        this.Close();
+                    }
                 }
                 else
                 {
                     lblError.Content = Nieuwspeler.Error;
                 }
+            //}
+            //catch (Exception ex) { FileOperations.FoutLoggen(ex); }
 
-                spelerRepository.SpelerToevoegen(Nieuwspeler);
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                this.Close();
-            }
-            catch (Exception ex) { FileOperations.FoutLoggen(ex); }
+
         }
 
         private void BtnAnnuleren_Click(object sender, RoutedEventArgs e)

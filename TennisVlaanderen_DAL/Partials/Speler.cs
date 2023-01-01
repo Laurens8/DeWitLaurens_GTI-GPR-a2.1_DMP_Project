@@ -40,10 +40,7 @@ namespace TennisVlaanderen_DAL
                 return false;
             }
         }
-    
-        /////////////////////////////////////////////////
-        // Dit gedeelte komt uit oefening 4 van canvas //
-        /////////////////////////////////////////////////
+           
         public static bool IsNummeriek(string input)
         {
             if (!int.TryParse(input, out int output)) return false;
@@ -57,11 +54,13 @@ namespace TennisVlaanderen_DAL
                 if (string.IsNullOrWhiteSpace(rijksnummer) || !IsNummeriek(rijksnummer))
                     return false;
 
-                if (rijksnummer.Length == 11)
+                if (rijksnummer.Length == 15)
                 {
-                    int rijksnummers = int.Parse(rijksnummer.Substring(0, 9));
-                    int rijksnummers2 = int.Parse(rijksnummer.Substring(9, 2));
-                    if ((97 - (rijksnummers % 97)) == rijksnummers2)
+                    string punt1 = rijksnummer.Substring(3, 3);
+                    string punt2 = rijksnummer.Substring(5, 5);
+                    string streep = rijksnummer.Substring(7, 7);
+                    string punt3 = rijksnummer.Substring(10, 10);
+                    if (punt1 == "." && punt2 == "." && streep == "-" && punt3 == ".")
                     {
                         return true;
                     }
@@ -78,13 +77,12 @@ namespace TennisVlaanderen_DAL
             }
             return false;
         }       
-        ///////////////////////////////////////////////////////
      
         public override string this[string columnName]
         {
             get
             {               
-                if (columnName == "Naam" && string.IsNullOrWhiteSpace(Naam) && IsNummeriek(Naam))
+                if (columnName == "Naam" && string.IsNullOrWhiteSpace(Naam))
                 {
                     return "Naam is een verplicht in te vullen veld!";
                 }
@@ -94,7 +92,7 @@ namespace TennisVlaanderen_DAL
                     return "Naam mag niet nummeriek zijn!";
                 }
 
-                else if (columnName == "Voornaam" && string.IsNullOrWhiteSpace(Voornaam) && IsNummeriek(Voornaam))
+                else if (columnName == "Voornaam" && string.IsNullOrWhiteSpace(Voornaam))
                 {
                     return "Voornaam is een verplicht in te vullen veld!";
                 }
@@ -104,7 +102,7 @@ namespace TennisVlaanderen_DAL
                     return "Voornaam mag niet nummeriek zijn!";
                 }
 
-                else if (columnName == "Geslacht" && string.IsNullOrWhiteSpace(Geslacht) && IsNummeriek(Geslacht))
+                else if (columnName == "Geslacht" && string.IsNullOrWhiteSpace(Geslacht))
                 {
                     return "Geslacht is een verplicht in te vullen veld!";
                 }
@@ -114,7 +112,7 @@ namespace TennisVlaanderen_DAL
                     return "Geslacht mag niet nummeriek zijn!";
                 }
 
-                else if (columnName == "Nationaliteit" && string.IsNullOrWhiteSpace(Nationaliteit) && IsNummeriek(Nationaliteit))
+                else if (columnName == "Nationaliteit" && string.IsNullOrWhiteSpace(Nationaliteit))
                 {
                     return "Nationaliteit is een verplicht in te vullen veld!";
                 }
@@ -129,7 +127,7 @@ namespace TennisVlaanderen_DAL
                     return "Adres is een verplicht in te vullen veld!";
                 }
 
-                else if (columnName == "Land" && string.IsNullOrWhiteSpace(Land) && IsNummeriek(Land))
+                else if (columnName == "Land" && string.IsNullOrWhiteSpace(Land))
                 {
                     return "Land is een verplicht in te vullen veld!";
                 }
@@ -139,7 +137,7 @@ namespace TennisVlaanderen_DAL
                     return "Land mag niet nummeriek zijn!";
                 }
 
-                else if (columnName == "Telefoon" && string.IsNullOrWhiteSpace(Telefoon) && !IsNummeriek(Telefoon))
+                else if (columnName == "Telefoon" && string.IsNullOrWhiteSpace(Telefoon))
                 {
                     return "Telefoon is een verplicht in te vullen veld!";
                 }
@@ -149,7 +147,7 @@ namespace TennisVlaanderen_DAL
                     return "Telefoon nummer moet nummeriek zijn!";
                 }
 
-                else if (columnName == "Email" && string.IsNullOrWhiteSpace(Email) && EmailValidatie(Email))
+                else if (columnName == "Email" && string.IsNullOrWhiteSpace(Email))
                 {
                     return "Email is een verplicht in te vullen veld!";
                 }
@@ -159,17 +157,22 @@ namespace TennisVlaanderen_DAL
                     return "Emailaddres moet een '@' en '.' bevatten";
                 }
 
-                else if (columnName == "RijksNummer" && string.IsNullOrWhiteSpace(RijksNummer) && RijksregisternummerIsGeldig(RijksNummer))
-                {                   
+                else if (columnName == "RijksNummer" && string.IsNullOrWhiteSpace(RijksNummer))
+                {
                     return "RijksNummer is een verplicht in te vullen veld!";
                 }
 
-                else if (columnName == "RijksNummer" &&  RijksregisternummerIsGeldig(RijksNummer))
+                else if (columnName == "RijksNummer" && RijksregisternummerIsGeldig(RijksNummer))
                 {
                     return "RijksNummer moet 11 nummers bevatten";
                 }
 
-                else if (columnName == "GeboorteDatum" && GeboorteDatum > DateTime.Now)
+                else if (columnName == "GeboorteDatum" && string.IsNullOrWhiteSpace(GeboorteDatum.ToString()))
+                {
+                    return "Geboortedatum is een verplicht in te vullen veld!";
+                }
+
+                else if (columnName == "GeboorteDatum" && GeboorteDatum >= DateTime.Now)
                 {
                     return "Vul een geldig geboortedatum in!";
                 }

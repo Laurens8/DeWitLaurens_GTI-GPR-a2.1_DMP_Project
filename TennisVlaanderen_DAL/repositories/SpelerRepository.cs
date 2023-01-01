@@ -64,7 +64,7 @@ namespace TennisVlaanderen_DAL.repositories
         public bool SpelerToevoegen(Speler speler)
         {
             string sql = @"INSERT INTO TennisVlaanderen.Speler (ClubID, Naam, Voornaam, Klassement, Geslacht, GeboorteDatum, Nationaliteit, Adres, Land, Telefoon, Email, RijksNummer)
-                          VALUES (@Naam, @Voornaam, @Klassement, @Geslacht, @GeboorteDatum, @Nationaliteit, @Adres, @Land, @Telefoon, @Email, @RijksNummer)";
+                          VALUES (@ClubID, @Naam, @Voornaam, @Klassement, @Geslacht, @GeboorteDatum, @Nationaliteit, @Adres, @Land, @Telefoon, @Email, @RijksNummer)";
 
             var parameter = new
             {

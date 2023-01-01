@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TennisVlaanderen_WPF"
         mc:Ignorable="d"
-        Title="WindowTornooi" Height="450" Width="800" Background="Black">
+        Title="WindowTornooi" Height="650" Width="1000" Background="Black">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -22,20 +22,20 @@
 
         <Label Content="Tennis Vlaanderen" FontSize="20" Background="yellow" FontStyle="Normal" Grid.Column="0" Grid.ColumnSpan="4" FontWeight="Bold" FontFamily="Arial Black"></Label>
 
-        <ComboBox x:Name="cbCircuit" Grid.Row="1" Grid.Column="0" Margin="10,95,190,143" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2" Grid.ColumnSpan="2" SelectionChanged="CbCircuit_SelectionChanged" FontFamily="Arial Black"/>
-        <Label Content="Selecteer een Tornooi" Foreground="Yellow" Grid.Row="1" HorizontalAlignment="Left" Width="180" VerticalAlignment="Top" Height="23" RenderTransformOrigin="0.499,0.529" Margin="82,49,0,0" Grid.Column="1" Grid.ColumnSpan="2" FontFamily="Arial Black"/>
+        <ComboBox x:Name="cbCircuit" Grid.Row="1" Grid.Column="0" Margin="10,95,201,77" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="2" SelectionChanged="CbCircuit_SelectionChanged" FontFamily="Arial Black"/>
+        <Label Content="Selecteer een Tornooi" Foreground="Yellow" Grid.Row="1" HorizontalAlignment="Left" Width="310" VerticalAlignment="Top" Height="49" RenderTransformOrigin="0.499,0.529" Margin="82,30,0,0" Grid.Column="1" Grid.ColumnSpan="2" FontFamily="Arial Black" FontSize="18"/>
 
-        <ComboBox x:Name="cbTornooi" Grid.Row="1" Grid.Column="1" Margin="72,96,128,143" RenderTransformOrigin="0.503,0.514" Grid.ColumnSpan="2" Grid.RowSpan="2" SelectionChanged="CbTornooi_SelectionChanged" FontFamily="Arial Black"></ComboBox>
-        <Label Content="Selecteer een circuit" Foreground="Yellow" Grid.Row="1" FontFamily="Arial Black" Margin="10,48,0,0" HorizontalAlignment="Left" Width="236" Grid.ColumnSpan="2" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbTornooi" Grid.Row="1" Grid.Column="1" Margin="82,95,125,77" RenderTransformOrigin="0.503,0.514" Grid.ColumnSpan="2" SelectionChanged="CbTornooi_SelectionChanged" FontFamily="Arial Black"/>
+        <Label Content="Selecteer een circuit" Foreground="Yellow" Grid.Row="1" FontFamily="Arial Black" Margin="10,30,0,0" HorizontalAlignment="Left" Width="258" VerticalAlignment="Top" FontSize="18" Grid.ColumnSpan="2" Height="49"/>
 
-        <Label Content="Tornooi naam" Foreground="Yellow" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Arial Black"></Label>
-        <Label x:Name="lblTornooi" Content="" Foreground="White" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="0,13,0,0" FontFamily="Arial Black"></Label>
-        <Label Content="Circuit" Foreground="Yellow" Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" FontFamily="Arial Black"></Label>
-        <Label x:Name="lblCircuit" Content=""  Foreground="White" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="0,72,0,0" FontFamily="Arial Black"></Label>
-        <Label Content="Datum" Foreground="Yellow" Grid.Row="1" Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,120,0,0" Grid.RowSpan="2" FontFamily="Arial Black"></Label>
-        <Label x:Name="lblDatum" Content=""  Foreground="White" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="0,133,0,0" Grid.RowSpan="2" FontFamily="Arial Black"/>
-        <Label Content="Type competitie" Foreground="Yellow" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="0,0,0,64" FontFamily="Arial Black"></Label>
-        <Label x:Name="lblTypeCompetitie" Content=""  Foreground="White" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="0,66,0,0" FontFamily="Arial Black"></Label>
+        <Label Content="Tornooi naam" Foreground="Yellow" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" FontFamily="Arial Black" Margin="0,15,0,0"></Label>
+        <Label x:Name="lblTornooi" Content="" Foreground="White" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="4,39,0,0" FontFamily="Arial Black"></Label>
+        <Label Content="Circuit" Foreground="Yellow" Grid.Row="1" Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Left" FontFamily="Arial Black" Margin="3,77,0,0"></Label>
+        <Label x:Name="lblCircuit" Content=""  Foreground="White" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="4,106,0,0" FontFamily="Arial Black"></Label>
+        <Label Content="Datum" Foreground="Yellow" Grid.Row="1" Grid.Column="3" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="4,144,0,0" FontFamily="Arial Black"/>
+        <Label x:Name="lblDatum" Content=""  Foreground="White" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="4,173,0,0" FontFamily="Arial Black"/>
+        <Label Content="Type competitie" Foreground="Yellow" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="4,0,0,10" FontFamily="Arial Black"></Label>
+        <Label x:Name="lblTypeCompetitie" Content=""  Foreground="White" Grid.Row="2" Grid.Column="3" HorizontalAlignment="Left" VerticalAlignment="Top" Width="190" Height="26" Margin="4,0,0,0" FontFamily="Arial Black"></Label>
 
 
         <Button x:Name="btnToevoegen" Grid.Column="3" Grid.Row="3" Content="Toevoegen" Margin="17,67,17,27" Click="BtnToevoegen_Click" FontFamily="Arial Black"></Button>

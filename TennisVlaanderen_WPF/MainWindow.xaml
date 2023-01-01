@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TennisVlaanderen_WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="black" Opacity="70">
+        Title="MainWindow" Height="650" Width="1000" Background="black" Opacity="70">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -22,9 +22,9 @@
         <Label Content="Inloggen" Grid.Row="1" Grid.Column="1" Foreground="Yellow" FontSize="20" HorizontalAlignment="Center" FontFamily="Arial Black"></Label>
         <Label Content="email address" Foreground="yellow" Grid.Column="1" Grid.Row="1" FontFamily="Arial Black" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,120,0,0" FontSize="15"></Label>
         <TextBox x:Name="txtEmail" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Top" Width="300" Height="26" Margin="0,165,0,0"/>
-        <Button x:Name="btnDoorgaan" Content="Doorgaan" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" Margin="0,24,0,135" Width="156" FontFamily="Arial Black" Click="BtnDoorgaan_Click"></Button>
-        <Label Content="Nog geen account? Druk Hier" Foreground="yellow" Grid.Column="2" Grid.Row="2" FontFamily="Arial Black" Margin="10,110,-10,53"></Label>
-        <Button x:Name="btnAccountMaken" Content="Maak een account!" Grid.Column="1" Grid.ColumnSpan="2" Margin="290,147,10,20" Grid.Row="2" Click="BtnAccountMaken_Click" FontFamily="Arial Black"></Button>
+        <Button x:Name="btnDoorgaan" Content="Doorgaan" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center" Margin="0,257,0,300" Width="248" FontFamily="Arial Black" Click="BtnDoorgaan_Click" Grid.RowSpan="2"></Button>
+        <Label Content="Nog geen account? Druk Hier" Foreground="yellow" Grid.Column="2" Grid.Row="2" FontFamily="Arial Black" Margin="0,118,0,118"></Label>
+        <Button x:Name="btnAccountMaken" Content="Maak een account!" Grid.Column="2" Margin="0,178,30,64" Grid.Row="2" Click="BtnAccountMaken_Click" FontFamily="Arial Black"/>
         <Label x:Name="lblError" Grid.Column="2" Grid.Row="1" Margin="10" Foreground="Yellow" FontFamily="Arial Black"></Label>
     </Grid>
 </Window>

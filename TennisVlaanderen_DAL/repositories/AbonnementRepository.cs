@@ -14,7 +14,7 @@ namespace TennisVlaanderen_DAL.repositories
     {
         public IEnumerable<Abonnement> OphalenAbonnement(string clubNaam)
         {
-            string sql = $@"SELECT * 
+            string sql = $@"SELECT DISTINCT Lessen, Stages 
                             FROM TennisVlaanderen.Abonnement A
                             JOIN TennisVlaanderen.Club C ON A.ClubID = C.Id 
                             WHERE C.ClubNaam LIKE '%{clubNaam}%'";
@@ -45,9 +45,9 @@ namespace TennisVlaanderen_DAL.repositories
             var parameter = new
             {
                 @SpelerID = abonnement.SpelerID,
-                ClubID = abonnement.ClubID,
-                Lessen = abonnement.Lessen,
-                Stages = abonnement.Stages,
+                @ClubID = abonnement.ClubID,
+                @Lessen = abonnement.Lessen,
+                @Stages = abonnement.Stages,
             };
 
             using (IDbConnection db = new SqlConnection(ConnectionString))
@@ -87,7 +87,7 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool AbonnementUpdate(Abonnement abonnement)
         {
-            string sql = @"UPDATE TennisVlaanderen.Abonnement                         
+            string sql = @"UPDATE TennisVlaanderen.Abonnement SET                        
                         SpelerID = @SpelerID,    
                         ClubID = @ClubID,
                         Lessen = @Lessen,
@@ -97,7 +97,7 @@ namespace TennisVlaanderen_DAL.repositories
             var parameter = new
             {
                 @Id = abonnement.Id,               
-                SpelerID = abonnement.SpelerID,
+                @SpelerID = abonnement.SpelerID,
                 @ClubID = abonnement.ClubID,
                 @Lessen = abonnement.Lessen,
                 @Stages = abonnement.Stages,

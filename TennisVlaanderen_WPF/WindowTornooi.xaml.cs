@@ -23,8 +23,8 @@ namespace TennisVlaanderen_WPF
     public partial class WindowTornooi : Window
     {
         private ITornooiRepository TornooiRepository = new TornooiRepository();
-        private ISpelerRepository spelerItems = new SpelerRepository();
-        private ISpelerClubTornooiRepository SCT = new SpelerClubTornooiRepository();
+        private ISpelerRepository spelerRepository = new SpelerRepository();
+        private ISpelerClubTornooiRepository spelerClubTornooiRepository = new SpelerClubTornooiRepository();
         Tornooi tornooi = new Tornooi();     
         Speler speler = new Speler();
 
@@ -76,7 +76,7 @@ namespace TennisVlaanderen_WPF
             {
                 try
                 {
-                    List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+                    List<Speler> spelersDB = spelerRepository.OphalenSpeler(speler.Email = MainWindow.Email);
                     foreach (var item in spelersDB)
                     {
                         SpelerClubTornooi spt = new SpelerClubTornooi()
@@ -87,7 +87,7 @@ namespace TennisVlaanderen_WPF
                         };
 
                         item.SpelerClubTornooi.Add(spt);
-                        SCT.SpelerClubTornooiToevoegen(spt);
+                        spelerClubTornooiRepository.SpelerClubTornooiToevoegen(spt);
                     }
                 }
                 catch (Exception ex) { FileOperations.FoutLoggen(ex); }

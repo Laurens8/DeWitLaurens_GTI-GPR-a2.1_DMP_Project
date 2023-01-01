@@ -24,7 +24,7 @@ namespace TennisVlaanderen_WPF
     public partial class WindowLessen : Window
     {
         Speler speler = new Speler();
-        Abonnement abonnementen = new Abonnement(); 
+        Abonnement abonnementen = new Abonnement();
 
         public WindowLessen()
         {
@@ -34,12 +34,12 @@ namespace TennisVlaanderen_WPF
 
         private IAbonnementRepository AbonnenmentRepository = new AbonnementRepository();
         private IClubRepository clubRepository = new ClubRepository();
-        private ISpelerRepository spelerItems = new SpelerRepository();     
+        private ISpelerRepository spelerRepository = new SpelerRepository();     
 
         private void OphalenData()
         {
             List<Club> clublijst = new List<Club>();
-            List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+            List<Speler> spelersDB = spelerRepository.OphalenSpeler(speler.Email = MainWindow.Email);
             foreach (var item in spelersDB)
             {
                 clublijst = (List<Club>)clubRepository.OphalenClubSpeler((int)item.ClubID);
@@ -58,9 +58,9 @@ namespace TennisVlaanderen_WPF
             if (cbAanbod.SelectedItem != null)
             {
                 try
-                {
+                {                   
                     abonnementen = cbAanbod.SelectedItem as Abonnement;
-                    List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+                    List<Speler> spelersDB = spelerRepository.OphalenSpeler(speler.Email = MainWindow.Email);
                     foreach (var item in spelersDB)
                     {
                         Abonnement abonnement = new Abonnement()
@@ -72,8 +72,6 @@ namespace TennisVlaanderen_WPF
                             Stages = abonnementen.Stages,
                         };                       
                         item.Abonnement.Add(abonnement);
-                        speler = item;
-                        spelerItems.SpelerUpdate(speler);
                         AbonnenmentRepository.AbonnementToevoegen(abonnement);
                     }
                 }
@@ -98,7 +96,7 @@ namespace TennisVlaanderen_WPF
 
         private void CbClub_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+            List<Speler> spelersDB = spelerRepository.OphalenSpeler(speler.Email = MainWindow.Email);
             foreach (var item in spelersDB)
             {               
                 string clubNaam = item.Club.ClubNaam;

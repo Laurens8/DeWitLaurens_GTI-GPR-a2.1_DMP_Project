@@ -91,7 +91,7 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool TornooiUpdate(Tornooi tornooi)
         {
-            string sql = @"UPDATE TennisVlaanderen.Tornooi 
+            string sql = @"UPDATE TennisVlaanderen.Tornooi SET
                         NaamTornooi = @NaamTornooi,
                         Datum = @Datum,
                         Circuit = @ Circuit,

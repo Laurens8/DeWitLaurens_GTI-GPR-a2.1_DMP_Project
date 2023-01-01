@@ -23,7 +23,7 @@ namespace TennisVlaanderen_DAL.repositories
 
         public List<TerreinReservatie> OphalenterreinGras(string TypeOndergrond)
         {
-            string sql = $"SELECT TerreinNummer, TypeOndergrond FROM TennisVlaanderen.TerreinReservatie T WHERE T.TypeOndergrond LIKE '%{TypeOndergrond}%'";
+            string sql = $"SELECT DISTINCT TerreinNummer, TypeOndergrond FROM TennisVlaanderen.TerreinReservatie T WHERE T.TypeOndergrond LIKE '%{TypeOndergrond}%'";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
                 return db.Query<TerreinReservatie>(sql).ToList();
@@ -32,7 +32,7 @@ namespace TennisVlaanderen_DAL.repositories
 
         public List<TerreinReservatie> OphalenterreinGravel(string TypeOndergrond)
         {
-            string sql = $"SELECT TerreinNummer, TypeOndergrond FROM TennisVlaanderen.TerreinReservatie T WHERE T.TypeOndergrond LIKE '%{TypeOndergrond}%'";
+            string sql = $"SELECT DISTINCT TerreinNummer, TypeOndergrond FROM TennisVlaanderen.TerreinReservatie T WHERE T.TypeOndergrond LIKE '%{TypeOndergrond}%'";
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
                 return db.Query<TerreinReservatie>(sql).ToList();
@@ -100,7 +100,7 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool TerreinReservatieUpdate(TerreinReservatie terrein)
         {
-            string sql = @"UPDATE TennisVlaanderen.TerreinReservatie 
+            string sql = @"UPDATE TennisVlaanderen.TerreinReservatie SET
                         SpelerId = @SpelerId,
                         TerreinNummer = @TerreinNummer,
                         TypeOndergrond = @ TypeOndergrond,

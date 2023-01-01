@@ -14,7 +14,7 @@ namespace TennisVlaanderen_DAL.repositories
     {
         public IEnumerable<Tarieven> OphalenTarieven(string clubNaam)
         {
-            string sql = $@"SELECT leeftijdgraad, prijs, typeTennis 
+            string sql = $@"SELECT Leeftijdgraad, Prijs, TypeTennis 
                             FROM TennisVlaanderen.Tarieven T
                             JOIN TennisVlaanderen.Club C ON T.ClubID = C.Id 
                             WHERE C.ClubNaam LIKE '%{clubNaam}%'";
@@ -127,7 +127,7 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool TarievenUpdate(Tarieven tarieven)
         {
-            string sql = @"UPDATE TennisVlaanderen.Tarieven 
+            string sql = @"UPDATE TennisVlaanderen.Tarieven SET
                         ClubID = @ClubID,
                         Leeftijdgraad = @Leeftijdgraad,                        
                         TypeTennis = @TypeTennis,

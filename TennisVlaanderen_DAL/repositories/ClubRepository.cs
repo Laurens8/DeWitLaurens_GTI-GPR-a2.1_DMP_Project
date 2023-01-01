@@ -15,7 +15,7 @@ namespace TennisVlaanderen_DAL.repositories
     {
         public IEnumerable<Club> OphalenClubNaam()
         {
-            string sql = @"SELECT * FROM TennisVlaanderen.CLUB";
+            string sql = @"SELECT * FROM TennisVlaanderen.CLUB C WHERE C.Id > 1";
 
             using (IDbConnection db = new SqlConnection(ConnectionString))
             {
@@ -87,7 +87,7 @@ namespace TennisVlaanderen_DAL.repositories
 
         public bool ClubUpdate(Club club)
         {
-            string sql = @"UPDATE TennisVlaanderen.Club                         
+            string sql = @"UPDATE TennisVlaanderen.Club SET                        
                         Naam = @Naam,    
                         Adres = @Adres,
                         Telefoon = @Telefoon,

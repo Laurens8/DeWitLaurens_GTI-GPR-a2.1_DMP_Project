@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TennisVlaanderen_WPF"
         mc:Ignorable="d"
-        Title="WindowLessen" Height="450" Width="800" Background="Black">
+        Title="WindowLessen" Height="650" Width="1000" Background="Black">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition></ColumnDefinition>
@@ -21,10 +21,19 @@
         </Grid.RowDefinitions>
 
         <Label Content="Tennis Vlaanderen" FontSize="20" Background="yellow" FontStyle="Normal" Grid.Column="0" Grid.ColumnSpan="4" FontWeight="Bold" FontFamily="Arial Black"></Label>
-        <Label x:Name="lblClub" Content="club" Foreground="Yellow" Grid.Row="2" FontFamily="Arial Black" Margin="46,79,0,0" HorizontalAlignment="Left" Width="180" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblClub" Content="club" Foreground="Yellow" Grid.Row="2" FontFamily="Arial Black" Margin="19,115,0,0" HorizontalAlignment="Left" Width="217" VerticalAlignment="Top" Height="50" RenderTransformOrigin="0.5,0.5" FontSize="18">
+            <Label.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="2.448"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="0.748"/>
+                </TransformGroup>
+            </Label.RenderTransform>
+        </Label>
 
-        <ComboBox x:Name="cbAanbod" Grid.Row="2" Grid.Column="1" Margin="31,63,169,163" RenderTransformOrigin="0.503,0.514" Grid.ColumnSpan="2" FontFamily="Arial Black"></ComboBox>
-        <Label Content="Selecteer een lessenpakket" Foreground="Yellow" Grid.Row="2" FontFamily="Arial Black" Margin="31,28,0,0" HorizontalAlignment="Left" Grid.Column="1" Width="236" Grid.ColumnSpan="2" VerticalAlignment="Top"/>
+        <ComboBox x:Name="cbAanbod" Grid.Row="2" Margin="31,111,107,324" RenderTransformOrigin="0.503,0.514" FontFamily="Arial Black" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Label Content="Selecteer een lessenpakket" Foreground="Yellow" Grid.Row="2" FontFamily="Arial Black" Margin="31,32,0,0" HorizontalAlignment="Left" Grid.Column="1" Width="446" Grid.ColumnSpan="2" VerticalAlignment="Top" FontSize="18" Height="47"/>
 
         <Button x:Name="btnToevoegen" Grid.Column="3" Grid.Row="3" Content="Toevoegen" Margin="17,67,17,27" Click="BtnToevoegen_Click" FontFamily="Arial Black"></Button>
         <Button x:Name="btnAnnuleren" Grid.Column="3" Grid.Row="3" Content="Annuleren" Margin="17,13,17,0" VerticalAlignment="Top" Height="22" Click="BtnAnnuleren_Click" FontFamily="Arial Black"/>

@@ -84,8 +84,8 @@ namespace TennisVlaanderen_DAL.repositories
             {
                 @Id = spelerClubTornooi.Id,
                 @ClubID = spelerClubTornooi.ClubID,
-                SpelerID = spelerClubTornooi.SpelerID,
-                TornooiID = spelerClubTornooi.TornooiID,
+                @SpelerID = spelerClubTornooi.SpelerID,
+                @TornooiID = spelerClubTornooi.TornooiID,
             };
 
             using (IDbConnection db = new SqlConnection(ConnectionString))

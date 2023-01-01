@@ -33,7 +33,7 @@ namespace TennisVlaanderen_WPF
 
         private ITarievenRepository tarievenRepository = new TarievenRepository();
         private IClubRepository clubRepository = new ClubRepository();
-        private ISpelerRepository spelerItems = new SpelerRepository();
+        private ISpelerRepository spelerRepository = new SpelerRepository();
 
         private void OphalenDataClub()
         {
@@ -48,7 +48,9 @@ namespace TennisVlaanderen_WPF
                 try
                 {
                     nieuwClub = (Club)cbClub.SelectedItem;
-                    List<Speler> spelersDB = spelerItems.OphalenSpeler(speler.Email = MainWindow.Email);
+                    Tarieven leeftijdvaliedatie = (Tarieven)cbAanbod.SelectedItem;
+                    List<Speler> spelersDB = spelerRepository.OphalenSpeler(speler.Email = MainWindow.Email);
+
                     foreach (var item in spelersDB)
                     {
                         Club club = new Club()
@@ -64,14 +66,25 @@ namespace TennisVlaanderen_WPF
                         };
                         item.ClubID = club.Id;
                         speler = item;
-                        spelerItems.SpelerUpdate(speler);
+                        spelerRepository.SpelerUpdate(speler);
+
+                        if (leeftijdvaliedatie.Leeftijdgraad == "jeugd" && speler.GeboorteDatum.Year <= 2005)
+                        {
+                            MessageBox.Show("de jeugd tarief is aleen maar voor personen onder de 18 jaar");                           
+                        }
+                        else if (leeftijdvaliedatie.Leeftijdgraad == "senioren" && speler.GeboorteDatum.Year >= 1958)
+                        {
+                            MessageBox.Show("de senioren tarief is aleen maar voor personen over de 65 jaar");
+                        }
+                        else 
+                        {
+                            WindowHomePagina homePagina = new WindowHomePagina();
+                            homePagina.Show();
+                            this.Close();
+                        }                                             
                     }
                 }
-                catch (Exception ex) { FileOperations.FoutLoggen(ex); }
-
-                WindowHomePagina homePagina = new WindowHomePagina();
-                homePagina.Show();
-                this.Close();
+                catch (Exception ex) { FileOperations.FoutLoggen(ex); }               
             }
             else
             {
