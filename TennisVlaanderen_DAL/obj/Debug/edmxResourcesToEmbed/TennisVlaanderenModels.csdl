@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TennisVlaanderenModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Abonnement">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SpelerID" Type="Int32" Nullable="false" />
+    <Property Name="ClubID" Type="Int32" Nullable="false" />
+    <Property Name="Lessen" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Stages" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Club" Relationship="Self.FK_tennisVlaanderen_Club_Abonnement" FromRole="Abonnement" ToRole="Club" />
+    <NavigationProperty Name="Speler" Relationship="Self.FK_tennisVlaanderen_Speler" FromRole="Abonnement" ToRole="Speler" />
+  </EntityType>
+  <EntityType Name="Club">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClubNaam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefoon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Website" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="KwaliteitLabel" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Clubaanbod" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Abonnement" Relationship="Self.FK_tennisVlaanderen_Club_Abonnement" FromRole="Club" ToRole="Abonnement" />
+    <NavigationProperty Name="Tarieven" Relationship="Self.FK_tennisVlaanderen_Club" FromRole="Club" ToRole="Tarieven" />
+    <NavigationProperty Name="Speler" Relationship="Self.FK_tennisVlaanderen_Club_Inschrijven" FromRole="Club" ToRole="Speler" />
+    <NavigationProperty Name="SpelerClubTornooi" Relationship="Self.FK_tennisVlaanderen_Club_SpelerClubTornooi" FromRole="Club" ToRole="SpelerClubTornooi" />
+  </EntityType>
+  <EntityType Name="Speler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClubID" Type="Int32" />
+    <Property Name="Naam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Voornaam" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Klassement" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Geslacht" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GeboorteDatum" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Nationaliteit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Adres" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Land" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefoon" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RijksNummer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Abonnement" Relationship="Self.FK_tennisVlaanderen_Speler" FromRole="Speler" ToRole="Abonnement" />
+    <NavigationProperty Name="Club" Relationship="Self.FK_tennisVlaanderen_Club_Inschrijven" FromRole="Speler" ToRole="Club" />
+    <NavigationProperty Name="SpelerClubTornooi" Relationship="Self.FK_tennisVlaanderen_Speler_SpelerClubTornooi" FromRole="Speler" ToRole="SpelerClubTornooi" />
+    <NavigationProperty Name="TerreinReservatie" Relationship="Self.FK_tennisVlaanderen_Speler_TerreinReservatie" FromRole="Speler" ToRole="TerreinReservatie" />
+  </EntityType>
+  <EntityType Name="SpelerClubTornooi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClubID" Type="Int32" Nullable="false" />
+    <Property Name="SpelerID" Type="Int32" Nullable="false" />
+    <Property Name="TornooiID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Club" Relationship="Self.FK_tennisVlaanderen_Club_SpelerClubTornooi" FromRole="SpelerClubTornooi" ToRole="Club" />
+    <NavigationProperty Name="Speler" Relationship="Self.FK_tennisVlaanderen_Speler_SpelerClubTornooi" FromRole="SpelerClubTornooi" ToRole="Speler" />
+    <NavigationProperty Name="Tornooi" Relationship="Self.FK_tennisVlaanderen_Tornooi" FromRole="SpelerClubTornooi" ToRole="Tornooi" />
+  </EntityType>
+  <EntityType Name="Tarieven">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClubID" Type="Int32" Nullable="false" />
+    <Property Name="Leeftijdgraad" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="TypeTennis" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Prijs" Type="Decimal" Precision="19" Scale="4" />
+    <NavigationProperty Name="Club" Relationship="Self.FK_tennisVlaanderen_Club" FromRole="Tarieven" ToRole="Club" />
+  </EntityType>
+  <EntityType Name="TerreinReservatie">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SpelerID" Type="Int32" Nullable="false" />
+    <Property Name="TerreinNummer" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TypeOndergrond" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TypeTennis" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Speler" Relationship="Self.FK_tennisVlaanderen_Speler_TerreinReservatie" FromRole="TerreinReservatie" ToRole="Speler" />
+  </EntityType>
+  <EntityType Name="Tornooi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="NaamTornooi" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Datum" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Circuit" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TypeCompetitie" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="SpelerClubTornooi" Relationship="Self.FK_tennisVlaanderen_Tornooi" FromRole="Tornooi" ToRole="SpelerClubTornooi" />
+  </EntityType>
+  <Association Name="FK_tennisVlaanderen_Club_Abonnement">
+    <End Role="Club" Type="Self.Club" Multiplicity="1" />
+    <End Role="Abonnement" Type="Self.Abonnement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Club">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Abonnement">
+        <PropertyRef Name="ClubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tennisVlaanderen_Speler">
+    <End Role="Speler" Type="Self.Speler" Multiplicity="1" />
+    <End Role="Abonnement" Type="Self.Abonnement" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Speler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Abonnement">
+        <PropertyRef Name="SpelerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tennisVlaanderen_Club">
+    <End Role="Club" Type="Self.Club" Multiplicity="1" />
+    <End Role="Tarieven" Type="Self.Tarieven" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Club">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Tarieven">
+        <PropertyRef Name="ClubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tennisVlaanderen_Club_Inschrijven">
+    <End Role="Club" Type="Self.Club" Multiplicity="0..1" />
+    <End Role="Speler" Type="Self.Speler" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Club">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Speler">
+        <PropertyRef Name="ClubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tennisVlaanderen_Club_SpelerClubTornooi">
+    <End Role="Club" Type="Self.Club" Multiplicity="1" />
+    <End Role="SpelerClubTornooi" Type="Self.SpelerClubTornooi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Club">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpelerClubTornooi">
+        <PropertyRef Name="ClubID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tennisVlaanderen_Speler_SpelerClubTornooi">
+    <End Role="Speler" Type="Self.Speler" Multiplicity="1" />
+    <End Role="SpelerClubTornooi" Type="Self.SpelerClubTornooi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Speler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpelerClubTornooi">
+        <PropertyRef Name="SpelerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tennisVlaanderen_Speler_TerreinReservatie">
+    <End Role="Speler" Type="Self.Speler" Multiplicity="1" />
+    <End Role="TerreinReservatie" Type="Self.TerreinReservatie" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Speler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TerreinReservatie">
+        <PropertyRef Name="SpelerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tennisVlaanderen_Tornooi">
+    <End Role="Tornooi" Type="Self.Tornooi" Multiplicity="1" />
+    <End Role="SpelerClubTornooi" Type="Self.SpelerClubTornooi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tornooi">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SpelerClubTornooi">
+        <PropertyRef Name="TornooiID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TennisVlaanderenEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Abonnement" EntityType="Self.Abonnement" />
+    <EntitySet Name="Club" EntityType="Self.Club" />
+    <EntitySet Name="Speler" EntityType="Self.Speler" />
+    <EntitySet Name="SpelerClubTornooi" EntityType="Self.SpelerClubTornooi" />
+    <EntitySet Name="Tarieven" EntityType="Self.Tarieven" />
+    <EntitySet Name="TerreinReservatie" EntityType="Self.TerreinReservatie" />
+    <EntitySet Name="Tornooi" EntityType="Self.Tornooi" />
+    <AssociationSet Name="FK_tennisVlaanderen_Club_Abonnement" Association="Self.FK_tennisVlaanderen_Club_Abonnement">
+      <End Role="Club" EntitySet="Club" />
+      <End Role="Abonnement" EntitySet="Abonnement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tennisVlaanderen_Speler" Association="Self.FK_tennisVlaanderen_Speler">
+      <End Role="Speler" EntitySet="Speler" />
+      <End Role="Abonnement" EntitySet="Abonnement" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tennisVlaanderen_Club" Association="Self.FK_tennisVlaanderen_Club">
+      <End Role="Club" EntitySet="Club" />
+      <End Role="Tarieven" EntitySet="Tarieven" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tennisVlaanderen_Club_Inschrijven" Association="Self.FK_tennisVlaanderen_Club_Inschrijven">
+      <End Role="Club" EntitySet="Club" />
+      <End Role="Speler" EntitySet="Speler" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tennisVlaanderen_Club_SpelerClubTornooi" Association="Self.FK_tennisVlaanderen_Club_SpelerClubTornooi">
+      <End Role="Club" EntitySet="Club" />
+      <End Role="SpelerClubTornooi" EntitySet="SpelerClubTornooi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tennisVlaanderen_Speler_SpelerClubTornooi" Association="Self.FK_tennisVlaanderen_Speler_SpelerClubTornooi">
+      <End Role="Speler" EntitySet="Speler" />
+      <End Role="SpelerClubTornooi" EntitySet="SpelerClubTornooi" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tennisVlaanderen_Speler_TerreinReservatie" Association="Self.FK_tennisVlaanderen_Speler_TerreinReservatie">
+      <End Role="Speler" EntitySet="Speler" />
+      <End Role="TerreinReservatie" EntitySet="TerreinReservatie" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tennisVlaanderen_Tornooi" Association="Self.FK_tennisVlaanderen_Tornooi">
+      <End Role="Tornooi" EntitySet="Tornooi" />
+      <End Role="SpelerClubTornooi" EntitySet="SpelerClubTornooi" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="78a7ff06163942fc8d2701b28229065e" Name="Diagram1">
+        <EntityTypeShape EntityType="TennisVlaanderenModel.Abonnement" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="TennisVlaanderenModel.Club" Width="1.5" PointX="0.75" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="TennisVlaanderenModel.Speler" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TennisVlaanderenModel.SpelerClubTornooi" Width="1.5" PointX="8.25" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="TennisVlaanderenModel.Tarieven" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="TennisVlaanderenModel.TerreinReservatie" Width="1.5" PointX="5.25" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="TennisVlaanderenModel.Tornooi" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Club_Abonnement" ManuallyRouted="false" />
+        <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Speler" ManuallyRouted="false" />
+        <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Club" ManuallyRouted="false" />
+        <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Club_Inschrijven" ManuallyRouted="false" />
+        <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Club_SpelerClubTornooi" ManuallyRouted="false" />
+        <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Speler_SpelerClubTornooi" ManuallyRouted="false" />
+        <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Speler_TerreinReservatie" ManuallyRouted="false" />
+        <AssociationConnector Association="TennisVlaanderenModel.FK_tennisVlaanderen_Tornooi" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
